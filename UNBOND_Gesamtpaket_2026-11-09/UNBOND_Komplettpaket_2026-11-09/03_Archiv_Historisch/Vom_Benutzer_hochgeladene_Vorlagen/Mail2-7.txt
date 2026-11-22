@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – Das ist kein Willensproblem</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:13px 22px; border-radius:10px;
+           font-family:'Montserrat',Arial,sans-serif; font-size:14px;
+           font-weight:700; text-decoration:none; line-height:1.2; }
+    .btn-cream { background-color:#F4EDE4; color:#6B3E44; }
+    .btn-mauve { background-color:#9B7FA4; color:#FFFFFF; }
+    .btn-full  { display:block; text-align:center; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 2</p>
+              <h1>Das ist kein Willensproblem, {{ contact.VORNAME }}.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <p style="margin:0 0 16px;">Hallo {{ contact.VORNAME }},</p>
+
+              <p style="margin:0 0 16px;">ich möchte dir heute etwas erklären, das du dir vielleicht schon selbst nicht erklären konntest:</p>
+
+              <p style="margin:0 0 16px;">Warum du sie vermisst. Warum du nachts ans Handy greifst. Warum du an Orten, die ihr gehört haben, fast weinst. Warum du — obwohl du weißt, was passiert ist — immer noch eine Hand ausstrecken möchtest.</p>
+
+              <p style="margin:0 0 16px;">Das ist kein Zeichen von Schwäche. Das ist Neurobiologie.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Dein Körper wurde konditioniert.</strong></p>
+
+              <p style="margin:0 0 16px;">In einer Beziehung mit toxischen Mustern — wie du sie in deinem ToxiCometer-Ergebnis als {{ contact.PROFIL }} erkannt hast — geschieht etwas Spezifisches in deinem Gehirn:</p>
+
+              <p style="margin:0 0 16px;"><strong>Dopamin wird unberechenbar ausgeschüttet.</strong> Nicht bei Zuneigung, sondern bei Ungewissheit. Beim Guten-Morgen-Text nach drei Tagen Stille. Beim Lächeln nach dem Streit. Dein Gehirn lernt: Unsicherheit = Aufmerksamkeit wert.</p>
+
+              <p style="margin:0 0 16px;"><strong>Das Stresssystem wird chronisch aktiviert.</strong> Cortisol und Adrenalin laufen dauerhaft. Du bist in einem Zustand erhöhter Alarmbereitschaft — und das fühlt sich irgendwann „normal" an. Die Abwesenheit dieses Stresses kann sich dann wie Leere anfühlen.</p>
+
+              <p style="margin:0 0 16px;"><strong>Oxytocin bindet dich — auch an Menschen, die dir schaden.</strong> Das Bindungshormon macht keinen Unterschied zwischen „gut für mich" und „schmerzhaft". Es bindet dich. Punkt.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was das bedeutet:</strong></p>
+
+              <p style="margin:0 0 16px;">Wenn du jetzt das Gefühl hast, etwas zu vermissen — dann vermisst du oft nicht die Person. Du vermisst das Dopamin. Die Spannung. Die Hoffnung auf das Gute, das manchmal kam.</p>
+
+              <p style="margin:0 0 16px;">Das ist real. Das schmerzt wirklich. Und es hat nichts damit zu tun, ob du stark genug bist.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was hilft?</strong></p>
+
+              <p style="margin:0 0 16px;">Der Körper braucht neue Erfahrungen von Sicherheit. Nicht Willenskraft. Neue Routinen. Neue sensorische Anker. Neue Muster.</p>
+
+              <p style="margin:0 0 16px;">Das ist das Fundament von UNBOND — und ich zeige dir in den nächsten Wochen, wie das konkret aussieht.</p>
+
+              <p style="margin:0 0 16px;">Übermorgen schicke ich dir etwas, das direkt mit deinem Profil als {{ contact.PROFIL }} zusammenhängt.</p>
+
+              <p style="margin:0 0 24px;">Bis dahin: Sei sanft mit dir. Was du erlebt hast, hat Spuren hinterlassen. Das ist keine Schwäche — das ist Biologie.</p>
+
+              <a class="btn btn-mauve btn-full" href="https://www.unbond.de/heilungskompass" target="_blank" rel="noopener">
+                Heilungskompass öffnen →
+              </a>
+
+              <p class="signature">Von Herzen,<br/>Milena</p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – Dein Profil</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:13px 22px; border-radius:10px;
+           font-family:'Montserrat',Arial,sans-serif; font-size:14px;
+           font-weight:700; text-decoration:none; line-height:1.2; }
+    .btn-cream { background-color:#F4EDE4; color:#6B3E44; }
+    .btn-mauve { background-color:#9B7FA4; color:#FFFFFF; }
+    .btn-full  { display:block; text-align:center; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 4</p>
+              <h1>{{ contact.VORNAME }}, das steckt hinter deinem Profil.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <!-- ═══════════════════════════════════════════
+                   PROFIL-SPEZIFISCHER INHALT
+                   Betreff-Referenzen (nur als Kommentar):
+                   grandiose_narcissist  → Du warst kein Zufall — du warst ihre Ressource.
+                   covert_narcissist     → Die stille Kontrolle hat einen Namen.
+                   borderline_dynamics   → Das Heiß-Kalt-Muster hat einen Namen.
+                   malignant_narcissist  → Was du erlebt hast, war Missbrauch.
+                   histrionic            → Du warst das Publikum — jetzt bist du wieder du.
+                   psychopathic_traits   → Du konntest es nicht sehen. Hier ist, warum.
+                   cluster_b_mix         → Wenn alles passt und nichts passt.
+                   ═══════════════════════════════════════════ -->
+
+              {% if contact.PROFIL_KEY == "grandiose_narcissist" %}
+
+              <p style="margin:0 0 16px;">Heute möchte ich über etwas sprechen, das wahrscheinlich am Anfang alles war: Das Gefühl, die Einzige zu sein. Erwählt. Gesehen. Außergewöhnlich.</p>
+              <p style="margin:0 0 16px;">Das war Love-Bombing — und es war keine Emotion. Es war eine Strategie.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Die grandiose Narzisstin braucht „Narcissistic Supply." Versorgung durch Bestätigung, Bewunderung, emotionale Reaktion — positiv wie negativ. Du warst eine Quelle dieser Versorgung.</p>
+              <p style="margin:0 0 16px;">Love-Bombing am Anfang war nicht Liebe. Es war Investition. Sie hat dich aufgebaut — damit du größer wirst. Damit mehr von dir da ist, von dem sie zehren kann.</p>
+              <p style="margin:0 0 16px;"><em>„Du bist die Erste, die mich wirklich versteht."<br/>„Mit dir ist alles anders."<br/>„Ich habe noch nie jemanden so gespürt wie dich."</em></p>
+              <p style="margin:0 0 16px;">Das sind keine Aussagen über dich. Das sind Aussagen über ihre Bedürfnisse.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Warum du „darauf reingefallen" bist:</strong></p>
+              <p style="margin:0 0 16px;">Weil das Gehirn Spiegelung als Liebe liest. Eine grandiose Narzisstin ist eine Meisterin der Spiegelung. Sie reflektiert deine Wünsche, deine Werte, deine Energie — zurück auf dich. Du siehst dich in ihr, und das fühlt sich an wie Verbindung. Es ist die intensivste Form des Verliebtseins. Und die am wenigsten echte.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was danach kommt:</strong> Devaluation. Die Abwertungsphase, in der die Supply nachlässt. Plötzlich bist du „zu empfindlich." „Zu viel." „Nicht die Frau, die ich dachte, dass du bist."</p>
+              <p style="margin:0 0 16px;">Das tut nicht weh, weil du versagt hast. Das tut weh, weil du verloren hast, was sich wie Zuhause angefühlt hat — obwohl es nie wirklich für dich gebaut war.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, dein Wert hat sich in dieser Beziehung nicht verändert. Er war nur nie der Fokus. In den nächsten E-Mails zeige ich dir, wie du das Selbstbild zurückgewinnst.</p>
+              <p class="signature">Bis bald,<br/>Milena</p>
+
+              {% elsif contact.PROFIL_KEY == "covert_narcissist" %}
+
+              <p style="margin:0 0 16px;">Eine Frage zu Beginn: Hast du dich in dieser Beziehung oft wie die Täterin gefühlt? Obwohl du derjenige warst, der geweint hat?</p>
+              <p style="margin:0 0 16px;">Das ist kein Zufall.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Die verdeckte Narzisstin operiert anders als ihr grandioses Gegenstück. Keine lauten Dramen. Keine offensichtlichen Übergriffe. Stattdessen: Stille. Entzug. Seufzen. Martyrertum. Täter-Opfer-Umkehr als Kernstrategie.</p>
+              <p style="margin:0 0 16px;"><em>„Ich tue alles für uns — und du bist nie zufrieden."<br/>„Ich bin so verletzt von dem, was du gesagt hast."</em> (Nach einem harmlosen Satz von dir.)</p>
+              <p style="margin:0 0 16px;">Diese Sätze sind keine Aussagen über ihre Realität. Sie sind Umlenk-Manöver. Jedes Mal, wenn du anfängst zu spüren, dass etwas nicht stimmt — wird die Schuld umgelenkt. Auf dich.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Passive Aggression als Kontrollmittel:</strong></p>
+              <p style="margin:0 0 16px;"><em>„Ist schon gut."</em> (ist nicht gut)<br/>Stundenlange Stille nach einem Streit.<br/>Plötzliche Kälte ohne Erklärung.</p>
+              <p style="margin:0 0 16px;">Das sind keine Kommunikationsprobleme. Das ist systematisches Bestrafen ohne Beweise. Du kannst nicht gegen eine Aussage argumentieren, die nie gemacht wurde. Du wirst mürbe — das ist der Sinn.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Warum das so schwer zu erkennen ist:</strong> Weil sie sich selbst als Opfer erlebt. Die verdeckte Narzisstin glaubt oft selbst, dass sie leidet. Das macht es so verwirrend. Du siehst ihre Verletzlichkeit — und dein Empathiereflex springt an. Immer wieder.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was in dir zurückbleibt:</strong></p>
+              <p style="margin:0 0 16px;">Das Gefühl, nie gut genug gewesen zu sein. Hypervigilanz — immer auf der Hut, was du sagst oder tust. Das Muster, dich zu entschuldigen, bevor du weißt, wofür.</p>
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, das sind keine Charakterfehler. Das sind Überlebensmechanismen. In der nächsten E-Mail sprechen wir über No Contact.</p>
+              <p class="signature">Bis dann,<br/>Milena</p>
+
+              {% elsif contact.PROFIL_KEY == "borderline_dynamics" %}
+
+              <p style="margin:0 0 16px;">Du kennst dieses Gefühl: Heute war sie alles. Morgen war sie das Gegenteil. Heute liebte sie dich so intensiv, dass es wehtun konnte. Morgen wärst du eine Fremde — kalt, fern, feindlich.</p>
+              <p style="margin:0 0 16px;">Und du hast dich gefragt: Welche ist die echte? Beide. Keine. Das ist Splitting.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Splitting ist ein psychologischer Abwehrmechanismus, bei dem Menschen nur als „vollständig gut" oder „vollständig schlecht" wahrgenommen werden — mit wenig Raum dazwischen. Du wurdest wechselweise idealisiert und entwertet. Du warst die Retterin und das Problem.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Intermittierende Verstärkung: Das Herz der Sucht.</strong></p>
+              <p style="margin:0 0 16px;">Wenn Belohnung unvorhersehbar ist, wird die Bindung stärker. Tagelange Kälte, dann ein Abend voller Intimität. Dein Gehirn hat sich auf diesen Rhythmus eingestellt. Es wartet. Es hofft. Es sucht das nächste Hoch. Das ist keine Liebe — das ist ein Konditionierungsmuster.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was hilft — DBT:</strong> Dialectical Behaviour Therapy beinhaltet Techniken, die auch für Partnerinnen hilfreich sind: Distress Tolerance (Aushalten ohne Handeln), Emotional Regulation, Interpersonal Effectiveness (Grenzen setzen lernen).</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, dein Verlassen dieser Beziehung war kein einfacher Schritt. Es war ein Austritt aus einem System, das sich wie Sauerstoff angefühlt hat. Du verdienst stabilen Boden.</p>
+              <p class="signature">Milena</p>
+
+              {% elsif contact.PROFIL_KEY == "malignant_narcissist" %}
+
+              <p style="margin:0 0 16px;">Ich möchte heute sehr direkt sein — weil du das verdient hast.</p>
+              <p style="margin:0 0 16px;">Was du erlebt hast, heißt Missbrauch. Nicht „eine schwierige Beziehung." Nicht „Kommunikationsprobleme." Missbrauch.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Die maligne Narzisstin vereint Narzissmus, Antisozialität, Sadismus und Paranoia. Was du möglicherweise erlebt hast:</p>
+              <p style="margin:0 0 8px;">Systematische Gaslighting-Kampagnen.</p>
+              <p style="margin:0 0 8px;">Isolation von Freundinnen und Familie.</p>
+              <p style="margin:0 0 8px;">Einschüchterung und Drohungen.</p>
+              <p style="margin:0 0 16px;">Freude an deinem Schmerz — das unterscheidet maligne von anderen Formen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>C-PTSD:</strong> Komplexe Posttraumatische Belastungsstörung entsteht durch wiederholtes chronisches Trauma. Typische Zeichen: Hypervigilanz, emotionale Flashbacks, tiefes Schamgefühl, Schwierigkeiten mit Vertrauen, Dissoziation.</p>
+              <p style="margin:0 0 16px;">Das sind keine psychischen Erkrankungen — das sind Überlebensreaktionen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Sicherheit zuerst.</strong> Wenn es noch aktiven Kontakt gibt:</p>
+              <p style="margin:0 0 8px;">Hilfetelefon Gewalt gegen Frauen — <strong>08000 116 016</strong> (kostenlos, 24/7)</p>
+              <p style="margin:0 0 8px;">Österreich: <strong>0800 222 555</strong></p>
+              <p style="margin:0 0 16px;">Schweiz: <strong>0800 040 040</strong></p>
+              <p style="margin:0 0 16px;">Du musst das nicht allein tragen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, du hast überlebt. Das ist nicht selbstverständlich. Du verdienst jetzt Sicherheit, Klarheit und Heilung.</p>
+              <p class="signature">Milena</p>
+
+              {% elsif contact.PROFIL_KEY == "histrionic" %}
+
+              <p style="margin:0 0 16px;">Erinnerst du dich, wann du zuletzt im Mittelpunkt standest? Nicht in einer Krise. Nicht um ihr zu helfen. Sondern einfach: für dich.</p>
+              <p style="margin:0 0 16px;">In Beziehungen mit histrionischen Mustern gibt es oft wenig Raum dafür. Weil der Raum immer besetzt war.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Die histrionische Persönlichkeit lebt für Aufmerksamkeit. Du wurdest zum Publikum. Jedes Problem war dramatisch. Jede Freude überwältigend. Jeder Konflikt eine Szene.</p>
+              <p style="margin:0 0 16px;">Und du — du hast reagiert. Immer wieder. Du warst zuverlässig. Präsent. Verfügbar. Das war, warum sie dich brauchte.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Die Erschöpfung durch permanente Verfügbarkeit:</strong></p>
+              <p style="margin:0 0 16px;">Niemand spricht darüber, wie ermüdend es ist, dauerhaft emotionales Publikum zu sein. Diese Erschöpfung ist real. Viele Frauen aus diesen Beziehungen stellen fest: Sie wissen nicht mehr, was sie selbst brauchen. Weil sie so lange nicht gefragt wurden.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was jetzt wichtig ist:</strong> Du darfst wieder der Mittelpunkt sein. Deiner eigenen Aufmerksamkeit. Deiner eigenen Energie.</p>
+              <p style="margin:0 0 16px;">Das fühlt sich am Anfang fremd an — sogar unangenehm. Das ist kein Zeichen, dass du die falsche Person liebst. Das ist ein Zeichen, wie sehr du dich angepasst hast.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, in den nächsten E-Mails lade ich dich ein, dich wieder mit dir selbst bekannt zu machen. Das ist der Anfang.</p>
+              <p class="signature">Milena</p>
+
+              {% elsif contact.PROFIL_KEY == "psychopathic_traits" %}
+
+              <p style="margin:0 0 16px;">Du wirst vielleicht denken: „Ich hätte es sehen müssen."</p>
+              <p style="margin:0 0 16px;">Nein. Hättest du nicht. Nicht weil du blind warst. Sondern weil Charme bei Menschen mit psychopathischen Zügen neurobiologisch anders funktioniert.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Charme als Waffe:</strong> Menschen mit ausgeprägten psychopathischen Zügen verfügen oft über außergewöhnliche soziale Fähigkeiten — aber ohne die emotionale Grundlage darunter. Sie lernen, was Empathie aussieht — und spiegeln es perfekt.</p>
+              <p style="margin:0 0 16px;">Das ist nicht Spontaneität. Das ist Strategie. Und du konntest es nicht sehen, weil es nicht sichtbar gemacht werden sollte.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Die neurobiologische Unmöglichkeit echter Bindung:</strong> Echte emotionale Bindung basiert auf Empathie. Bei Menschen mit hohen psychopathischen Zügen zeigt die Forschung: Diese Systeme aktivieren anders — oder kaum. Echte, tiefe Bindung war neurobiologisch für sie nicht möglich.</p>
+              <p style="margin:0 0 16px;">Du hast dich an etwas gebunden, das sich wie eine Person angefühlt hat — aber emotional nicht vollständig eine war.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was das für dich bedeutet:</strong> Du trägst keine Schuld daran, dass es nicht funktioniert hat. Es konnte nicht funktionieren. Du hast nicht versagt. Du hast gekämpft — gegen eine Wand, die wie eine Tür aussah.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, du bist nicht naiv. Du bist fähig zu Bindung — das ist eine Stärke, keine Schwäche. Diese Kraft gehört dir. Sie gehört in Beziehungen, die sie erwidern können.</p>
+              <p class="signature">Milena</p>
+
+              {% else %}
+
+              <!-- cluster_b_mix (Fallback) -->
+              <p style="margin:0 0 16px;">Vielleicht geht es dir so: Du versuchst, das, was war, in eine Schublade zu stecken. War sie narzisstisch? Hatte sie Borderline? Und irgendwie passt nichts ganz.</p>
+              <p style="margin:0 0 16px;">Das liegt nicht daran, dass du es nicht verstehst. Das liegt daran, dass sie selbst kein einheitliches Bild war.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Cluster B:</strong> Im psychiatrischen Klassifikationssystem gibt es Cluster B der Persönlichkeitsstörungen — mit gemeinsamen Merkmalen: Emotionale Instabilität, Impulsivität, schwierige interpersonelle Beziehungen. Viele Menschen zeigen Merkmale aus mehreren Kategorien. Das macht die Beziehung zu ihnen besonders verwirrend.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Warum das Bild so inkonsistent war:</strong></p>
+              <p style="margin:0 0 8px;">Heute kalte Kontrolle wie Narzissmus.</p>
+              <p style="margin:0 0 8px;">Morgen explosive Emotion wie Borderline.</p>
+              <p style="margin:0 0 16px;">Übermorgen dramatisches Martyrertum wie Histrionik.</p>
+              <p style="margin:0 0 16px;">Du konntest keinen verlässlichen Charakter identifizieren — weil keiner stabil da war. Du verlernst, dir selbst zu vertrauen — weil deine Wahrnehmung ständig nicht mit der Realität übereinzustimmen schien.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was das bedeutet für deine Heilung:</strong> Du musst nicht eine endgültige Diagnose finden. Was du wissen musst: Was hat es mit dir gemacht? Welche Muster hast du entwickelt? Das ist dein Material.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, die Verwirrung ist keine Schwäche. Sie ist eine rationale Reaktion auf inkonsistentes Verhalten. Und du kannst Klarheit finden — auch ohne ein eindeutiges Etikett für sie.</p>
+              <p class="signature">Milena</p>
+
+              {% endif %}
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – No Contact ist keine Strafe</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 7</p>
+              <h1>No Contact ist keine Strafe. Es ist Medizin.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <p style="margin:0 0 16px;">Hallo {{ contact.VORNAME }},</p>
+
+              <p style="margin:0 0 16px;">„No Contact" — drei Wörter, die für viele Frauen eine Wand bedeuten. Nicht weil sie es nicht wollen. Sondern weil es sich anfühlt wie eine Aussage:</p>
+              <p style="margin:0 0 8px;"><em>„Ich hasse dich."</em><br/><em>„Ich bestrafe dich."</em><br/><em>„Ich bin fertig."</em></p>
+              <p style="margin:0 0 16px;">Aber das ist nicht, was No Contact ist.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>No Contact ist eine medizinische Entscheidung.</strong></p>
+              <p style="margin:0 0 16px;">Stell dir vor, du hast eine Allergie gegen einen Stoff. Du weißt es. Jedes Mal, wenn du in Kontakt kommst, reagierst du. No Contact ist die Entscheidung, den Kontakt mit dem Allergen zu unterbrechen. Nicht aus Hass. Aus Selbstschutz.</p>
+              <p style="margin:0 0 16px;">Es sagt nicht: „Du bist böse." Es sagt: „Mein System braucht Pause von dir."</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was No Contact neurobiologisch bewirkt:</strong></p>
+              <p style="margin:0 0 8px;"><strong>In den ersten 2–4 Wochen:</strong> Das Gehirn sucht. Der Entzug ist real — Unruhe, Drang zu schreiben, Phantomschmerzen.</p>
+              <p style="margin:0 0 8px;"><strong>Ab Woche 4–6:</strong> Das Stresssystem beginnt sich zu regulieren. Cortisol sinkt.</p>
+              <p style="margin:0 0 16px;"><strong>Ab Woche 8–12:</strong> Neue neuronale Pfade beginnen sich zu festigen. Die Gedanken werden seltener.</p>
+              <p style="margin:0 0 16px;">Das ist kein linearer Prozess. Es gibt Rückfälle. Aber die Richtung stimmt.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Wie sieht No Contact realistisch aus?</strong></p>
+              <p style="margin:0 0 16px;">Es bedeutet nicht, dass du nie mehr an sie denken wirst. Es bedeutet: Du fütterst die Verbindung nicht mehr.</p>
+              <p style="margin:0 0 8px;">Kein Anschauen des Profils.</p>
+              <p style="margin:0 0 8px;">Kein Lesen alter Nachrichten.</p>
+              <p style="margin:0 0 16px;">Kein „nur kurz prüfen, ob sie online ist."</p>
+              <p style="margin:0 0 16px;">Jedes dieser Verhalten startet die neurobiologische Uhr neu. Nicht weil du schwach bist — sondern weil das so funktioniert.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Ein praktischer erster Schritt:</strong></p>
+              <p style="margin:0 0 16px;">Blockieren auf allen Kanälen — nicht dauerhaft, aber für jetzt. Nicht als Statement. Als Schutzraum.</p>
+              <p style="margin:0 0 16px;">Falls ihr gemeinsame Freundinnen habt oder Kontakt unvermeidlich ist: „Grey Rock" — du gibst so wenig Reaktion wie ein grauer Stein. Keine Emotion, keine Ausbrüche, keine Erklärungen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">{{ contact.VORNAME }}, ich weiß, dass das leichter gesagt ist als getan. Besonders mit dem Profil, das dein ToxiCometer gezeigt hat — {{ contact.PROFIL }} — sind die Bindungsmuster oft tiefer und die Lostrennung schmerzhafter.</p>
+              <p style="margin:0 0 16px;">Aber du kannst das. Schritt für Schritt. Tag für Tag.</p>
+              <p style="margin:0 0 16px;">In drei Tagen schicke ich dir etwas, das dir bei diesem Prozess konkret hilft.</p>
+              <p style="margin:0 0 16px;">Bis dahin: Bleib bei dir.</p>
+
+              <p class="signature">Milena</p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – Dein Heilungskompass wartet</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:13px 22px; border-radius:10px;
+           font-family:'Montserrat',Arial,sans-serif; font-size:14px;
+           font-weight:700; text-decoration:none; line-height:1.2; }
+    .btn-cream { background-color:#F4EDE4; color:#6B3E44; }
+    .btn-mauve { background-color:#9B7FA4; color:#FFFFFF; }
+    .btn-full  { display:block; text-align:center; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 10</p>
+              <h1>Dein Heilungskompass wartet, {{ contact.VORNAME }}.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <p style="margin:0 0 16px;">Hallo {{ contact.VORNAME }},</p>
+
+              <p style="margin:0 0 16px;">vor einigen Tagen hast du deinen persönlichen Heilungskompass bekommen. Ich frage mich: Hast du ihn schon geöffnet?</p>
+
+              <p style="margin:0 0 16px;">Keine Wertung, wenn nicht. Viele Frauen öffnen ihn erst dann, wenn der Schmerz wieder hochkommt. Wenn ein Lied gespielt wird. Wenn man zufällig ihr Foto sieht. Wenn es mitten in der Nacht nicht aufhört.</p>
+
+              <p style="margin:0 0 16px;">Genau dann ist der Heilungskompass da.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was du darin findest:</strong></p>
+
+              <p style="margin:0 0 16px;">Der Heilungskompass wurde speziell für das entwickelt, was du erlebt hast. Er führt dich durch:</p>
+
+              <p style="margin:0 0 10px;">✦ <strong>Orientierung:</strong> Wo stehst du gerade? Was brauchst du jetzt?</p>
+              <p style="margin:0 0 10px;">✦ <strong>Kurzzeit-Strategien:</strong> Für die schweren Stunden — Atemübungen, Grounding-Techniken, Distanzierungs-Prompts.</p>
+              <p style="margin:0 0 10px;">✦ <strong>Mittelzeit-Strategien:</strong> Für die Wochen dazwischen — Routinen aufbauen, Identität zurückgewinnen, neue Narrative.</p>
+              <p style="margin:0 0 16px;">✦ <strong>Langzeit-Vision:</strong> Wer willst du sein, wenn du durch diesen Tunnel durch bist?</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Besonders für dich als {{ contact.PROFIL }}:</strong></p>
+
+              <p style="margin:0 0 16px;">Das, was du erlebt hast, hinterlässt spezifische Muster. Der Heilungskompass berücksichtigt das. Er hilft dir zu erkennen, welche Überzeugungen über dich selbst sich durch diese Beziehung gebildet haben — und wie du sie schrittweise auflösen kannst.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Ich möchte dich einladen:</strong></p>
+
+              <p style="margin:0 0 16px;">Öffne ihn heute. Nicht für eine Stunde. Für fünf Minuten. Lies nur den ersten Abschnitt. Das ist genug.</p>
+
+              <p style="margin:0 0 24px;">Und wenn du Fragen hast — antworte einfach auf diese E-Mail. Ich lese jede Antwort persönlich.</p>
+
+              <a class="btn btn-cream btn-full" href="https://www.unbond.de/heilungskompass?utm_source=brevo&utm_campaign=Unbond_Mail_1_copy&utm_medium=email&utm_id=6" target="_blank" rel="noopener">
+                Heilungskompass öffnen →
+              </a>
+
+              <p class="signature">Milena</p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz?utm_source=brevo&utm_campaign=Unbond_Mail_1_copy&utm_medium=email&utm_id=6">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – Es gibt einen nächsten Schritt</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:13px 22px; border-radius:10px;
+           font-family:'Montserrat',Arial,sans-serif; font-size:14px;
+           font-weight:700; text-decoration:none; line-height:1.2; }
+    .btn-cream { background-color:#F4EDE4; color:#6B3E44; }
+    .btn-mauve { background-color:#9B7FA4; color:#FFFFFF; }
+    .btn-full  { display:block; text-align:center; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 14</p>
+              <h1>Es gibt einen nächsten Schritt, {{ contact.VORNAME }}.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <p style="margin:0 0 16px;">Hallo {{ contact.VORNAME }},</p>
+
+              <p style="margin:0 0 16px;">in den letzten zwei Wochen haben wir viel angesprochen. Neurobiologie. Bindungsmuster. No Contact. Den Heilungskompass.</p>
+
+              <p style="margin:0 0 16px;">Und ich hoffe, dass manches davon etwas in dir bewegt hat — vielleicht eine kleine Klarheit, ein Moment, in dem du gedacht hast: „Ja. Das kenne ich. Das bin ich."</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Aber ich weiß auch: Wissen ist nicht Heilung.</p>
+
+              <p style="margin:0 0 10px;">Du kannst alles über Dopamin verstehen und trotzdem nachts an ihr denken.</p>
+              <p style="margin:0 0 10px;">Du kannst „No Contact" kennen und trotzdem drei Mal am Tag ihr Profil aufrufen.</p>
+              <p style="margin:0 0 16px;">Du kannst die Dynamik von {{ contact.PROFIL }} vollständig beschreiben — und trotzdem immer noch fragen: „Aber was hätte ich anders machen können?"</p>
+
+              <p style="margin:0 0 16px;">Das liegt nicht an dir. Das liegt daran, dass Heilung eine Praxis ist, kein Wissen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Deshalb habe ich UNBOND geschrieben.</strong></p>
+
+              <p style="margin:0 0 16px;">UNBOND ist kein Buch mit Ratschlägen, die du schon kennst. Es ist ein strukturiertes Durcharbeiten — mit dir, nicht über dich.</p>
+
+              <p style="margin:0 0 16px;">Es begleitet dich durch:</p>
+
+              <p style="margin:0 0 10px;">✦ <strong>Die Phasen der Loslösung</strong> — Schritt für Schritt, ohne dich zu überfordern</p>
+              <p style="margin:0 0 10px;">✦ <strong>Profil-spezifische Kapitel</strong> — was braucht eine Frau, die mit {{ contact.PROFIL }} konfrontiert war?</p>
+              <p style="margin:0 0 10px;">✦ <strong>Konkrete Übungen</strong> — Journalprompts, Grounding, Identitätsarbeit</p>
+              <p style="margin:0 0 10px;">✦ <strong>Die Rückfall-Strategie</strong> — was tust du, wenn es wieder schwer wird?</p>
+              <p style="margin:0 0 16px;">✦ <strong>Die Vision danach</strong> — wer bist du, wenn du wieder ganz du selbst bist?</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>UNBOND ist für Frauen wie dich.</strong></p>
+
+              <p style="margin:0 0 10px;">Für Frauen, die in lesbischen oder queeren Beziehungen verletzt wurden.</p>
+              <p style="margin:0 0 10px;">Für Frauen, die wissen, dass etwas nicht gestimmt hat — aber noch nicht ganz wissen, wie sie da herauskommen sollen.</p>
+              <p style="margin:0 0 16px;">Für Frauen, die bereit sind, wirklich anzufangen.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 24px;">Wenn das nach dir klingt: Schau es dir an. Kein Druck. Kein Timer. Keine Überredung. Nur eine Einladung.</p>
+
+              <a class="btn btn-cream btn-full" href="https://copecart.com/products/56b047e4/checkout?utm_source=brevo&utm_campaign=Unbond_Mail_01_copy&utm_medium=email&utm_id=7" target="_blank" rel="noopener">
+                UNBOND kennenlernen →
+              </a>
+
+              <p class="signature">Von Herzen,<br/>Milena</p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz?utm_source=brevo&utm_campaign=Unbond_Mail_01_copy&utm_medium=email&utm_id=7">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>UNBOND – Letzte Nachricht zum Early-Bird-Preis</title>
+  <style>
+    body, table, td, p, a {
+      font-family: 'Lato', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body { margin:0; padding:0; background-color:#E8DED4; color:#4A4E52; }
+    table { border-collapse: collapse !important; }
+
+    .wrapper  { width:100%; background-color:#E8DED4; padding:28px 12px; }
+    .container { width:100%; max-width:620px; margin:0 auto;
+                 background-color:#F4EDE4; border:1px solid #D3CDC7;
+                 border-radius:16px; overflow:hidden; }
+
+    /* Hero */
+    .hero { background:linear-gradient(135deg,#2D4F3C 0%,#1d3528 100%);
+            padding:28px 24px 22px; }
+    .hero .kicker { margin:0; color:#7A9E8A; font-size:11px;
+                    letter-spacing:2px; text-transform:uppercase; }
+    .hero h1 { margin:8px 0 0; color:#F4EDE4;
+               font-family:'Montserrat',Arial,sans-serif;
+               font-size:26px; font-weight:800; line-height:1.3; }
+
+    /* Content */
+    .content { padding:28px 24px 20px; font-size:16px; line-height:1.7; color:#4A4E52; }
+
+    /* Divider */
+    .divider { border:none; border-top:1px solid #D3CDC7; margin:22px 0; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:13px 22px; border-radius:10px;
+           font-family:'Montserrat',Arial,sans-serif; font-size:14px;
+           font-weight:700; text-decoration:none; line-height:1.2; }
+    .btn-cream { background-color:#F4EDE4; color:#6B3E44; }
+    .btn-mauve { background-color:#9B7FA4; color:#FFFFFF; }
+    .btn-full  { display:block; text-align:center; }
+
+    /* Signature */
+    .signature { margin:24px 0 0; font-size:16px; line-height:1.65; color:#4A4E52; }
+
+    /* Footer */
+    .footer { padding:18px 24px 22px; font-size:11px; line-height:1.5;
+              color:#888; text-align:center;
+              background-color:#EFE5DB; border-top:1px solid #D3CDC7; }
+    .footer a { color:#6B3E44; text-decoration:none; }
+
+    @media screen and (max-width:600px) {
+      .content, .hero { padding-left:18px !important; padding-right:18px !important; }
+      .hero h1 { font-size:22px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER BILD -->
+          <tr>
+            <td style="background-color:#0D2A2A; line-height:0; font-size:0;">
+              <img src="https://img.mailinblue.com/11019466/images/content_library/original/69e251d8397044ffc6403d79.png"
+                   alt="UNBOND Breaking Chains"
+                   width="620" style="display:block;width:100%;max-width:620px;height:auto;border:0;" />
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td class="hero">
+              <p class="kicker">UNBOND · Tag 18</p>
+              <h1>Meine letzte Nachricht zum Early-Bird-Preis, {{ contact.VORNAME }}.</h1>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content">
+
+              <p style="margin:0 0 16px;">Hallo {{ contact.VORNAME }},</p>
+
+              <p style="margin:0 0 16px;">ich werde heute klar sein — weil ich glaube, dass du Klarheit verdienst.</p>
+
+              <p style="margin:0 0 16px;">Das ist die letzte E-Mail, in der ich auf den Early-Bird-Preis von UNBOND hinweise. Ab morgen steigt der Preis. Nicht als Trick. Nicht als Druckmittel. Sondern weil der Einführungspreis ein Einführungspreis ist — und diese Phase endet.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Ich werde dich nicht überreden.</p>
+
+              <p style="margin:0 0 10px;">Du weißt, ob UNBOND für dich ist.</p>
+              <p style="margin:0 0 10px;">Du weißt, ob du bereit bist.</p>
+              <p style="margin:0 0 16px;">Du weißt, ob du das, was in den letzten 18 Tagen angesprochen wurde, wirklich durcharbeiten möchtest — oder ob du noch mehr Zeit brauchst.</p>
+
+              <p style="margin:0 0 16px;">Beides ist in Ordnung.</p>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;"><strong>Was UNBOND ist — kurz und klar:</strong></p>
+
+              <p style="margin:0 0 10px;">Ein Programm für Frauen, die toxische Beziehungen mit anderen Frauen hinter sich lassen wollen.</p>
+              <p style="margin:0 0 10px;">Es ist profil-spezifisch — dein Kapitel als {{ contact.PROFIL }} ist direkt auf das ausgerichtet, was dich festgehalten hat.</p>
+              <p style="margin:0 0 10px;">Es ist praktisch — keine Theorie ohne Übung.</p>
+              <p style="margin:0 0 10px;">Es ist ehrlich — ich schreibe nicht, was du hören willst, sondern was hilft.</p>
+              <p style="margin:0 0 16px;">Und es ist für genau diesen Moment in deinem Leben geschrieben.</p>
+
+              <div class="divider"></div>
+
+              <a class="btn btn-cream btn-full" href="https://copecart.com/products/56b047e4/checkout?utm_source=brevo&utm_campaign=Unbond_Mail_06_copy&utm_medium=email&utm_id=9" target="_blank" rel="noopener" style="margin-bottom:12px;">
+                🔓 UNBOND Core – 29 € Early Bird
+              </a>
+
+              <a class="btn btn-mauve btn-full" href="https://copecart.com/products/8135e2ac/checkout?utm_source=brevo&utm_campaign=Unbond_Mail_06_copy&utm_medium=email&utm_id=9" target="_blank" rel="noopener">
+                ✨ UNBOND Complete – 49 €
+              </a>
+
+              <div class="divider"></div>
+
+              <p style="margin:0 0 16px;">Wenn nicht: Dann wünsche ich dir von Herzen alles Gute auf deinem Weg. Diese E-Mail-Sequenz endet hier — aber du kannst dich jederzeit melden. Und der Heilungskompass bleibt dir erhalten.</p>
+
+              <p style="margin:0 0 16px;">Du schaffst das, {{ contact.VORNAME }}. Egal welchen Weg du wählst.</p>
+
+              <p class="signature">Von Herzen,<br/>Milena<br/><br/><em>P.S. — Falls du noch Fragen zu UNBOND hast, antworte einfach auf diese E-Mail. Ich lese persönlich.</em></p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              © UNBOND · Breaking Chains &nbsp;·&nbsp;
+              <a href="{{ unsubscribeLink }}">Abmelden</a> &nbsp;·&nbsp;
+              <a href="https://www.unbond.de/datenschutz?utm_source=brevo&utm_campaign=Unbond_Mail_06_copy&utm_medium=email&utm_id=9">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+

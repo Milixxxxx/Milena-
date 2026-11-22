@@ -1,0 +1,47 @@
+[
+  {
+    "nummer": 1,
+    "datei": "UNBOND_Begleitserie_01.html",
+    "betreff": "Ein Anfang für dich",
+    "preheader": "Fünf kleine Impulse. Du entscheidest, was passt.",
+    "cta": "Wissensbibliothek ansehen",
+    "link": "https://www.unbond.de/blog/",
+    "sendung_ab_bestaetigung": "sofort"
+  },
+  {
+    "nummer": 2,
+    "datei": "UNBOND_Begleitserie_02.html",
+    "betreff": "Ein Satz für dich",
+    "preheader": "Eine kleine Übung, um einen Moment festzuhalten.",
+    "cta": "Artikel zur eigenen Wahrnehmung lesen",
+    "link": "https://www.unbond.de/blog/gaslighting-lesbische-beziehungen.html",
+    "sendung_ab_bestaetigung": "Tag 2"
+  },
+  {
+    "nummer": 3,
+    "datei": "UNBOND_Begleitserie_03.html",
+    "betreff": "Auch beides darf da sein",
+    "preheader": "Für Momente, in denen Nähe und Zweifel nebeneinanderstehen.",
+    "cta": "Die kostenlose Leseprobe ansehen",
+    "link": "https://www.unbond.de/blick-ins-buch.html#schleife",
+    "sendung_ab_bestaetigung": "Tag 4"
+  },
+  {
+    "nummer": 4,
+    "datei": "UNBOND_Begleitserie_04.html",
+    "betreff": "Ein bisschen mehr Raum",
+    "preheader": "Ein Gedanke für gemeinsame Orte und Freundinnen.",
+    "cta": "Hinweise zu Abstand in der queeren Szene ansehen",
+    "link": "https://www.unbond.de/no-contact/#queer-heading",
+    "sendung_ab_bestaetigung": "Tag 7"
+  },
+  {
+    "nummer": 5,
+    "datei": "UNBOND_Begleitserie_05.html",
+    "betreff": "Was du brauchst",
+    "preheader": "Zum Abschluss ein kleiner Gedanke für dich.",
+    "cta": "Das UNBOND-Buch kennenlernen",
+    "link": "https://www.unbond.de/index.html#angebot",
+    "sendung_ab_bestaetigung": "Tag 10"
+  }
+]

@@ -1,0 +1,42 @@
+/* Freiwillige Brevo-Begleitserie nach dem Report; keine Zugangsschranke. */
+html body.nt-skin.report-page #report .report-begleitserie {
+  margin-top: 32px;
+}
+
+/* Ohne Ergebnis gehört die Einladung nicht zur Leeransicht. */
+html body.nt-skin.report-page #report #report-content[hidden] ~ .report-begleitserie {
+  display: none !important;
+}
+
+html body.nt-skin.report-page #report .report-begleitserie-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+html body.nt-skin.report-page #report .report-begleitserie-formular {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: 920px;
+  margin: 24px 0 0 auto;
+  border: 0;
+  background: #eef1f5;
+}
+
+html body.nt-skin.report-page #report .report-begleitserie-fallback {
+  margin: 14px 0 0;
+  font-size: .9rem;
+}
+
+@media (max-width: 600px) {
+  html body.nt-skin.report-page #report .report-begleitserie-formular {
+    height: 1200px;
+  }
+}
+
+@media print {
+  html body.nt-skin.report-page #report .report-begleitserie {
+    display: none !important;
+  }
+}

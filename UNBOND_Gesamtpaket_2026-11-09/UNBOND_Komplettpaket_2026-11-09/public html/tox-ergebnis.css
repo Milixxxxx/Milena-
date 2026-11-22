@@ -1,0 +1,77 @@
+/* UNBOND · nur der Abschluss des ToxiCometers, keine Änderungen am Live-Radar. */
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: clamp(24px, 4vw, 40px); border-radius: 8px !important;
+  background: #0d0d0d !important; text-align: right !important;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url("assets/results/toxi-frau-am-laptop.png") left 24px center / min(42%, 420px) auto no-repeat;
+  opacity: .36;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(13,13,13,.50), rgba(13,13,13,.94) 75%);
+}
+html body.nt-skin[data-test-radar="toxikometer"] .tox-result-content {
+  position: relative; z-index: 2; max-width: 76ch; margin-left: auto;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner :is(h3, p) {
+  text-align: right !important; color: #e8e8e8;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner > .tox-result-content > .eyebrow {
+  display: flex; justify-content: flex-end; color: #b4869f !important;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-summary {
+  margin: 16px 0 0; font-size: 1.05rem; line-height: 1.65; text-wrap: pretty;
+}
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-score { margin-top: 18px; font-size: 1rem; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner .tox-result-meta {
+  margin-top: 24px; font-size: .8rem; color: #a3a3a3;
+}
+html body.nt-skin[data-test-radar="toxikometer"] .tox-result-actions {
+  display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 12px;
+}
+html body.nt-skin[data-test-radar="toxikometer"] a.tox-report-open {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 48px; padding: 14px 20px; border: 1px solid #7d263f; border-radius: 4px;
+  background: rgba(125,38,63,.13); color: #e8e8e8; text-decoration: none;
+  font-family: Poppins, sans-serif; font-size: .78rem; font-weight: 700;
+  letter-spacing: .065em; text-transform: uppercase; line-height: 1.5;
+  transition: background-color .18s ease, color .18s ease;
+}
+html body.nt-skin[data-test-radar="toxikometer"] a.tox-report-open:hover {
+  background: #7d263f; color: #fff;
+}
+html body.nt-skin[data-test-radar="toxikometer"] .tox-result-actions #tox-restart { margin-top: 0; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done { text-align: right; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done :is(h2,h3,p,li),
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-head { text-align: right !important; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-head .eyebrow { justify-content: flex-end; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-head > p { margin-left: auto; margin-right: 0; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done :is(.ub-buch h2,.ub-buch-text) { margin-left: auto; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-buch-actions { justify-content: flex-end; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-card { align-items: flex-end; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-go { width: 100%; justify-content: flex-end; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-points li { justify-content: flex-end; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-buch-points li { padding-left: 0; padding-right: 28px; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-buch-points li::before { left: auto; right: 2px; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-weiter-card { border-radius: 8px; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done :is(.ub-buch-cta,.ub-buch-icon,.ub-weiter-icon) { border-radius: 4px; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done .ub-buch { border-radius: 8px; }
+html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner :is(a,button):focus-visible,
+html body.nt-skin[data-test-radar="toxikometer"] #tox-done :is(a,button):focus-visible {
+  outline: 2px solid #fff; outline-offset: 4px;
+}
+@media (max-width: 640px) {
+  html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner { padding: 24px 20px; }
+  html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner::before {
+    background-position: left -20px bottom 28px; background-size: 220px auto; opacity: .28;
+  }
+  html body.nt-skin[data-test-radar="toxikometer"] #tox-result-banner::after { background: rgba(13,13,13,.62); }
+  html body.nt-skin[data-test-radar="toxikometer"] .tox-result-actions { flex-direction: column; align-items: stretch; }
+  html body.nt-skin[data-test-radar="toxikometer"] .tox-result-actions #tox-restart { align-self: flex-end; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.nt-skin[data-test-radar="toxikometer"] a.tox-report-open { transition: none; }
+}

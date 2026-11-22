@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heilungskompass | UNBOND – Nach der toxischen Trennung</title>
+<meta content="Der UNBOND Heilungskompass zeigt dir nach toxischer Beziehung, Trauma-Bonding oder Gaslighting, ob du gerade Stabilisierung, Klarheit oder neue Selbstführung brauchst." name="description"/>
+<meta content="UNBOND – Breaking Chains" name="author"/>
+<link href="https://www.unbond.de/heilungskompass.html" rel="canonical"/>
+<link href="assets/logo.png" rel="icon" type="image/png"/>
+<link href="style.css?v=20261108" rel="stylesheet"/>
+<meta content="Heilungskompass – UNBOND" property="og:title"/>
+<meta content="5 Fragen. 3 Minuten. Finde heraus, in welcher Phase du gerade stehst." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.unbond.de/heilungskompass.html" property="og:url"/>
+<style>
+/* ===== Heilungskompass – Kompass-spezifische Styles ===== */
+.kompass-shell { padding: 104px 0 80px; position: relative; z-index: 1; }
+.kompass-shell .container { width: min(900px, calc(100% - 32px)); margin-inline: auto; }
+
+/* Hero */
+.kompass-hero { text-align: center; margin-bottom: 32px; max-width: 720px; margin-inline: auto; }
+.kompass-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 800; font-size: clamp(30px, 5vw, 50px); line-height: 1.1; margin: 0 0 12px; color: var(--foreground); }
+.kompass-hero h1 em { font-style: italic; font-weight: 400; color: var(--gold); display: block; }
+.kompass-divider { width: 56px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 12px auto 16px; }
+.kompass-sub { color: var(--muted-foreground); font-size: clamp(14px, 1.5vw, 17px); line-height: 1.6; margin: 0 auto; }
+
+/* Trust-Badges */
+.kompass-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+.kompass-badge { padding: 4px 14px; background: rgba(27,34,48,.6); border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--muted-foreground); }
+
+/* Fragen */
+.quiz-grid { display: grid; gap: 16px; margin-bottom: 24px; }
+.q-card { background: rgba(27,34,48,.82); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; backdrop-filter: blur(10px); transition: border-color .3s, box-shadow .3s; }
+.q-card.answered { border-color: rgba(210,166,59,.5); box-shadow: 0 0 0 1px rgba(210,166,59,.12); }
+.q-num { font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.q-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(16px, 2vw, 20px); line-height: 1.35; color: var(--foreground); margin: 0 0 5px; padding-left: 13px; border-left: 3px solid var(--gold); }
+.q-sub { color: var(--muted-foreground); font-size: 13px; font-style: italic; margin: 0 0 16px; padding-left: 13px; line-height: 1.5; }
+
+/* Optionen */
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 580px) { .options-grid { grid-template-columns: 1fr; } }
+
+.opt-btn {
+  background: rgba(15,20,45,.55);
+  border: 1px solid rgba(210,166,59,.18);
+  border-radius: 10px;
+  padding: 13px 15px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  color: rgba(247,242,234,.82);
+  line-height: 1.45;
+  transition: all .2s;
+}
+.opt-btn:hover {
+  border-color: rgba(210,166,59,.45);
+  background: rgba(210,166,59,.07);
+  color: var(--foreground);
+}
+.opt-btn.selected {
+  border-color: var(--accent);
+  background: rgba(125,38,63,.18);
+  color: var(--foreground);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(125,38,63,.3);
+}
+
+/* Hinweis */
+.val-hint { font-size: 12.5px; color: #c4836e; margin-top: 8px; display: none; }
+.val-hint.visible { display: block; }
+
+/* Submit */
+.k-submit-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; margin: 8px 0 32px; }
+.btn-k { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--foreground); font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; padding: 14px 28px; border: 0; border-radius: var(--radius); cursor: pointer; box-shadow: 0 12px 32px rgba(125,38,63,.32); transition: .2s; text-decoration: none; }
+.btn-k:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 16px 38px rgba(125,38,63,.45); }
+.btn-k:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-k-ghost { background: transparent; color: rgba(247,242,234,.7); border: 1px solid var(--border); box-shadow: none; }
+.btn-k-ghost:hover { border-color: var(--gold); color: var(--gold); background: transparent; transform: none; box-shadow: none; }
+.prog-label { font-family: 'Poppins', sans-serif; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+
+/* Ergebnis */
+#result-screen { display: none; margin-top: 8px; scroll-margin-top: 80px; }
+.result-box { background: rgba(27,34,48,.82); border: 1px solid var(--border); border-radius: 14px; padding: 32px 30px; backdrop-filter: blur(10px); margin-bottom: 16px; }
+.phase-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 16px; }
+.phase-1-badge { background: rgba(196,131,110,.12); color: #c4836e; border: 1.5px solid #c4836e; }
+.phase-2-badge { background: rgba(94,149,144,.12); color: #5e9590; border: 1.5px solid #5e9590; }
+.phase-3-badge { background: rgba(210,166,59,.12); color: var(--gold); border: 1.5px solid var(--gold); }
+.result-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 800; font-size: clamp(22px, 3vw, 32px); line-height: 1.2; color: var(--foreground); margin: 4px 0 16px; }
+.result-desc { font-size: 15px; line-height: 1.75; color: rgba(247,242,234,.84); margin: 0 0 12px; }
+.result-desc strong { color: var(--gold); }
+.result-insight { background: rgba(125,38,63,.16); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 14px; line-height: 1.65; color: rgba(247,242,234,.9); }
+.score-dots { display: flex; justify-content: center; gap: 8px; margin: 12px 0 20px; }
+.score-dot { width: 13px; height: 13px; border-radius: 50%; background: rgba(244,237,228,.1); transition: .3s; }
+.score-dot.filled { background: #c4836e; box-shadow: 0 0 10px rgba(196,131,110,.4); }
+.score-dot.filled.medium { background: #5e9590; box-shadow: 0 0 10px rgba(94,149,144,.4); }
+.score-dot.filled.high { background: var(--gold); box-shadow: 0 0 10px rgba(210,166,59,.4); }
+.result-next { font-size: 14.5px; font-weight: 600; border-left: 3px solid var(--gold); padding-left: 16px; margin-top: 16px; color: rgba(247,242,234,.9); line-height: 1.6; }
+
+/* Übungsbox */
+.exercise-box { background: rgba(94,149,144,.08); border: 1px solid rgba(94,149,144,.28); border-radius: 14px; padding: 24px 26px; margin: 16px 0; }
+.exercise-tag { display: inline-block; background: rgba(94,149,144,.18); color: #5e9590; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; padding: 4px 11px; border-radius: 6px; margin-bottom: 10px; }
+.exercise-box h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 800; font-size: 20px; color: var(--foreground); margin: 0 0 10px; }
+.exercise-box p { font-size: 14px; line-height: 1.65; color: rgba(247,242,234,.82); margin: 0 0 12px; }
+.exercise-steps { list-style: none; padding: 0; margin: 0; }
+.exercise-steps li { padding: 10px 12px 10px 44px; margin-bottom: 8px; background: rgba(255,255,255,.05); border-radius: 9px; font-size: 14px; line-height: 1.5; color: rgba(247,242,234,.8); position: relative; }
+.exercise-steps li strong { color: var(--gold); }
+.exercise-steps li::before { content: attr(data-n); position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: rgba(94,149,144,.3); color: #5e9590; border-radius: 50%; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+/* CTA */
+.cta-box { background: linear-gradient(160deg, rgba(125,38,63,.22), rgba(27,34,48,.86)); border: 1px solid rgba(210,166,59,.32); border-radius: 14px; padding: 32px 30px; margin: 16px 0; text-align: center; }
+.cta-box h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 28px); color: var(--foreground); margin: 0 0 12px; }
+.cta-box p { font-size: 14px; line-height: 1.65; color: rgba(247,242,234,.84); margin: 0 0 10px; text-align: left; }
+.cta-box p strong { color: var(--gold); }
+.cta-list { list-style: none; padding: 0; margin: 14px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: left; }
+.cta-list li { padding: 9px 12px 9px 32px; background: rgba(244,237,228,.04); border-radius: 8px; position: relative; font-size: 13px; line-height: 1.5; color: rgba(247,242,234,.84); }
+.cta-list li::before { content: "✓"; position: absolute; left: 12px; top: 9px; color: var(--gold); font-weight: 900; font-size: 12px; }
+.cta-list li strong { color: var(--gold); }
+@media (max-width: 640px) { .cta-list { grid-template-columns: 1fr; } }
+.btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--foreground); font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14.5px; padding: 14px 26px; border-radius: var(--radius); text-decoration: none; margin-top: 6px; box-shadow: 0 12px 32px rgba(125,38,63,.38); transition: .2s; }
+.btn-cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
+.eb-line { text-align: center; font-size: 13px; color: rgba(247,242,234,.65); margin-top: 8px; }
+.eb-line .strike { text-decoration: line-through; color: var(--muted-foreground); margin-right: 4px; }
+.eb-coupon { display: inline-flex; gap: 8px; align-items: flex-start; background: rgba(210,166,59,.08); border: 1px dashed rgba(210,166,59,.38); border-radius: 8px; padding: 9px 13px; margin: 10px auto 0; font-size: 12.5px; color: rgba(247,242,234,.82); text-align: left; }
+.eb-coupon strong { color: var(--gold); margin-right: 4px; }
+
+/* Footer-Hinweis */
+.kompass-footer { text-align: center; font-size: 12px; color: var(--muted-foreground); padding: 20px 16px 6px; line-height: 1.6; }
+
+@media (max-width: 680px) {
+  .kompass-shell { padding: 88px 0 60px; }
+  .q-card { padding: 20px 18px; }
+  .result-box { padding: 24px 18px; }
+  .cta-box { padding: 24px 18px; }
+  .exercise-box { padding: 20px 18px; }
+}
+</style>
+<script>
+window.dataLayer=window.dataLayer||[];
+window.GA_ID='G-QWHMYTHDDS';
+window.META_PIXEL_ID='1006203895535173';
+window.PINTEREST_TAG_ID='DEINE_PINTEREST_TAG_ID';
+</script>
+<meta content="0d30089f0beffef244c180710d88afe5" name="p:domain_verify">
+<style id="unbond-local-fonts">
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/lato-v25-latin-300.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/lato-v25-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/lato-v25-latin-italic.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/lato-v25-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/poppins-v24-latin-300.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/poppins-v24-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/poppins-v24-latin-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/poppins-v24-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/poppins-v24-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/poppins-v24-latin-800.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/playfair-display-v40-latin.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 700;font-display:swap;src:url('fonts/playfair-display-v40-latin-ext.woff2') format('woff2')}
+</style>
+<style id="unbond-final-type-mobile">
+:root{--unbond-fs-body:18px;--unbond-fs-small:13px;--unbond-fs-section:clamp(28px,3.5vw,32px)}
+body{font-size:var(--unbond-fs-body)}
+h2{font-size:var(--unbond-fs-section)}
+h3{font-size:var(--unbond-fs-body)}
+p,li,label,input,select,textarea,button{font-size:var(--unbond-fs-body)}
+.eyebrow,.hero-pill,.pricing-tag,.pricing-trust,.faq-cat,.tag,.pill,.muted-small,
+[class*="meta"],[class*="caption"],[class*="source"],small{font-size:var(--unbond-fs-small)}
+.brand>span,.nav-brand>.dot{display:none!important}
+.brand,.nav-brand{gap:0}
+.brand img,.nav-brand img{width:40px;height:40px;object-fit:contain}
+.social-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.social-links a{font-size:var(--unbond-fs-small);color:var(--muted-foreground,#929aaa);text-decoration:none}
+.social-links a:hover{color:var(--green,#5e9590)}
+@media(max-width:680px){
+  :root{--unbond-fs-body:17px}
+  body{background-attachment:scroll!important}
+  button,.btn,.cta,a.btn,a.cta,input,select{min-height:44px}
+  .container,.narrow{width:min(100% - 28px,1180px)}
+  h1,h2,h3,p,li{overflow-wrap:anywhere}
+}
+</style>
+<link rel="stylesheet" href="unbond-shell.css?v=20261108">
+  <link rel="stylesheet" href="unbond-web.css?v=20261108">
+  <link rel="stylesheet" href="unbond-consent.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing-skin.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing-poppins.css?v=20261029">
+<link rel="stylesheet" href="unbond-nothing-alt.css?v=20261108">
+<link rel="stylesheet" href="unbond-bereich.css?v=20261108">
+<link rel="stylesheet" href="unbond-zurueck.css?v=20261108">
+<link rel="stylesheet" href="unbond-weiter.css?v=20261108">
+<link rel="stylesheet" href="unbond-footer.css?v=20261107b">
+</head>
+<body class="web-page nt nt-skin" data-page="heilungskompass" data-bereich="klarheit" data-tracking="zaehlen">
+<div class="web-bg" aria-hidden="true"><video data-src="assets/videos/hintergrund.mp4" poster="assets/hero-video-first-frame.jpg" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video></div>
+<button class="web-bg-toggle" type="button" aria-label="Hintergrundvideo pausieren"></button>
+<div class="nt-trust" role="region" aria-label="Krisenhinweis und Hotlines">
+<div class="nt-wrap nt-trust-inner">
+<span>Kein Ersatz für Therapie</span>
+<span class="nt-sep" aria-hidden="true">/</span>
+<span class="nt-hide-s">Bei akuter Krise:</span>
+<a href="tel:08001110111">Telefonseelsorge 0800 111 0 111</a>
+<span class="nt-sep" aria-hidden="true">/</span>
+<a href="tel:08000116016">Hilfetelefon Gewalt 08000 116 016</a>
+</div>
+</div>
+<header class="topnav">
+<div class="nt-wrap nav-inner">
+<a class="brand" href="index.html" aria-label="UNBOND Startseite">
+<img class="ub-wortmarke" src="assets/logo-wortmarke.webp" alt="UNBOND" width="301" height="114">
+</a>
+<nav class="desktop-nav" aria-label="Hauptnavigation">
+<a href="wissen.html">Wissen</a>
+<a href="klarheit.html" aria-current="page">Klarheit</a>
+<a href="blog/index.html">Blog</a>
+<a href="no-contact/">No Contact</a>
+<a class="cta" href="index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+</nav>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="unbond-mobile-nav" aria-label="Menü öffnen"><span class="sr-only">Navigation öffnen</span><span class="menu-icon" aria-hidden="true">☰</span></button>
+</div>
+<nav class="mobile-panel" id="unbond-mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+<a href="wissen.html">00 Übersicht</a>
+<a href="klarheit.html" aria-current="page">01 Erkennen · Klarheit</a>
+<a href="no-contact/">02 Abstand halten · No Contact</a>
+<a href="blog/index.html">03 Verstehen · Blog</a>
+<a href="tools/index.html">04 Weitergehen · Tools</a>
+<a class="cta" href="index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+</nav>
+</header>
+<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="wissen.html"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="klarheit.html" aria-current="step"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="no-contact/"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
+<nav class="ub-ktests" data-ktests="kompass"></nav>
+
+<main class="kompass-shell">
+<div class="container">
+<!-- Hero -->
+<div class="kompass-hero">
+<p class="eyebrow ub-eyebrow">Teil deiner UNBOND-Begleitung</p>
+<h1>Der Heilungskompass <em>Wo stehst du gerade wirklich?</em></h1>
+<div class="kompass-divider"></div>
+<p class="kompass-sub">5 Fragen, ca. 3 Minuten. Kein Urteil – nur ein ehrlicher Blick auf deinen aktuellen Stand.</p>
+<div class="kompass-badges">
+<span class="kompass-badge">Kein Diagnose-Tool</span>
+<span class="kompass-badge">Anonym, keine Datenspeicherung</span>
+<span class="kompass-badge">Für queere Frauen</span>
+</div>
+</div>
+<!-- Fragen -->
+<div class="quiz-grid" id="quiz-grid">
+<!-- Frage 1 -->
+<div class="q-card" id="card-q1">
+<div class="q-num">Frage 1 von 5</div>
+<p class="q-text">Wenn du morgens aufwachst – was ist der erste Gedanke, der auftaucht?</p>
+<p class="q-sub">Wähle die Antwort, die am häufigsten zutrifft.</p>
+<div class="options-grid">
+<button class="opt-btn" onclick="pick('q1',0,this)">Sie sofort – Schmerz, Sehnsucht oder Wut</button>
+<button class="opt-btn" onclick="pick('q1',1,this)">Ein diffuses Schwere-Gefühl, bevor ich weiß warum</button>
+<button class="opt-btn" onclick="pick('q1',2,this)">Ich bemerke es – aber der Tag hat auch andere Gedanken</button>
+<button class="opt-btn" onclick="pick('q1',3,this)">Meist neutrale oder sogar neue Gedanken</button>
+</div>
+<p class="val-hint" id="hint-q1">⚠ Bitte wähle eine Antwort.</p>
+</div>
+<!-- Frage 2 -->
+<div class="q-card" id="card-q2">
+<div class="q-num">Frage 2 von 5</div>
+<p class="q-text">Wie gehst du aktuell mit dem Kontakt zu deiner Ex-Partnerin um?</p>
+<p class="q-sub">Sei ehrlich mit dir – keine Antwort wird bewertet.</p>
+<div class="options-grid">
+<button class="opt-btn" onclick="pick('q2',0,this)">Ich schaue täglich ihr Profil an oder warte auf Nachrichten</button>
+<button class="opt-btn" onclick="pick('q2',1,this)">Ich schwanke – manchmal Kontakt, manchmal nicht</button>
+<button class="opt-btn" onclick="pick('q2',2,this)">Ich versuche Abstand zu halten, falle aber manchmal zurück</button>
+<button class="opt-btn" onclick="pick('q2',3,this)">Kein Kontakt – ich halte die Grenze</button>
+</div>
+<p class="val-hint" id="hint-q2">⚠ Bitte wähle eine Antwort.</p>
+</div>
+<!-- Frage 3 -->
+<div class="q-card" id="card-q3">
+<div class="q-num">Frage 3 von 5</div>
+<p class="q-text">Wenn du an das, was passiert ist, denkst – was überwiegt?</p>
+<p class="q-sub">Manchmal ist die ehrlichste Antwort die schwierigste.</p>
+<div class="options-grid">
+<button class="opt-btn" onclick="pick('q3',0,this)">Totale Verwirrung – ich verstehe noch nicht, was geschehen ist</button>
+<button class="opt-btn" onclick="pick('q3',1,this)">Schmerz und Wut – ich weiß es, aber es tut immer noch weh</button>
+<button class="opt-btn" onclick="pick('q3',2,this)">Ich beginne zu verstehen – manches ergibt langsam Sinn</button>
+<button class="opt-btn" onclick="pick('q3',3,this)">Klarheit – ich sehe es für das, was es war</button>
+</div>
+<p class="val-hint" id="hint-q3">⚠ Bitte wähle eine Antwort.</p>
+</div>
+<!-- Frage 4 -->
+<div class="q-card" id="card-q4">
+<div class="q-num">Frage 4 von 5</div>
+<p class="q-text">Wie fühlst du dich gerade in deinem Körper?</p>
+<p class="q-sub">Der Körper lügt nicht – er trägt alles mit, was der Kopf noch verdrängt.</p>
+<div class="options-grid">
+<button class="opt-btn" onclick="pick('q4',0,this)">Erschöpft, eng in der Brust, wie in Watte gepackt</button>
+<button class="opt-btn" onclick="pick('q4',1,this)">Unruhig, angespannt – Schlafen fällt schwer</button>
+<button class="opt-btn" onclick="pick('q4',2,this)">Mal so, mal so – es gibt auch leichtere Momente</button>
+<button class="opt-btn" onclick="pick('q4',3,this)">Meistens stabil, ich spüre langsam wieder Kraft</button>
+</div>
+<p class="val-hint" id="hint-q4">⚠ Bitte wähle eine Antwort.</p>
+</div>
+<!-- Frage 5 -->
+<div class="q-card" id="card-q5">
+<div class="q-num">Frage 5 von 5</div>
+<p class="q-text">Wenn du an deine Zukunft denkst – was fühlst du?</p>
+<p class="q-sub">Sei ehrlich – auch "gar nichts" ist eine gültige Antwort.</p>
+<div class="options-grid">
+<button class="opt-btn" onclick="pick('q5',0,this)">Ich kann mir keine Zukunft vorstellen – nur dieser Schmerz</button>
+<button class="opt-btn" onclick="pick('q5',1,this)">Angst und Unsicherheit – was kommt jetzt noch?</button>
+<button class="opt-btn" onclick="pick('q5',2,this)">Eine leise Neugier – vielleicht gibt es etwas Neues</button>
+<button class="opt-btn" onclick="pick('q5',3,this)">Hoffnung und Aufbruchsgefühl – ich bin bereit</button>
+</div>
+<p class="val-hint" id="hint-q5">⚠ Bitte wähle eine Antwort.</p>
+</div>
+</div><!-- /quiz-grid -->
+<div class="k-submit-row">
+<span class="prog-label" id="prog-label">0 / 5 beantwortet</span>
+<button class="btn-k" disabled="" id="submit-btn" onclick="showResults()">Mein Ergebnis anzeigen →</button>
+</div>
+<!-- Ergebnis -->
+<div id="result-screen">
+<div class="result-box" id="result-content"></div>
+<!-- 5-Sinne-Übung -->
+<div class="exercise-box" id="phase1-exercise" style="display:none">
+<div class="exercise-tag">Sofort-Übung</div>
+<h3>Die 5-Sinne-Grounding-Übung</h3>
+<p>Wenn dein Kopf kreist, braucht dein Körper ein Signal von Gegenwart. Diese Übung holt dich aus Panik, Sehnsucht oder Grübelschleifen zurück ins <strong>Hier und Jetzt</strong>.</p>
+<ol class="exercise-steps">
+<li data-n="5"><strong>5 Dinge sehen</strong> – Benenne konkret 5 Dinge, die du gerade siehst.</li>
+<li data-n="4"><strong>4 Dinge fühlen</strong> – Füße auf dem Boden, Hände, Gewicht, Kleidung auf der Haut.</li>
+<li data-n="3"><strong>3 Dinge hören</strong> – Halte inne. Vögel? Atem? Summen eines Geräts?</li>
+<li data-n="2"><strong>2 Dinge riechen</strong> – Atme tief durch die Nase.</li>
+<li data-n="1"><strong>1 Ding schmecken</strong> – Nimm einen bewussten Schluck Wasser.</li>
+</ol>
+<p style="margin-top:10px;font-size:11.5px;color:rgba(247,242,234,.42);letter-spacing:.04em">Trauma Research UK · The 5-4-3-2-1 Grounding Technique</p>
+</div>
+<!-- Neurohack-Karten (Phase 2 + 3) -->
+<div class="exercise-box" id="phase23-cards" style="display:none;margin:16px 0">
+<div class="exercise-tag">Drei kleine Schritte</div>
+<h3>Vom inneren Kreisen zurück zu Handlungsspielraum</h3>
+<ol class="exercise-steps">
+<li data-n="1"><strong>Reiz unterbrechen</strong> – Lege das Handy für zehn Minuten außer Reichweite und benenne den aktuellen Impuls, ohne ihn auszuführen.</li>
+<li data-n="2"><strong>Realität festhalten</strong> – Notiere in zwei Sätzen, was tatsächlich passiert ist und worauf du gerade hoffst.</li>
+<li data-n="3"><strong>Sichere Verbindung wählen</strong> – Kontaktiere eine vertrauenswürdige Person oder plane eine konkrete, ruhige Aktivität für die nächste Stunde.</li>
+</ol>
+</div>
+<nav class="ub-weiter" data-weiter="kompass"></nav>
+<div style="text-align:center;margin:16px 0 8px">
+<button class="btn-k btn-k-ghost" onclick="resetQuiz()">↩ Kompass neu starten</button>
+</div>
+</div><!-- /result-screen -->
+<div class="kompass-footer">
+      UNBOND · Breaking Chains · Für lesbische Frauen, die sich aus toxischen Beziehungen lösen.<br/>
+      Dieses Tool ersetzt keine professionelle psychologische Beratung. Bei akuten Krisen wende dich bitte an eine Fachkraft.
+    </div>
+</div>
+</main>
+<nav class="ub-zurueck" aria-label="Zurück"><a class="ub-zurueck-link" href="klarheit.html" data-zurueck><span aria-hidden="true">←</span> Zurück</a></nav>
+<footer class="ub-footer">
+<div class="ub-footer-inner">
+<div class="ub-footer-brand">
+<a href="index.html" aria-label="UNBOND Startseite"><img src="assets/logo-wortmarke.webp" width="301" height="114" loading="lazy" alt="UNBOND"></a>
+<p>Selbsthilfe für Frauen, die Frauen lieben.</p>
+<p class="ub-footer-by">von Milena · UNBOND</p>
+</div>
+<nav aria-label="Dein Weg durch UNBOND (Fußzeile)">
+<p class="ub-footer-title">Dein Weg</p>
+<a href="wissen.html">Übersicht</a>
+<a href="klarheit.html">Erkennen · Klarheit</a>
+<a href="no-contact/">Abstand halten · No Contact</a>
+<a href="blog/index.html">Verstehen · Blog</a>
+<a href="tools/index.html">Weitergehen · Tools</a>
+<a href="index.html#angebot">Zum Buch</a>
+</nav>
+<nav aria-label="Rechtliches">
+<p class="ub-footer-title">Rechtliches</p>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<a href="mailto:info@unbond.de">Kontakt</a>
+<button class="ub-footer-link" id="cookieReopen" type="button" aria-controls="cookieBanner" aria-expanded="false">Cookie-Einstellungen</button>
+</nav>
+</div>
+<div class="ub-footer-bottom">
+<p><strong>Kein Ersatz für Therapie.</strong> Bei akuter Krise: <a href="tel:08001110111">Telefonseelsorge 0800 111 0 111</a> · <a href="tel:08000116016">Hilfetelefon Gewalt 08000 116 016</a> · bei Gefahr 110</p>
+<p>© 2026 UNBOND · Breaking Chains</p>
+</div>
+</footer>
+
+<div hidden="" id="cookieBanner">
+<div class="cookie-inner">
+<div class="cookie-header">
+<p class="cookie-title">Deine Datenschutz-Einstellungen</p>
+<p class="cookie-desc">Notwendige Cookies sind immer aktiv. Für Analyse und Marketing kannst du einzeln entscheiden. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+</div>
+<div class="cookie-categories">
+<label class="cookie-toggle-row"><input checked="" disabled="" type="checkbox"/><span>Notwendig <span class="cookie-toggle-label-muted">(immer aktiv)</span></span></label>
+<label class="cookie-toggle-row"><input id="cookieAnalytics" type="checkbox"/><span>Analyse <span class="cookie-toggle-label-muted">(Google Analytics, Microsoft Clarity)</span></span></label>
+<label class="cookie-toggle-row"><input id="cookieMarketing" type="checkbox"/><span>Marketing <span class="cookie-toggle-label-muted">(Meta / Pinterest)</span></span></label>
+</div>
+<div class="cookie-btns">
+<button class="cookie-accept" id="cookieAcceptAll">Alle akzeptieren</button>
+<button class="cookie-save" id="cookieSaveSelection">Auswahl speichern</button>
+<button class="cookie-decline" id="cookieRejectAll">Nur Notwendige</button>
+</div>
+</div>
+</div>
+
+<script src="script.js?v=20261108"></script>
+<script src="unbond-web.js?v=20261025"></script>
+<script>
+const answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
+
+function pick(qid, val, btn) {
+  answers[qid] = val;
+  btn.closest('.options-grid').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('card-' + qid).classList.add('answered');
+  document.getElementById('hint-' + qid).classList.remove('visible');
+  updateProgress();
+}
+
+function updateProgress() {
+  const done = Object.values(answers).filter(v => v !== null).length;
+  document.getElementById('prog-label').textContent = done + ' / 5 beantwortet';
+  document.getElementById('submit-btn').disabled = done < 5;
+}
+
+function showResults() {
+  const missing = Object.keys(answers).filter(k => answers[k] === null);
+  if (missing.length > 0) {
+    missing.forEach(k => document.getElementById('hint-' + k).classList.add('visible'));
+    document.getElementById('card-' + missing[0]).scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  const total = Object.values(answers).reduce((s, v) => s + v, 0);
+  let phase; if (total <= 5) phase = 1; else if (total <= 10) phase = 2; else phase = 3;
+
+  document.getElementById('result-content').innerHTML = buildResult(phase, total);
+  document.getElementById('phase1-exercise').style.display = (phase === 1) ? 'block' : 'none';
+  document.getElementById('phase23-cards').style.display  = (phase === 1) ? 'none'  : 'block';
+  document.getElementById('result-screen').style.display = 'block';
+  setTimeout(() => document.getElementById('result-screen').scrollIntoView({ behavior:'smooth', block:'start' }), 80);
+}
+
+function buildResult(phase, total) {
+  const data = {
+    1: {
+      badge: 'phase-1-badge', ico: '🌊', label: 'Phase 1 – Akute Stabilisierung',
+      title: 'Du bist gerade im Überlebensmodus. Das ist kein Versagen.',
+      d1: 'Dein Nervensystem steht noch stark unter Druck. Sehnsucht, Panik, Wut oder Leere wechseln sich ab – eine nachvollziehbare Stress- und Bindungsreaktion nach einer Beziehung, die dich destabilisiert hat.',
+      d2: 'Jetzt brauchst du keine große Analyse. Dein nächster Schritt ist kleiner: <strong>runterregulieren, Boden unter die Füße bekommen und den nächsten Impuls nicht automatisch ausführen.</strong>',
+      ins: '<strong>Einordnung:</strong> Bei Trauma-Bonding reagiert das Gehirn entzugähnlich. Sehnsucht heißt nicht, dass die Beziehung gut war – sondern dass dein System auf Reiz und Erleichterung konditioniert ist.',
+      next: 'Dein Fokus jetzt: Stabilisierung vor Entscheidung. Mach die Grounding-Übung unten – besonders bevor du schreibst, stalkst oder alte Chats öffnest.'
+    },
+    2: {
+      badge: 'phase-2-badge', ico: '🌱', label: 'Phase 2 – Erste Klarheit',
+      title: 'Du kommst aus dem Sturm. Jetzt brauchst du Klarheit.',
+      d1: 'Du bist nicht mehr im akuten Überleben, aber noch nicht durch. Diese Phase ist heikel, weil Verstehen und Rückfallimpulse oft nebeneinanderstehen.',
+      d2: 'Jetzt geht es darum, <strong>Muster zu erkennen, ohne dich in Grübeln zu verlieren.</strong> Nicht jede Erinnerung verdient dieselbe Gewichtung – entscheidend ist, was sich wiederholt hat.',
+      ins: '<strong>Einordnung:</strong> Kognitive Neubewertung wirkt, wenn du nicht nur denkst „Ich vermisse sie", sondern prüfst: „Was hat diese Dynamik mit mir gemacht?" So wird aus Sehnsucht Realitätssinn.',
+      next: 'Dein Fokus jetzt: Muster statt Einzelmomente. Nutze die Karten unten als Anker, wenn dein Kopf wieder alles zerlegt.'
+    },
+    3: {
+      badge: 'phase-3-badge', ico: '✨', label: 'Phase 3 – Aufbruch & Selbstführung',
+      title: 'Du siehst klarer. Jetzt muss Klarheit Handlung werden.',
+      d1: 'Du hast bereits Abstand und innere Beweglichkeit zurückgewonnen. Aufbruch heißt nicht, dass nichts mehr wehtut – sondern dass du wieder wählen kannst.',
+      d2: 'Jetzt geht es weniger um Notfallstabilisierung, mehr um <strong>Selbstführung:</strong> Welche Grenzen bleiben? Welche Routinen schützen dich? Welche Zukunft baust du, ohne dein Leben um diese Person kreisen zu lassen?',
+      ins: '<strong>Einordnung:</strong> Heilung wird stabiler, wenn du nicht nur weggehst, sondern aktiv in ein neues Selbstbild hineinwächst. Neue Entscheidungen helfen dem Gehirn, die Fixierung zu lösen.',
+      next: 'Dein Fokus jetzt: Klarheit in Handlungen übersetzen. Nutze die Karten unten als Reset, wenn alte Trigger kurz wieder Macht bekommen.'
+    }
+  };
+  const p = data[phase];
+  const max = 15; const filled = Math.round((total / max) * 8);
+  let dots = '<div class="score-dots">';
+  for (let i = 0; i < 8; i++) {
+    let cls = 'score-dot';
+    if (i < filled) { cls += ' filled'; if (phase === 2) cls += ' medium'; if (phase === 3) cls += ' high'; }
+    dots += `<div class="${cls}"></div>`;
+  }
+  dots += '</div>';
+  return `
+    <div class="phase-badge ${p.badge}">${p.label}</div>
+    <div class="result-title">${p.title}</div>
+    <p style="font-size:13px;color:rgba(247,242,234,.55);margin:0 0 4px">Score: ${total} / 15</p>
+    ${dots}
+    <p class="result-desc">${p.d1}</p>
+    <p class="result-desc">${p.d2}</p>
+    <div class="result-insight">${p.ins}</div>
+    <p class="result-next">${p.next}</p>
+  `;
+}
+
+function resetQuiz() {
+  Object.keys(answers).forEach(k => answers[k] = null);
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('answered'));
+  document.querySelectorAll('.val-hint').forEach(h => h.classList.remove('visible'));
+  document.getElementById('result-screen').style.display = 'none';
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+<script src="unbond-weiter.js?v=20261108" defer></script>
+<script src="unbond-zurueck.js?v=20261106" defer></script>
+</body>
+</html>

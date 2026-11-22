@@ -1,0 +1,186 @@
+/* UNBOND · Startseite: 3 Schriften, 5 Größen, Wortmarken-Logo (05.11.2026)
+   Schriften: Poppins (alles), Space Mono (Knöpfe, Beschriftungen), Playfair Display Italic (Zitate).
+   Größen: h1 · h2 · Fließtext 16 px · klein 13 px (Beschriftungen, Knöpfe, Quellen, Footer).
+   Ausnahme: Preis und Kennzahlen in h2-Größe.
+   Die :not(#u…)-Teile erhöhen nur die Gewichtung gegenüber älteren Regeln. Erzeugt aus der gemessenen Seite.
+   Lädt als letzte Stildatei. @font-face-Regeln stehen in unbond-index-fonts.css. */
+:root {
+  --ub-fs-h1: clamp(2.4rem, 5.2vw, 3.8rem);
+  --ub-fs-h2: clamp(1.7rem, 3vw, 2.1rem);
+  --ub-fs-text: 1rem;
+  --ub-fs-small: .8125rem;
+}
+
+/* Grundregel: Poppins, Fließtext. Alle Elemente erben Schrift und Größe vom Elternelement. */
+html body:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) {
+  font-family: "Poppins", system-ui, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ub-fs-text) !important;
+}
+html body *:not(svg):not(svg *):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+/* Beschriftung im Zitat bleibt Poppins, aufrecht */
+html body .phase-pain > span:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7) {
+  font-family: "Poppins", system-ui, "Segoe UI", Arial, sans-serif !important;
+  font-style: normal !important;
+}
+
+/* Space Mono: Knöpfe und Beschriftungen */
+html body :is(
+  a.header-beacon-cta,
+  a.button,
+  a.hero-scroll-link,
+  .at-fig > figcaption,
+  span.pf-kicker,
+  button.button,
+  span.rc-modules-sign,
+  span.phase-word,
+  span.phase-meta,
+  span.phase-cue-text,
+  span.phase-plus,
+  .ed-top > span,
+  span.eb-badge,
+  .ed-stats strong,
+  .ed-stats span,
+  .ed-price > strong,
+  p.ed-once,
+  a.price-secondary,
+  span.faq-number,
+  span.faq-kicker,
+  p.checkout-note,
+  button.footer-link,
+  button.cookie-button
+):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6) {
+  font-family: "Space Mono", ui-monospace, Consolas, monospace !important;
+}
+
+/* Playfair Display Italic: Zitate */
+html body :is(
+  .at-fig p,
+  p.pf-sub,
+  p.phase-pain
+):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6) {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-style: italic !important;
+}
+
+/* Klein (13 px): Beschriftungen, Knöpfe, Quellenhinweise, Footer, Cookie-Leiste */
+html body :is(
+  a.header-beacon-cta,
+  .header-beacon-cta > span,
+  p.hero-eyebrow,
+  p.hero-format,
+  a.button,
+  .button > span,
+  p.hero-safety-line,
+  a.hero-scroll-link,
+  .hero-scroll-link > span,
+  .at-fig > figcaption,
+  span.pf-kicker,
+  span.pf-stat-text,
+  span.pf-stat-note,
+  p.vt-desc,
+  button.button,
+  span.rc-modules-sign,
+  button.hero-program-collapse,
+  .hero-program-collapse > span,
+  span.phase-word,
+  span.phase-meta,
+  span.phase-cue-text,
+  span.phase-plus,
+  .phase-pain > span,
+  span.step-number,
+  span.step-method,
+  p.product-label,
+  p.lookinside-note,
+  p.eyebrow,
+  span.t-topic,
+  .t-person > span,
+  p.t-note,
+  .author-photo span,
+  .ed-top > span,
+  span.eb-badge,
+  .ed-stats span,
+  em.price-after,
+  p.ed-once,
+  a.price-secondary,
+  p.perspectives-muted-note,
+  span.perspectives-card-index,
+  span.faq-number,
+  span.faq-kicker,
+  span.faq-answer-label,
+  span.understand-tile-kicker,
+  span.understand-tile-meta,
+  p.checkout-note,
+  .brand > span,
+  .brand span.brand-dot,
+  .footer-grid p,
+  p.footer-title,
+  .footer-legal > a,
+  button.footer-link,
+  p.footer-crisis,
+  p.cookie-bar-text,
+  .cookie-bar-text > strong,
+  .cookie-bar-text > a,
+  button.cookie-button,
+  .cookie-details > summary,
+  .cookie-option strong,
+  .cookie-option small
+):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6),
+html body :is(footer, #cookieBanner):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6) {
+  font-size: var(--ub-fs-small) !important;
+}
+
+/* Ausnahme: Preis und Kennzahlen in h2-Größe */
+html body :is(
+  span.pf-stat-num,
+  .phase-num > strong,
+  .ed-stats strong,
+  .ed-price > strong
+):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7) {
+  font-size: var(--ub-fs-h2) !important;
+  line-height: 1.1 !important;
+}
+
+/* Überschriften (Kinder erben) */
+html body :is(h1):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7) {
+  font-family: "Poppins", system-ui, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ub-fs-h1) !important;
+}
+html body :is(h2):not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7) {
+  font-family: "Poppins", system-ui, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ub-fs-h2) !important;
+}
+
+/* Logo: Wortmarke oben links füllt die Kopfzeile, unten links im Footer */
+html body .header-beacon-brand:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) { gap: 0 !important; padding: 0 !important; }
+html body .header-beacon-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) {
+  width: auto !important; height: 72px !important; max-width: none !important;
+  padding: 0 !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+}
+html body .footer-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) {
+  width: auto !important; height: 56px !important; max-width: none !important;
+  padding: 0 !important; border: 0 !important; border-radius: 0 !important;
+  box-shadow: none !important; outline: 0 !important; background: none !important;
+}
+@media (max-width: 760px) {
+  html body .header-beacon-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) { height: 52px !important; }
+  html body .footer-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) { height: 48px !important; }
+}
+/* Schmale Handys: Logo und Kaufknopf passen nebeneinander in die Kopfzeile */
+@media (max-width: 480px) {
+  html body .header-beacon-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) { height: 44px !important; }
+  html body .header-beacon-inner:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5) { gap: 8px !important; }
+  html body a.header-beacon-cta:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7) {
+    padding-left: 9px !important; padding-right: 9px !important; letter-spacing: 0 !important;
+    white-space: nowrap !important; min-width: 0 !important;
+  }
+}
+@media (max-width: 360px) {
+  html body .header-beacon-brand img:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6) { height: 32px !important; }
+}
+@media (max-width: 340px) {
+  html body a.header-beacon-cta:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6):not(#u7):not(#u8) { padding-left: 5px !important; padding-right: 5px !important; letter-spacing: -.02em !important; }
+  html body .header-beacon-inner:not(#u1):not(#u2):not(#u3):not(#u4):not(#u5):not(#u6) { gap: 6px !important; }
+}

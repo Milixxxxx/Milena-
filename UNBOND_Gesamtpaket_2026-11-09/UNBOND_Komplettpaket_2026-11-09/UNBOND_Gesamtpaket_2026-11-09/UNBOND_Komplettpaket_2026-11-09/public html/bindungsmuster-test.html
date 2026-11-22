@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<title>Bindungsmuster-Test für lesbische und queere Frauen | UNBOND</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="12 Fragen. Kostenlos und anonym. Wie reagierst du bei Nähe, Streit und Trennung? Ein Selbsttest zur Orientierung für lesbische und queere Frauen, keine Diagnose." name="description"/>
+<meta content="UNBOND – Breaking Chains" name="author"/>
+<link href="https://www.unbond.de/bindungsmuster-test.html" rel="canonical"/>
+<script src="assets/chart.umd.min.js"></script>
+<style>
+/* ═══ DESIGN SYSTEM ════════════════════════════════════════ */
+:root {
+  --bg:      #131926;
+  --card:    #1b2230;
+  --fg:      #f7f2ea;
+  --fg-m:    #929aaa;
+  --border:  #323a49;
+  --accent:  #7d263f;
+  --gold:    #d2a63b;
+  --gold-l:  #e7c596;
+  --green:   #5e9590;
+  --mauve:   #9B7FA4;
+  --warm:    #c4836e;
+  --r:       14px;
+  --max:     1100px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ HINTERGRUNDBILD (darkened, Text bleibt lesbar) ═══ */
+.bg-image {
+  position: fixed; inset: 0; z-index: -2;
+  background-image: url('assets/narcissist-verdeckt.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transition: opacity .6s ease;
+}
+.bg-overlay {
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(19,25,38,.86) 0%, rgba(19,25,38,.90) 45%, rgba(19,25,38,.95) 100%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(125,38,63,.22), transparent 60%);
+}
+
+/* ═══ SCREENS ═══════════════════════════════════════════════ */
+.screen { display: none; }
+.screen.active { display: block; animation: fadeUp .3s ease forwards; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wrap { max-width: var(--max); margin: 0 auto; padding: 32px 20px 80px; }
+.wrap-center {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 100vh; text-align: center; padding: 40px 20px;
+}
+
+/* ═══ SHARED TYPOGRAPHY ═════════════════════════════════════ */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900; font-size: 1.1rem;
+  letter-spacing: -.02em; color: var(--fg);
+}
+.logo em { color: var(--green); font-style: normal; }
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: .68rem; font-weight: 900;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold);
+}
+.muted { color: var(--fg-m); }
+.italic-hl {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; color: var(--gold-l);
+}
+a { color: var(--gold-l); }
+a:hover { color: var(--fg); }
+
+/* ═══ SCREEN: QUESTIONS ═════════════════════════════════════ */
+
+/* — intro header — */
+.intro-card {
+  background: rgba(27,34,48,.85);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  margin-bottom: 22px;
+}
+.intro-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.intro-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+}
+.intro-title em { font-style: normal; color: var(--gold-l); font-family: 'Playfair Display', serif; }
+.intro-meta { font-size: .78rem; color: var(--fg-m); }
+.intro-scale { display:flex; flex-wrap:wrap; gap:6px 16px; margin:0 0 12px; font-size:.78rem; color:var(--fg-m); }
+.intro-scale strong { color:var(--gold); font-family:'Poppins',sans-serif; }
+.intro-disclaimer {
+  font-size: .72rem; color: rgba(146,154,170,.65);
+  border-top: 1px solid rgba(50,58,73,.5);
+  padding-top: 10px; line-height: 1.5;
+}
+
+/* — progress — */
+.q-header {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 10px;
+}
+.q-counter { font-size: .82rem; color: var(--fg-m); }
+.progress-track {
+  height: 3px; background: var(--border);
+  border-radius: 2px; margin-bottom: 18px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--mauve));
+  border-radius: 2px; width: 0%; transition: width .35s ease;
+}
+
+/* — question stage: zweispaltig auf Desktop — */
+.q-stage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+/* — question card — */
+.q-card {
+  background: rgba(27,34,48,.9);
+  border: 1px solid var(--border);
+  border-radius: var(--r); padding: 32px 30px;
+  min-height: 180px;
+  display: flex; flex-direction: column; justify-content: center;
+  margin-bottom: 0;
+}
+.q-block {
+  font-family: 'Poppins', sans-serif;
+  font-size: .62rem; font-weight: 900;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--mauve); margin-bottom: 10px;
+}
+.q-text { font-size: 1.25rem; line-height: 1.6; color: var(--fg); }
+
+/* — likert — */
+.likert {
+  display: flex; flex-direction: column;
+  gap: 8px; margin-bottom: 0;
+}
+.l-btn {
+  display: flex; flex-direction: row;
+  align-items: center; gap: 12px;
+  padding: 14px 18px;
+  background: rgba(27,34,48,.85);
+  border: 1px solid var(--border);
+  border-radius: 10px; cursor: pointer;
+  color: var(--fg); transition: all .17s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex: 1;
+}
+.l-btn:hover  { border-color: var(--mauve); background: rgba(155,127,164,.1); }
+.l-btn.sel    { border-color: var(--mauve); background: rgba(155,127,164,.2); }
+.l-btn.sel .l-n { color: var(--mauve); }
+.l-n {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem; font-weight: 900;
+  color: var(--fg-m); transition: color .17s;
+  width: 30px; height: 30px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); border-radius: 50%;
+}
+.l-btn.sel .l-n { border-color: var(--mauve); background: rgba(155,127,164,.15); }
+.l-lbl { font-size: .92rem; color: var(--fg-m); text-align: left; }
+
+/* — nav — */
+.q-nav { display: flex; align-items: center; justify-content: space-between; }
+.btn-back {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--fg-m); padding: 8px 15px;
+  border-radius: 8px; font-size: .82rem; cursor: pointer;
+  transition: all .17s;
+}
+.btn-back:hover { border-color: var(--fg-m); color: var(--fg); }
+.q-hint { font-size: .75rem; color: var(--fg-m); }
+
+/* ═══ SCREEN: LOADING ═══════════════════════════════════════ */
+.loader-ring {
+  width: 52px; height: 52px;
+  border: 3px solid var(--border);
+  border-top-color: var(--mauve);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-txt { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem; }
+.loader-sub { font-size: .85rem; color: var(--fg-m); margin-top: 6px; }
+
+/* ═══ SCREEN: RESULT ════════════════════════════════════════ */
+.r-logo { text-align: center; margin-bottom: 6px; }
+.r-eyebrow { text-align: center; margin-bottom: 12px; }
+
+.score-wrap { display: flex; justify-content: center; margin-bottom: 12px; }
+.score-ring {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  width: 100px; height: 100px; border-radius: 50%;
+  border: 3px solid var(--mauve);
+  background: rgba(155,127,164,.1);
+  box-shadow: 0 0 24px rgba(155,127,164,.18);
+}
+.score-n {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem; font-weight: 900; line-height: 1;
+}
+.score-lbl { font-size: .62rem; color: var(--fg-m); letter-spacing: .12em; text-transform: uppercase; }
+
+.cat-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: .68rem; font-weight: 900;
+  letter-spacing: .16em; text-transform: uppercase;
+  padding: 4px 13px; border-radius: 100px; border: 1px solid;
+  display: block; width: fit-content; margin: 0 auto 12px;
+}
+.cat-none   { border-color: var(--green); color: var(--green);  background: rgba(94,149,144,.1); }
+.cat-low    { border-color: var(--gold);  color: var(--gold);   background: rgba(210,166,59,.1);  }
+.cat-medium { border-color: var(--warm);  color: var(--warm);   background: rgba(196,131,110,.1); }
+.cat-high   { border-color: #7d263f;      color: #e8e8e8;       background: rgba(125,38,63,.15);  }
+
+.typus-name {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: clamp(1.8rem, 6vw, 2.5rem); letter-spacing: -.03em;
+  text-align: center; line-height: 1.1; margin-bottom: 6px;
+}
+.typus-tag {
+  text-align: center; font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1rem; color: var(--gold-l); margin-bottom: 22px;
+}
+
+.result-top {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.result-top .rt-right { text-align: left; }
+.chart-wrap { max-width: 360px; margin: 0; }
+.dim-legend {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 8px 16px; margin-bottom: 24px;
+}
+.dim-item { display: flex; align-items: center; gap: 5px; font-size: .75rem; color: var(--fg-m); }
+.dim-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.dim-line { width: 16px; height: 0; border-top: 2px dashed var(--green); flex-shrink: 0; }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.readable { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+/* full result */
+.r-block {
+  background: rgba(27,34,48,.85); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 20px 22px; margin-bottom: 16px;
+  font-size: .92rem; color: var(--fg-m); line-height: 1.7;
+}
+.r-block strong { color: var(--fg); }
+.r-block p + p { margin-top: 10px; }
+.r-block-title {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.markers-ul { list-style: none; }
+.markers-ul li {
+  padding: 9px 0 9px 22px; position: relative;
+  font-size: .9rem; color: var(--fg-m); line-height: 1.55;
+  border-bottom: 1px solid rgba(50,58,73,.4);
+}
+.markers-ul li:last-child { border: none; }
+.markers-ul li::before {
+  content: ''; position: absolute; left: 0; top: 17px;
+  width: 8px; height: 8px; background: var(--mauve); border-radius: 50%;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, rgba(125,38,63,.2), rgba(155,127,164,.1));
+  border: 1px solid rgba(125,38,63,.35);
+  border-radius: var(--r); padding: 26px 22px;
+  text-align: center; margin-bottom: 16px;
+}
+.cta-head {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: 1.2rem; letter-spacing: -.02em;
+  margin: 6px 0 8px; color: var(--fg);
+}
+.cta-sub { font-size: .85rem; color: var(--fg-m); margin-bottom: 18px; }
+
+/* opt-in box */
+.optin-form{margin:4px 0 2px}
+.optin-field{width:100%;background:rgba(19,25,38,.9);border:1px solid var(--border);border-radius:10px;color:var(--fg);font-family:'Lato',sans-serif;font-size:.95rem;padding:12px 14px;outline:none;margin-bottom:9px;transition:border-color .2s}
+.optin-field::placeholder{color:var(--fg-m)}
+.optin-field:focus{border-color:var(--mauve)}
+.optin-dsgvo{display:flex;gap:9px;font-size:.78rem;color:var(--fg-m);align-items:flex-start;cursor:pointer;text-align:left;margin-bottom:12px}
+.optin-dsgvo input{margin-top:3px;flex-shrink:0;accent-color:var(--mauve)}
+.optin-err{color:#f7a0b0;font-size:.8rem;display:none;margin-top:8px}
+.optin-err.show{display:block}
+.cta-divider{border-top:1px solid var(--border);margin:18px 0 0;opacity:.55}
+/* buttons */
+.btn-primary {
+  display: block; width: 100%;
+  background: var(--accent); color: var(--fg);
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: .95rem;
+  padding: 14px 20px; border-radius: 10px; border: none;
+  cursor: pointer; text-decoration: none; text-align: center;
+  transition: filter .2s, transform .15s;
+}
+.btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); color: var(--fg); }
+.btn-sec {
+  display: block; width: 100%;
+  background: transparent; color: var(--fg-m);
+  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .88rem;
+  padding: 11px 20px; border-radius: 10px;
+  border: 1px solid var(--border); cursor: pointer;
+  text-decoration: none; text-align: center; margin-top: 9px;
+  transition: all .18s;
+}
+.btn-sec:hover { border-color: var(--fg-m); color: var(--fg); }
+.btn-ghost {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--fg-m); padding: 8px 16px; border-radius: 8px;
+  font-size: .8rem; cursor: pointer; transition: all .18s;
+}
+.btn-ghost:hover { border-color: var(--fg-m); color: var(--fg); }
+
+.sources-box {
+  margin-top: 24px; padding: 18px 20px;
+  background: rgba(27,34,48,.5); border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.sources-title {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: .72rem; color: var(--fg-m); letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.sources-ul { list-style: none; }
+.sources-ul li {
+  font-size: .75rem; color: rgba(146,154,170,.65);
+  padding: 4px 0; border-bottom: 1px solid rgba(50,58,73,.25); line-height: 1.5;
+}
+.sources-ul li:last-child { border: none; }
+.fn-disclaimer {
+  font-size: .75rem; color: var(--fg-m);
+  text-align: center; padding: 4px 4px; margin-top: 16px; line-height: 1.55;
+}
+
+/* ═══ RESPONSIVE ════════════════════════════════════════════ */
+@media (max-width: 880px) {
+  .q-stage { grid-template-columns: 1fr; }
+  .result-top { grid-template-columns: 1fr; gap: 16px; }
+  .chart-wrap { width: 100%; max-width: 320px; margin: 0 auto; }
+  .chart-wrap canvas { max-width: 100%; }
+  .result-top .rt-right { text-align: center; }
+  .q-card { min-height: 140px; padding: 26px 24px; }
+  .q-text { font-size: 1.1rem; }
+}
+@media (max-width: 480px) {
+  .l-btn { padding: 12px 14px; }
+  .q-text { font-size: 1.05rem; }
+}
+
+/* ── TOPNAV (vereinheitlicht) ── */
+.topnav{position:sticky;top:0;z-index:50;background:rgba(19,25,38,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Poppins',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:-.02em;color:var(--fg);text-decoration:none}
+.brand img{width:32px;height:32px;object-fit:contain}
+.brand em{font-style:normal;color:var(--green)}
+.desktop-nav{display:flex;gap:22px;align-items:center}
+.desktop-nav a{font-size:.88rem;font-weight:600;color:var(--fg-m);text-decoration:none;font-family:'Poppins',sans-serif}
+.desktop-nav a:hover{color:var(--fg)}
+.desktop-nav .cta{font-weight:700;font-size:.82rem;color:var(--fg);background:var(--accent);padding:9px 18px;border-radius:10px}
+.desktop-nav .cta:hover{filter:brightness(1.12);color:var(--fg)}
+.menu-btn{display:none;background:none;border:0;color:var(--fg);font-size:26px;cursor:pointer;line-height:1}
+.mobile-panel{display:none;flex-direction:column;border-top:1px solid var(--border);padding:12px 20px 16px;gap:2px}
+.mobile-panel a{display:block;padding:10px 0;font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;color:var(--fg-m);text-decoration:none}
+.mobile-panel a:hover{color:var(--fg)}
+.mobile-panel .cta{background:var(--accent);color:var(--fg);border-radius:10px;padding:11px 18px;text-align:center;margin-top:8px}
+.mobile-panel.show{display:flex}
+@media(max-width:720px){.desktop-nav{display:none}.menu-btn{display:block}}
+
+</style>
+<script>
+window.dataLayer=window.dataLayer||[];
+window.GA_ID='G-QWHMYTHDDS';
+window.META_PIXEL_ID='1006203895535173';
+</script>
+<meta content="0d30089f0beffef244c180710d88afe5" name="p:domain_verify"/>
+<style id="unbond-local-fonts">
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/lato-v25-latin-300.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/lato-v25-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/lato-v25-latin-italic.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/lato-v25-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/poppins-v24-latin-300.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/poppins-v24-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/poppins-v24-latin-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/poppins-v24-latin-600.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/poppins-v24-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/poppins-v24-latin-800.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/playfair-display-v40-latin.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 700;font-display:swap;src:url('fonts/playfair-display-v40-latin-ext.woff2') format('woff2')}
+</style>
+<style id="unbond-final-type-mobile">
+:root{--unbond-fs-body:18px;--unbond-fs-small:13px;--unbond-fs-section:clamp(28px,3.5vw,32px)}
+body{font-size:var(--unbond-fs-body)}
+h2{font-size:var(--unbond-fs-section)}
+h3{font-size:var(--unbond-fs-body)}
+p,li,label,input,select,textarea,button{font-size:var(--unbond-fs-body)}
+.eyebrow,.hero-pill,.pricing-tag,.pricing-trust,.faq-cat,.tag,.pill,.muted-small,
+[class*="meta"],[class*="caption"],[class*="source"],small{font-size:var(--unbond-fs-small)}
+.brand>span,.nav-brand>.dot{display:none!important}
+.brand,.nav-brand{gap:0}
+.brand img,.nav-brand img{width:40px;height:40px;object-fit:contain}
+.social-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.social-links a{font-size:var(--unbond-fs-small);color:var(--muted-foreground,#929aaa);text-decoration:none}
+.social-links a:hover{color:var(--green,#5e9590)}
+@media(max-width:680px){
+  :root{--unbond-fs-body:17px}
+  body{background-attachment:scroll!important}
+  button,.btn,.cta,a.btn,a.cta,input,select{min-height:44px}
+  .container,.narrow{width:min(100% - 28px,1180px)}
+  h1,h2,h3,p,li{overflow-wrap:anywhere}
+}
+</style>
+<link rel="stylesheet" href="unbond-shell.css?v=20261108">
+  <link rel="stylesheet" href="unbond-web.css?v=20261108">
+  <link rel="stylesheet" href="unbond-consent.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing-skin.css?v=20261108">
+<link rel="stylesheet" href="unbond-nothing-poppins.css?v=20261029">
+<style id="bindung-optionen">
+#likert .l-btn{align-items:flex-start}
+#likert .l-lbl{line-height:1.45;font-size:.9rem}
+#screen-q .q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.r-steps{margin:0;padding-left:20px}
+.r-steps li{margin-bottom:8px}
+@media(prefers-reduced-motion:reduce){.q-card{animation:none!important}}
+</style>
+<link rel="stylesheet" href="unbond-bereich.css?v=20261108">
+<link rel="stylesheet" href="unbond-zurueck.css?v=20261108">
+<link rel="stylesheet" href="unbond-weiter.css?v=20261108">
+<link rel="stylesheet" href="unbond-footer.css?v=20261107b">
+<link rel="stylesheet" href="test-radar.css?v=20261108">
+<script src="test-radar.js?v=20261108"></script>
+</head>
+<body class="web-page nt nt-skin" data-bereich="klarheit" data-tracking="zaehlen" data-test-radar="bindung">
+<div class="web-bg" aria-hidden="true"><video data-src="assets/videos/hintergrund.mp4" poster="assets/hero-video-first-frame.jpg" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video></div>
+<button class="web-bg-toggle" type="button" aria-label="Hintergrundvideo pausieren"></button>
+<div aria-hidden="true" class="bg-image" id="bg-image"></div>
+<div aria-hidden="true" class="bg-overlay"></div>
+<div class="nt-trust" role="region" aria-label="Krisenhinweis und Hotlines">
+<div class="nt-wrap nt-trust-inner">
+<span>Kein Ersatz für Therapie</span>
+<span class="nt-sep" aria-hidden="true">/</span>
+<span class="nt-hide-s">Bei akuter Krise:</span>
+<a href="tel:08001110111">Telefonseelsorge 0800 111 0 111</a>
+<span class="nt-sep" aria-hidden="true">/</span>
+<a href="tel:08000116016">Hilfetelefon Gewalt 08000 116 016</a>
+</div>
+</div><header class="topnav">
+<div class="nt-wrap nav-inner">
+<a class="brand" href="index.html" aria-label="UNBOND Startseite">
+<img class="ub-wortmarke" src="assets/logo-wortmarke.webp" alt="UNBOND" width="301" height="114">
+</a>
+<nav class="desktop-nav" aria-label="Hauptnavigation">
+<a href="wissen.html">Wissen</a>
+<a href="klarheit.html" aria-current="page">Klarheit</a>
+<a href="blog/index.html">Blog</a>
+<a href="no-contact/">No Contact</a>
+<a class="cta" href="index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+</nav>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="unbond-mobile-nav" aria-label="Menü öffnen"><span class="sr-only">Navigation öffnen</span><span class="menu-icon" aria-hidden="true">☰</span></button>
+</div>
+<nav class="mobile-panel" id="unbond-mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+<a href="wissen.html">00 Übersicht</a>
+<a href="klarheit.html" aria-current="page">01 Erkennen · Klarheit</a>
+<a href="no-contact/">02 Abstand halten · No Contact</a>
+<a href="blog/index.html">03 Verstehen · Blog</a>
+<a href="tools/index.html">04 Weitergehen · Tools</a>
+<a class="cta" href="index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+</nav>
+</header>
+<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="wissen.html"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="klarheit.html" aria-current="step"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="no-contact/"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
+<nav class="ub-ktests" data-ktests="bindung"></nav>
+<!-- ═══════════════════════════════════════════════════════
+     SCREEN: QUESTIONS
+═══════════════════════════════════════════════════════ -->
+<section class="screen active" id="screen-q">
+<div class="wrap">
+<!-- INTRO HEADER (schlank) -->
+<div class="intro-card">
+<div class="intro-top">
+<div class="intro-meta ub-eyebrow">12 Fragen · ~4 Min</div>
+</div>
+<h1 class="intro-title">Bindungs<em>muster</em></h1>
+<p style="font-size:.88rem;color:var(--fg-m);margin:6px 0 14px;line-height:1.55">
+      Wie reagierst du bei Nähe, Streit und Trennung? Wähle die Antwort, die dir am vertrautesten vorkommt. Dies ist ein Selbsttest zur Orientierung, kein wissenschaftlicher Test und keine Diagnose (<a href="klarheit.html#tests" style="color:inherit;text-decoration:underline">Hinweise</a>).
+    </p>
+<p class="intro-disclaimer">Kostenlos · anonym · keine Diagnose. Du kannst Fragen überspringen und jederzeit aufhören. Deine Eingaben werden nicht gespeichert.</p>
+</div>
+<!-- PROGRESS -->
+<div class="test-radar-layout">
+<div class="test-radar-flow">
+<div class="q-header">
+<div class="logo" style="font-size:.85rem">Frage <span id="q-num">1</span> von 12</div>
+<div class="q-counter muted" id="q-dim-label">—</div>
+</div>
+<div class="progress-track">
+<div class="progress-fill" id="prog-fill"></div>
+</div>
+<!-- QUESTION STAGE (zweispaltig auf Desktop) -->
+<div class="q-stage">
+<div class="q-card" id="q-card">
+<p class="q-block" id="q-block">—</p>
+<p class="q-text" id="q-text" aria-live="polite">—</p>
+</div>
+<div aria-label="Antworten" class="likert" id="likert" role="group"></div>
+</div>
+<div class="q-nav">
+<button class="btn-back" id="btn-back" style="visibility:hidden" type="button">← Zurück</button>
+<button class="btn-back" id="btn-skip" type="button">Überspringen →</button>
+</div>
+</div>
+<aside class="test-radar-sticky test-radar-card" aria-label="Vorläufige Radar-Vorschau">
+<div class="test-radar-copy">
+<p class="test-radar-title">Dein Radar wächst mit</p>
+<p id="bindung-radar-status" class="test-radar-status" data-test-radar-status role="status" aria-live="polite" aria-atomic="true">Vorläufig · 0 von 12 beantwortet · keine vollständige Auswertung.</p>
+<p class="test-radar-mobile-key" data-test-radar-key></p>
+</div>
+<div class="test-radar-plot"><canvas id="bindung-live-radar" data-test-radar-canvas role="img" aria-label="Vorläufiges Spinnendiagramm: noch keine Antworten" aria-describedby="bindung-radar-status bindung-radar-values"></canvas></div>
+<ul id="bindung-radar-values" class="test-radar-values" data-test-radar-values aria-label="Vorläufige Häufigkeit der vier Muster"></ul>
+<p class="test-radar-note">Anzahl je Muster, Skala bis zur Zahl deiner Antworten. Übersprungene Fragen zählen nicht mit. Noch keine Antworten: nur das Raster.</p>
+</aside>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════
+     SCREEN: LOADING
+═══════════════════════════════════════════════════════ -->
+<section class="screen" id="screen-load">
+<div class="wrap-center">
+<div class="loader-ring"></div>
+<p class="loader-txt">Dein Ergebnis wird erstellt …</p>
+<p class="loader-sub">Vier Muster · deine Antworten werden ausgewertet</p>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════
+     SCREEN: RESULT
+═══════════════════════════════════════════════════════ -->
+<section class="screen" id="screen-result">
+<div class="wrap">
+<p class="r-eyebrow eyebrow">Dein Ergebnis</p>
+<div class="result-top">
+<div class="chart-wrap"><canvas height="330" id="radar" width="360"></canvas></div>
+<div class="rt-right">
+<div class="score-wrap" style="justify-content:flex-start">
+<div class="score-ring" id="score-ring">
+<span class="score-n" id="score-n">—</span>
+<span class="score-lbl" id="score-lbl">Antworten</span>
+</div>
+</div>
+<div class="cat-badge" id="cat-badge" style="margin-left:0">—</div>
+<h2 class="typus-name" id="typus-name" style="text-align:left">—</h2>
+<p class="typus-tag" id="typus-tag" style="text-align:left">—</p>
+</div>
+<ul class="dim-tiles" id="dim-tiles" aria-label="Deine vier Muster"></ul>
+</div>
+<div class="dim-legend">
+<div class="dim-item"><span class="dim-dot" style="background:var(--mauve)"></span>Deine Antworten · Orientierung, keine Diagnose</div>
+</div>
+<div class="divider"></div>
+<!-- DETAIL-SEKTIONEN – vollständige Auswertung direkt sichtbar -->
+<div class="readable" id="full-result" style="display:none">
+<div class="r-block" id="r-explanation"></div>
+<div class="r-block">
+<p class="r-block-title">Wie das in toxischen Beziehungen aussehen kann</p>
+<ul class="markers-ul" id="r-markers"></ul>
+</div>
+<div class="r-block">
+<p class="r-block-title">Was das Muster auslösen kann</p>
+<p id="r-triggers"></p>
+</div>
+<div class="r-block">
+<p class="r-block-title">Was dir helfen kann</p>
+<ul class="r-steps" id="r-steps"></ul>
+</div>
+<div style="text-align:center;margin-top:20px">
+<button class="btn-ghost" id="btn-restart" type="button">↻ Test wiederholen</button>
+</div>
+</div>
+<!-- Quellen + Disclaimer immer sichtbar -->
+<div class="readable">
+<details class="ub-quellen" style="--c:#c4836e">
+<summary><span class="ub-quellen-icon" aria-hidden="true"></span><span class="ub-quellen-t">Wissenschaftliche Grundlage</span><span class="ub-quellen-n">3 Quellen</span></summary>
+<ul class="sources-ul">
+<li>Bowlby, J. (1969). <em>Attachment and Loss, Vol. 1: Attachment.</em> Basic Books.</li>
+<li>Hazan, C. &amp; Shaver, P. (1987). Romantic love conceptualized as an attachment process. <em>Journal of Personality and Social Psychology, 52</em>(3), 511–524.</li>
+<li>Bartholomew, K. &amp; Horowitz, L. M. (1991). Attachment styles among young adults. <em>Journal of Personality and Social Psychology, 61</em>(2), 226–244.</li>
+</ul>
+<p class="ub-quellen-note">Die Fragen sind an diese Literatur angelehnt, aber kein validierter Test.</p>
+</details>
+<p class="fn-disclaimer ub-hinweis">Dieser Test ersetzt keine professionelle Beratung.<br/>Telefonseelsorge: <strong>0800 111 0 111</strong> · Hilfetelefon Gewalt gegen Frauen: <strong>08000 116 016</strong></p>
+<!-- Reihenfolge 07.11.2026: Quellen, Buch, Weg (Buch setzt unbond-weiter.js vor diese Navigation) -->
+<nav class="ub-weiter" data-weiter="bindung"></nav>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════ -->
+<script>
+/* UNBOND · Bindungsmuster-Test · Aufbau wie Narzissmus-Test · Antworten werden nicht gespeichert */
+(function () {
+"use strict";
+var QS = [
+      {
+        id: 1,
+        category: "Kommunikation & Funkstille",
+        text: "Deine Partnerin antwortet stundenlang unerwartet nicht auf deine Nachricht. Was geschieht in deinem Körper und Kopf?",
+        options: [
+          {
+            type: "anxious",
+            text: "Mein Puls steigt, ich prüfe das Handy alle 2 Minuten und befürchte, etwas falsch gemacht zu haben.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Ich zucke mit den Achseln, lege das Telefon weg und schätze den Freiraum ohne Verpflichtung.",
+            code: "B"
+          },
+          {
+            type: "disorganized",
+            text: "Ich schwanke extrem zwischen Panik vor Ablehnung und plötzlicher kalter Wut, die mich abblocken lässt.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "Ich nehme an, die Person ist beschäftigt. Ich gehe ruhig meinem Tag nach.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 2,
+        category: "Konflikt & Spannungsaufbau",
+        text: "Ein Streit eskaliert und die Stimmung wird emotional kalt und unberechenbar.",
+        options: [
+          {
+            type: "avoidant",
+            text: "Ich schalte emotional komplett ab, mauere und brauche sofort physischen Abstand.",
+            code: "A"
+          },
+          {
+            type: "anxious",
+            text: "Ich kann die Kälte nicht ertragen und flehe fast um Klärung oder gebe klein bei, nur um Harmonie herzustellen.",
+            code: "B"
+          },
+          {
+            type: "disorganized",
+            text: "Ich fühle mich in die Enge getrieben: Einerseits will ich Halt, andererseits möchte ich alles zerstören und fliehen.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "Ich schlage vor, kurz durchzuatmen und das Gespräch respektvoll fortzuführen, sobald die Gemüter abkühlen.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 3,
+        category: "Nähe & Intimität",
+        text: "Jemand zeigt ehrliches, verlässliches Interesse und möchte dir sehr nah kommen.",
+        options: [
+          {
+            type: "secure",
+            text: "Ich fühle mich wohl, lasse Nähe in Ruhe zu und freue mich über echte Verbundenheit.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Ich empfinde es schnell als erdrückend oder einengend und suche unbewusst nach Fehlern bei ihr.",
+            code: "B"
+          },
+          {
+            type: "anxious",
+            text: "Ich sehne mich extrem danach, habe aber sofort Angst, dass die Person mein wahres Ich bald langweilig findet.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Es löst Alarm aus: Nähe fühlt sich gleichzeitig nach dem größten Wunsch und der größten Bedrohung an.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 4,
+        category: "Reaktion auf Kritik",
+        text: "Deine Partnerin kritisiert eine deiner Verhaltensweisen in der Beziehung.",
+        options: [
+          {
+            type: "anxious",
+            text: "Ich fühle mich im Kern entwertet und fürchte unmittelbar das Ende der Beziehung.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Ich reagiere kühl oder gleichgültig: 'Wenn es dir nicht passt, geh doch.'",
+            code: "B"
+          },
+          {
+            type: "secure",
+            text: "Ich höre zu, reflektiere, ob der Punkt gerechtfertigt ist, und setze bei Unfairness klare Grenzen.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Ich breche innerlich zusammen oder werde plötzlich sehr wütend.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 5,
+        category: "Autonomie vs. Verschmelzung",
+        text: "Wie definierst du deine persönlichen Grenzen innerhalb einer Partnerschaft?",
+        options: [
+          {
+            type: "avoidant",
+            text: "Strikte Unabhängigkeit steht über allem. Ich verlasse mich prinzipiell lieber nur auf mich selbst.",
+            code: "A"
+          },
+          {
+            type: "anxious",
+            text: "Ich passe mich oft bis zur Selbstaufgabe an und verliere meine eigenen Bedürfnisse aus dem Fokus.",
+            code: "B"
+          },
+          {
+            type: "secure",
+            text: "Ich kann ein 'Wir' genießen, behalte aber meine eigenen Interessen, Freunde und Werte bei.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Ich habe oft gar kein stabiles Gefühl für eigene Grenzen: Mal opfere ich mich auf, mal stoße ich hart ab.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 6,
+        category: "Nähe nach Kälte",
+        text: "Nach einer Phase von Ignoranz oder Kälte kommt sie plötzlich wieder liebevoll auf dich zu.",
+        options: [
+          {
+            type: "anxious",
+            text: "Ich spüre riesige Erleichterung und vergebe sofort alles, ohne darüber zu sprechen.",
+            code: "A"
+          },
+          {
+            type: "disorganized",
+            text: "Ich sehne die Versöhnung herbei, misstraue ihr aber abgrundtief und warte auf den nächsten Einschlag.",
+            code: "B"
+          },
+          {
+            type: "avoidant",
+            text: "Ich bleibe kühl und lasse mich ungern auf sentimentale Schwankungen ein.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "Die Inkonsistenz irritiert mich. Ich spreche das Muster an, anstatt es als Liebesbeweis zu romantisieren.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 7,
+        category: "Gefühlsausdruck & Verletzlichkeit",
+        text: "Wie leicht fällt es dir, eigene tiefe Ängste und Schwächen vor deiner Partnerin auszusprechen?",
+        options: [
+          {
+            type: "avoidant",
+            text: "Extrem schwer. Verletzlichkeit fühlt sich nach Schwäche und potenziellem Kontrollverlust an.",
+            code: "A"
+          },
+          {
+            type: "secure",
+            text: "Gut möglich, solange eine vertrauensvolle Basis vorhanden ist.",
+            code: "B"
+          },
+          {
+            type: "anxious",
+            text: "Ich teile oft zu schnell sehr viel, in der Hoffnung, dadurch sofortige Verbundenheit zu erzwingen.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Ich öffne mich impulsiv, bereue es Minuten später bitterlich und ziehe eine eiserne Mauer hoch.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 8,
+        category: "Verlustangst & Trennungsfantasien",
+        text: "Welcher Gedanke taucht bei wiederkehrenden Schwierigkeiten als erstes auf?",
+        options: [
+          {
+            type: "anxious",
+            text: "'Wenn sie mich verlässt, bricht meine ganze Welt zusammen.'",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "'Beziehungen sind den Stress nicht wert. Alleine bin ich viel ungestörter.'",
+            code: "B"
+          },
+          {
+            type: "disorganized",
+            text: "'Geh weg, aber verlass mich nicht.' Ein ständiger innerer Kampf zwischen Flucht und Festhalten.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "'Eine Trennung täte weh, aber ich würde es überstehen.'",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 9,
+        category: "Misstrauen & Wachsamkeit",
+        text: "Wie aufmerksam beobachtest du Stimmungswechsel deines Gegenübers?",
+        options: [
+          {
+            type: "anxious",
+            text: "Sehr wachsam: Jedes Seufzen oder kurze Schweigen werte ich als mögliches Alarmsignal gegen mich.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Ich ignoriere Stimmungen weitgehend; Drama anderer Menschen geht mich nichts an.",
+            code: "B"
+          },
+          {
+            type: "disorganized",
+            text: "Ich suche ständig nach Gefahr und rechne jeden Augenblick mit Angriff oder Verlassenwerden.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "Ich bemerke Veränderungen, frage bei Bedarf freundlich nach, beziehe es aber nicht sofort auf mich.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 10,
+        category: "Bedürfnis nach Bestätigung",
+        text: "Wie oft benötigst du Rückversicherung, dass du geliebt wirst?",
+        options: [
+          {
+            type: "anxious",
+            text: "Sehr oft. Bestätigung verfliegt wie Rauch und die Unsicherheit kehrt schnell zurück.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Selten bis gar nicht. Worte bedeuten mir wenig, Taten und Ruhe sind mir wichtiger.",
+            code: "B"
+          },
+          {
+            type: "secure",
+            text: "Regelmäßige Wertschätzung tut gut, aber mein Selbstwert hängt nicht exklusiv davon ab.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Wenn ich Bestätigung bekomme, glaube ich sie nicht; wenn sie fehlt, gerate ich in Verzweiflung.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 11,
+        category: "Streitmuster & Machtbalance",
+        text: "Wenn deine Partnerin sich dir entzieht oder dich tagelang anschweigt:",
+        options: [
+          {
+            type: "anxious",
+            text: "Ich schreibe lange Textnachrichten, rufe mehrfach an und ertrage das Schweigen körperlich kaum.",
+            code: "A"
+          },
+          {
+            type: "avoidant",
+            text: "Ich schneide sie im Gegenzug genauso ab und tue so, als wäre mir alles völlig gleichgültig.",
+            code: "B"
+          },
+          {
+            type: "disorganized",
+            text: "Bei mir geht alles durcheinander: erst bitten, dann Wut, dann völlige Taubheit.",
+            code: "C"
+          },
+          {
+            type: "secure",
+            text: "Ich sage klar, dass mir dieses Schweigen nicht gut tut, und gehe auf Abstand.",
+            code: "D"
+          }
+        ]
+      },
+      {
+        id: 12,
+        category: "Zukunftsperspektive & Hoffnung",
+        text: "Was erhoffst du dir primär von einer guten Beziehung?",
+        options: [
+          {
+            type: "secure",
+            text: "Gegenseitigen Respekt, verlässliche emotionale Sicherheit und gemeinsamen Raum zum Wachsen.",
+            code: "A"
+          },
+          {
+            type: "anxious",
+            text: "Endlich bedingungslos gesehen zu werden und die quälende Angst vor dem Alleinsein zu verlieren.",
+            code: "B"
+          },
+          {
+            type: "avoidant",
+            text: "Dass meine Grenzen respektiert werden und niemand versucht, mich zu verändern oder einzuengen.",
+            code: "C"
+          },
+          {
+            type: "disorganized",
+            text: "Einen Ort der Sicherheit, an dem Nähe nicht mehr automatisch mit Schmerz und Verrat verbunden ist.",
+            code: "D"
+          }
+        ]
+      }
+    ];
+var P = {
+      anxious: {
+        title: "Ängstlich",
+        subtitle: "ANXIOUS-PREOCCUPIED // BINDUNGSSYSTEM IN ALARMBEREITSCHAFT",
+        description: "Bei Distanz schlägt dein Bindungssystem schnell Alarm. Du steckst viel Kraft in die Nähe und spürst Stimmungswechsel früh. In einer Beziehung, in der Nähe und Kälte sich abwechseln, kann dich das besonders fest halten.",
+        toxicManifestations: [
+          { title: "Anpassung bis zur Selbstaufgabe", desc: "Du stellst eigene Werte und Bedürfnisse zurück, damit es ruhig bleibt." },
+          { title: "Festhalten im Wechsel von Nähe und Kälte", desc: "Die Erleichterung nach dem Rückzug fühlt sich an wie große Liebe. Das ist Trauma Bonding: eine Bindung, die durch den Wechsel entsteht." },
+          { title: "Vieles versuchen, um Gewissheit zu bekommen", desc: "Anrufe, lange Nachrichten, Nachprüfen. Das ist ein Versuch, die Ungewissheit zu beenden." }
+        ],
+        triggers: "Unerwartete Funkstille, einsilbige Antworten, Rückzug nach innigen Momenten, vage Zukunftspläne.",
+        actionSteps: [
+          "Atme einmal lang aus, bevor du auf Distanz reagierst.",
+          "Trenne Gefühl und Tatsache: 'Ich habe Angst vor Trennung' heißt nicht 'Ich werde verlassen'.",
+          "Verlässlichkeit ist kein Extra. Du darfst sie erwarten."
+        ]
+      },
+      avoidant: {
+        title: "Vermeidend",
+        subtitle: "DISMISSIVE-AVOIDANT // BINDUNGSSYSTEM AUF ABSTAND",
+        description: "Du hast gelernt, dich vor allem auf dich selbst zu verlassen. Bei zu viel Nähe, Streit oder Erwartungen ziehst du dich zurück. Das schützt dich, kann dich aber auch allein lassen.",
+        toxicManifestations: [
+          { title: "Abschalten im Streit", desc: "Du wirst innerlich still oder gehst aus dem Raum, statt Gefühle zu zeigen." },
+          { title: "Abstand durch kleine Makel", desc: "Du suchst Fehler bei ihr, um dir Nähe vom Leib zu halten." },
+          { title: "Unabhängigkeit als Schutzpanzer", desc: "Sie wirkt wie Stärke, schützt dich aber oft vor erneuter Verletzung." }
+        ],
+        triggers: "Vorwürfe, Forderung nach sofortiger Aussprache, das Gefühl von Einengung oder Bevormundung.",
+        actionSteps: [
+          "Erkenne deinen Rückzug als Schutz. Sag kurz, dass du eine Pause brauchst.",
+          "Teile eine kleine Sorge mit einem Menschen, dem du vertraust.",
+          "Unterscheide: Fühlt sich das eng an, oder ist es wirklich Kontrolle?"
+        ]
+      },
+      disorganized: {
+        title: "Ängstlich-vermeidend",
+        subtitle: "FEARFUL-AVOIDANT // NÄHE UND ANGST ZUGLEICH",
+        description: "Du sehnst dich nach Nähe und erlebst sie zugleich als gefährlich. Das entsteht oft, wenn Nähe und Verletzung zusammenkamen. In einer toxischen Beziehung kann sich das in heftigen Wechseln zeigen.",
+        toxicManifestations: [
+          { title: "Heiß und kalt", desc: "Du suchst Nähe und stößt sie weg, sobald sie dir zu nah kommt." },
+          { title: "Lieber selbst beenden", desc: "Bevor sie dich verletzen kann, ziehst du dich zurück oder brichst den Kontakt ab." },
+          { title: "Taub werden", desc: "Taubheit und heftige Angst können sich abwechseln. Manchmal fühlst du dich wie neben dir." }
+        ],
+        triggers: "Unberechenbares Verhalten, plötzliche Nähe, gefühlter Kontrollverlust, ungleiche Macht.",
+        actionSteps: [
+          "Geh in den Körper: Füße auf den Boden, kaltes Wasser an die Hände.",
+          "Triff keine Beziehungsentscheidung, solange du aufgewühlt bist.",
+          "Hol dir Unterstützung, wenn du das nicht allein tragen willst. Eine Therapie kann dabei helfen."
+        ]
+      },
+      secure: {
+        title: "Sicher",
+        subtitle: "SECURE-AUTONOMOUS // NÄHE UND EIGENSTÄNDIGKEIT",
+        description: "Du kannst Nähe genießen und eigenständig bleiben. Du sprichst Bedürfnisse aus und achtest Grenzen. Auch das schützt nicht immer vor einer toxischen Beziehung.",
+        toxicManifestations: [
+          { title: "Zu lange helfen wollen", desc: "Du glaubst lange, Verständnis und Geduld könnten etwas ändern." },
+          { title: "Zweifel an dir selbst", desc: "Langes Gaslighting, also das Verdrehen deiner Wahrnehmung, kann auch dich unsicher machen." },
+          { title: "Später Absprung", desc: "Weil du gewohnt bist, Probleme zu lösen, bleibst du oft länger, als dir gut tut." }
+        ],
+        triggers: "Wiederholter Vertrauensbruch, keine Bereitschaft zum Gespräch, Verdrehen deiner Wahrnehmung.",
+        actionSteps: [
+          "Bleib bei dem, was du beobachtest. Muster zählen mehr als Versprechen.",
+          "Halte deine Grenzen, auch wenn sie dafür kämpft, dass du nachgibst.",
+          "Pflege Menschen außerhalb der Beziehung."
+        ]
+      }
+    };
+var KEYS = ['anxious','avoidant','disorganized','secure'];
+var LABELS = { anxious:'Ängstlich', avoidant:'Vermeidend', disorganized:'Ängstlich-vermeidend', secure:'Sicher' };
+var TAGS = { anxious:'Bindungssystem in Alarmbereitschaft', avoidant:'Bindungssystem auf Abstand', disorganized:'Nähe und Angst zugleich', secure:'Nähe und Eigenständigkeit' };
+var NOTE = 'Das Muster beschreibt, wie du reagiert hast, oft zu deinem Schutz. Es erklärt nicht, warum dir wehgetan wurde. Das liegt nicht an dir.';
+var ADVANCE_MS = 360;
+var LOAD_MS = 1600;
+var cur = 0;
+var ans = new Array(QS.length).fill(null);
+var rc = null;
+var started = false;
+
+function el(id) { return document.getElementById(id); }
+function track(name) {
+  if (typeof window.__unbondTrack === 'function') window.__unbondTrack(name, { event_category: 'Bindungsmuster' });
+}
+function showScreen(id) {
+  var screens = document.querySelectorAll('.screen');
+  for (var i = 0; i < screens.length; i++) screens[i].classList.remove('active');
+  el(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+/* Live-Vorschau: unveränderte Typ-Zählung wie in paintResult.
+   Übersprungene Fragen bleiben null und werden nicht gezählt. */
+function publishRadar() {
+  var counts = { anxious:0, avoidant:0, disorganized:0, secure:0 };
+  var given = ans.filter(function (a) { return a !== null; });
+  given.forEach(function (type) { counts[type] += 1; });
+  document.dispatchEvent(new CustomEvent('unbond:test-radar', { detail: {
+    kind: 'count', labels: KEYS.map(function (k) { return LABELS[k]; }),
+    values: KEYS.map(function (k) { return given.length ? counts[k] : null; }),
+    answered: given.length, total: QS.length, max: Math.max(1, given.length)
+  }}));
+}
+
+function showQ(idx, focusFirst) {
+  var q = QS[idx];
+  var card = el('q-card');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'fadeUp .22s ease forwards';
+  el('q-block').textContent = q.category;
+  el('q-text').textContent = q.text;
+  el('q-num').textContent = idx + 1;
+  el('q-dim-label').textContent = 'Szenario';
+  el('prog-fill').style.width = ((idx / QS.length) * 100) + '%';
+  el('btn-back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  el('btn-skip').textContent = idx === QS.length - 1 ? 'Zur Auswertung →' : 'Überspringen →';
+  var box = el('likert');
+  box.textContent = '';
+  q.options.forEach(function (opt) {
+    var selected = ans[idx] === opt.type;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'l-btn' + (selected ? ' sel' : '');
+    btn.setAttribute('aria-pressed', String(selected));
+    var n = document.createElement('span');
+    n.className = 'l-n';
+    n.textContent = opt.code;
+    var lbl = document.createElement('span');
+    lbl.className = 'l-lbl';
+    lbl.textContent = opt.text;
+    btn.appendChild(n);
+    btn.appendChild(lbl);
+    btn.addEventListener('click', function () { pick(opt.type, btn); });
+    box.appendChild(btn);
+  });
+  if (focusFirst && box.firstChild) box.firstChild.focus({ preventScroll: true });
+  publishRadar();
+}
+
+function next() {
+  if (cur < QS.length - 1) {
+    cur += 1;
+    showQ(cur, true);
+    return;
+  }
+  var answered = ans.filter(function (a) { return a !== null; }).length;
+  if (!answered) {
+    cur = 0;
+    showQ(0, true);
+    return;
+  }
+  showScreen('screen-load');
+  setTimeout(paintResult, LOAD_MS);
+}
+
+function pick(type, btn) {
+  ans[cur] = type;
+  publishRadar();
+  if (!started) { started = true; track('quiz_start'); }
+  var btns = document.querySelectorAll('#likert .l-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('sel', btns[i] === btn);
+    btns[i].setAttribute('aria-pressed', String(btns[i] === btn));
+  }
+  setTimeout(next, ADVANCE_MS);
+}
+
+function fillList(id, items, render) {
+  var host = el(id);
+  host.textContent = '';
+  items.forEach(function (item) {
+    var li = document.createElement('li');
+    render(li, item);
+    host.appendChild(li);
+  });
+}
+
+function paintResult() {
+  var counts = { anxious:0, avoidant:0, disorganized:0, secure:0 };
+  var given = ans.filter(function (a) { return a !== null; });
+  given.forEach(function (type) { counts[type] += 1; });
+  var max = Math.max.apply(null, KEYS.map(function (k) { return counts[k]; }));
+  var top = KEYS.filter(function (k) { return counts[k] === max; });
+  var prof = P[top[0]];
+
+  el('score-n').textContent = max;
+  el('score-lbl').textContent = 'von ' + given.length;
+  el('cat-badge').textContent = top.length > 1 ? 'Mehrere Muster gleichauf' : 'Dein häufigstes Muster';
+  el('cat-badge').className = 'cat-badge cat-none';
+  el('typus-name').textContent = top.map(function (k) { return LABELS[k]; }).join(' · ');
+  el('typus-tag').textContent = TAGS[top[0]];
+
+  var expl = el('r-explanation');
+  expl.textContent = '';
+  [prof.description, NOTE].forEach(function (text) {
+    var p = document.createElement('p');
+    p.textContent = text;
+    expl.appendChild(p);
+  });
+  fillList('r-markers', prof.toxicManifestations, function (li, item) {
+    var strong = document.createElement('strong');
+    strong.textContent = item.title + ': ';
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(item.desc));
+  });
+  el('r-triggers').textContent = prof.triggers;
+  fillList('r-steps', prof.actionSteps, function (li, step) { li.textContent = step; });
+
+  el('full-result').style.display = 'block';
+  var values = KEYS.map(function (k) { return counts[k]; });
+  renderDimTiles(values, given.length);
+  track('quiz_complete');
+  showScreen('screen-result');
+  /* Radar erst zeichnen, wenn die Ergebnisseite sichtbar ist, sonst misst Chart.js 0 Pixel */
+  drawRadar(values, given.length);
+}
+
+/* Weiter-Navigation kommt seit 07.11.2026 aus unbond-weiter.js */function renderDimTiles(values, total) {
+  var host = el('dim-tiles');
+  host.textContent = '';
+  values.forEach(function (v, i) {
+    var li = document.createElement('li');
+    li.className = 'dim-tile';
+    var name = document.createElement('span');
+    name.className = 'dim-tile-name';
+    name.textContent = LABELS[KEYS[i]];
+    var val = document.createElement('span');
+    val.className = 'dim-tile-val';
+    val.textContent = v + ' von ' + total;
+    var bar = document.createElement('span');
+    bar.className = 'dim-tile-bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    fill.className = 'dim-tile-fill';
+    fill.style.width = Math.round((v / total) * 100) + '%';
+    bar.appendChild(fill);
+    li.appendChild(name);
+    li.appendChild(val);
+    li.appendChild(bar);
+    host.appendChild(li);
+  });
+}
+
+function drawRadar(values, total) {
+  if (typeof Chart === 'undefined') return; /* ohne Chart.js erscheint das Ergebnis trotzdem, nur ohne Diagramm */
+  if (rc) rc.destroy();
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  rc = new Chart(el('radar').getContext('2d'), {
+    type: 'radar',
+    data: {
+      labels: KEYS.map(function (k) { return LABELS[k]; }),
+      datasets: [{
+        label: 'Deine Antworten',
+        data: values,
+        borderColor: '#B4869F',
+        backgroundColor: 'rgba(180,134,159,.16)',
+        pointBackgroundColor: '#B4869F',
+        pointBorderColor: '#131926',
+        pointBorderWidth: 2,
+        pointRadius: 4, pointHoverRadius: 6,
+        borderWidth: 2.5, fill: true
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      scales: { r: {
+        min: 0, max: total, beginAtZero: true,
+        ticks: { display: false, stepSize: 1 },
+        grid: { color: 'rgba(146,154,170,.22)', lineWidth: 1, borderDash: [3, 3] },
+        angleLines: { color: 'rgba(146,154,170,.22)', lineWidth: 1, borderDash: [3, 3] },
+        pointLabels: { color: '#f7f2ea', padding: 6, font: { family: 'Poppins', size: (window.innerWidth < 480 ? 10 : 12), weight: '700' } }
+      }},
+      layout: { padding: { left: 28, right: 28 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(27,34,48,.96)',
+          borderColor: 'rgba(180,134,159,.5)', borderWidth: 1,
+          titleColor: '#f7f2ea', bodyColor: '#c9cfda',
+          padding: 10, displayColors: false,
+          callbacks: { label: function (ctx) { return ctx.raw + ' von ' + total; } }
+        }
+      },
+      animation: reduced ? false : { duration: 750, easing: 'easeOutQuart' }
+    }
+  });
+}
+
+el('btn-back').addEventListener('click', function () {
+  if (cur > 0) { cur -= 1; showQ(cur, true); }
+});
+el('btn-skip').addEventListener('click', next);
+el('btn-restart').addEventListener('click', function () {
+  cur = 0;
+  ans = new Array(QS.length).fill(null);
+  started = false;
+  if (rc) { rc.destroy(); rc = null; }
+  showQ(0);
+  showScreen('screen-q');
+});
+
+showQ(0);
+})();
+</script>
+
+<nav class="ub-zurueck" aria-label="Zurück"><a class="ub-zurueck-link" href="klarheit.html" data-zurueck><span aria-hidden="true">←</span> Zurück</a></nav>
+<footer class="ub-footer">
+<div class="ub-footer-inner">
+<div class="ub-footer-brand">
+<a href="index.html" aria-label="UNBOND Startseite"><img src="assets/logo-wortmarke.webp" width="301" height="114" loading="lazy" alt="UNBOND"></a>
+<p>Selbsthilfe für Frauen, die Frauen lieben.</p>
+<p class="ub-footer-by">von Milena · UNBOND</p>
+</div>
+<nav aria-label="Dein Weg durch UNBOND (Fußzeile)">
+<p class="ub-footer-title">Dein Weg</p>
+<a href="wissen.html">Übersicht</a>
+<a href="klarheit.html">Erkennen · Klarheit</a>
+<a href="no-contact/">Abstand halten · No Contact</a>
+<a href="blog/index.html">Verstehen · Blog</a>
+<a href="tools/index.html">Weitergehen · Tools</a>
+<a href="index.html#angebot">Zum Buch</a>
+</nav>
+<nav aria-label="Rechtliches">
+<p class="ub-footer-title">Rechtliches</p>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<a href="mailto:info@unbond.de">Kontakt</a>
+<button class="ub-footer-link" id="cookieReopen" type="button" aria-controls="cookieBanner" aria-expanded="false">Cookie-Einstellungen</button>
+</nav>
+</div>
+<div class="ub-footer-bottom">
+<p><strong>Kein Ersatz für Therapie.</strong> Bei akuter Krise: <a href="tel:08001110111">Telefonseelsorge 0800 111 0 111</a> · <a href="tel:08000116016">Hilfetelefon Gewalt 08000 116 016</a> · bei Gefahr 110</p>
+<p>© 2026 UNBOND · Breaking Chains</p>
+</div>
+</footer><div hidden="" id="cookieBanner">
+<div class="cookie-inner">
+<div class="cookie-header">
+<p class="cookie-title">Deine Datenschutz-Einstellungen</p>
+<p class="cookie-desc">Notwendige Cookies sind immer aktiv. Für Analyse und Marketing kannst du einzeln entscheiden. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+</div>
+<div class="cookie-categories">
+<label class="cookie-toggle-row"><input checked="" disabled="" type="checkbox"/><span>Notwendig <span class="cookie-toggle-label-muted">(immer aktiv)</span></span></label>
+<label class="cookie-toggle-row"><input id="cookieAnalytics" type="checkbox"/><span>Analyse <span class="cookie-toggle-label-muted">(Google Analytics, Microsoft Clarity)</span></span></label>
+<label class="cookie-toggle-row"><input id="cookieMarketing" type="checkbox"/><span>Marketing <span class="cookie-toggle-label-muted">(Meta / Pinterest)</span></span></label>
+</div>
+<div class="cookie-btns">
+<button class="cookie-accept" id="cookieAcceptAll">Alle akzeptieren</button>
+<button class="cookie-save" id="cookieSaveSelection">Auswahl speichern</button>
+<button class="cookie-decline" id="cookieRejectAll">Nur Notwendige</button>
+</div>
+</div>
+</div>
+
+<script src="script.js?v=20261108"></script>
+<script src="unbond-web.js?v=20261025"></script>
+<script src="unbond-weiter.js?v=20261108" defer></script>
+<script src="unbond-zurueck.js?v=20261106" defer></script>
+</body>
+</html>

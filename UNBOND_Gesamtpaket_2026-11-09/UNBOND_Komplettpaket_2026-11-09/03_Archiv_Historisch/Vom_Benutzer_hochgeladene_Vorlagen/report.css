@@ -1,0 +1,174 @@
+/* UNBOND – persönlicher ToxiCometer-Report. Einfarbig dunkler Hintergrund (kein Bild, kein Video). */
+body.report-page.web-page { background: #0b1019 !important; }
+.report-page [hidden] { display: none !important; }
+.report-page .tox-section { background: transparent; }
+.report-page .tox-section::before { display: none; }
+
+.report-wrap { max-width: 980px; margin: 0 auto; }
+.report-hero { margin: 0 0 28px; }
+.report-hero h1 {
+  margin: 6px 0 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 5.4vw, 3.2rem);
+  line-height: 1.12;
+  color: var(--foreground, #edebe6);
+}
+.report-hero .report-lead-line { margin: 0; color: var(--muted-foreground, #bec4ce); font-size: 1.05rem; }
+
+.report-card {
+  margin: 0 0 22px;
+  padding: 28px;
+  border: 1px solid rgba(180, 190, 205, .2);
+  border-radius: 16px;
+  background: rgba(19, 25, 38, .86);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
+}
+.report-card h2 {
+  margin: 0 0 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 3.2vw, 1.9rem);
+  line-height: 1.2;
+  color: var(--foreground, #edebe6);
+}
+.report-card h3 { margin: 22px 0 10px; font-size: 1.05rem; color: #e7c596; }
+.report-card p { color: rgba(237, 235, 230, .88); line-height: 1.7; }
+.report-card .eyebrow { margin: 0 0 8px; }
+
+/* Ergebnis: Diagramm + Profil */
+.report-result-grid { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 28px; align-items: center; }
+.report-radar-box {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid rgba(210, 166, 59, .28);
+  border-radius: 14px;
+  background: rgba(11, 16, 23, .7);
+}
+.report-radar-box canvas { display: block; margin: 0 auto; }
+.report-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; margin: 8px 0 4px; font-size: .85rem; color: rgba(237, 235, 230, .72); }
+.report-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.report-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.report-legend .sw-user { background: rgba(196, 131, 110, 1); }
+.report-legend .sw-ref { background: rgba(94,149,144, .9); }
+.report-profile-name { margin: 0 0 8px; }
+.report-cats { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.report-cat { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: .92rem; }
+.report-cat-name { color: rgba(237, 235, 230, .92); font-weight: 700; }
+.report-cat-bar { display: block; height: 8px; border-radius: 99px; background: rgba(180, 190, 205, .18); overflow: hidden; }
+.report-cat-fill { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #5e9590, #d2a63b 55%, #c4836e); }
+.report-cat-val { color: rgba(237, 235, 230, .75); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Aktionen: Bild, Link, PDF */
+.report-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.report-btn {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid rgba(210, 166, 59, .55);
+  border-radius: 10px;
+  background: rgba(210, 166, 59, .12);
+  color: #f0d9ac;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.report-btn:hover { background: rgba(210, 166, 59, .22); }
+.report-btn-primary { border-color: transparent; background: linear-gradient(135deg, #7d263f, #7d263f); color: #f7f2ea; }
+.report-btn-primary:hover { background: linear-gradient(135deg, #7d263f, #7d263f); }
+.report-btn:focus-visible, .report-link-field:focus-visible, .report-answers summary:focus-visible { outline: 3px solid #e7c596; outline-offset: 3px; }
+.report-link-field {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(180, 190, 205, .3);
+  border-radius: 8px;
+  background: rgba(11, 16, 23, .8);
+  color: #edebe6;
+  font-size: 16px;
+}
+.report-status { min-height: 1.4em; margin: 10px 0 0; font-size: .92rem; color: #5e9590; }
+.report-hint { margin: 8px 0 0; font-size: .85rem; color: rgba(237, 235, 230, .62); }
+
+/* Profil im Detail */
+.report-lead { font-size: 1.1rem; color: #edebe6; }
+.report-caution { padding: 12px 14px; border-left: 3px solid #d2a63b; background: rgba(210, 166, 59, .08); border-radius: 0 10px 10px 0; font-size: .95rem; }
+.report-list { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: rgba(237, 235, 230, .9); line-height: 1.6; }
+.report-phases { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: phase; }
+.report-phases li { position: relative; padding: 14px 16px 14px 56px; border: 1px solid rgba(180, 190, 205, .18); border-radius: 12px; background: rgba(11, 16, 23, .45); counter-increment: phase; }
+.report-phases li::before {
+  content: counter(phase);
+  position: absolute; left: 14px; top: 14px;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(210, 166, 59, .18); color: #e7c596; font-weight: 800; font-size: .9rem;
+}
+.report-phases strong { display: block; margin-bottom: 4px; color: #e7c596; }
+.report-phases span { display: block; color: rgba(237, 235, 230, .88); line-height: 1.6; }
+.report-note, .report-safety, .report-takeaway { margin: 20px 0 0; padding: 16px 18px; border-radius: 0 12px 12px 0; }
+.report-note { border-left: 4px solid #c4836e; background: rgba(196, 131, 110, .09); }
+.report-note h3, .report-safety h3 { margin-top: 0; }
+.report-safety { border: 1px solid rgba(196, 131, 110, .6); border-left-width: 4px; background: rgba(163, 59, 59, .13); }
+.report-safety a { color: #f0d9ac; font-weight: 700; }
+.report-takeaway { border-left: 4px solid #5e9590; background: rgba(94,149,144, .1); }
+.report-takeaway-text { margin: 0; font-size: 1.08rem; color: #edebe6; }
+
+/* 30-Tage-Plan */
+.report-plan { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.report-plan-week { padding: 16px 18px; border: 1px solid rgba(180, 190, 205, .18); border-radius: 12px; background: rgba(11, 16, 23, .45); }
+.report-plan-week h3 { margin: 0 0 8px; }
+.report-plan-week ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: rgba(237, 235, 230, .9); line-height: 1.55; }
+
+/* Antworten */
+.report-answers summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; color: #e7c596; }
+.report-answers ol { list-style: none; margin: 12px 0 0; padding: 0; }
+.report-answer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; padding: 12px 0; border-top: 1px solid rgba(180, 190, 205, .15); }
+.report-answer-cat { grid-column: 1 / -1; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: #5e9590; }
+.report-answer-q { color: rgba(237, 235, 230, .9); line-height: 1.55; }
+.report-answer-score { font-weight: 800; color: #d2a63b; white-space: nowrap; }
+
+/* Heilungskompass (Hauptschritt) */
+.kompass-funnel { margin: 0 0 22px; padding: 34px 28px; border-radius: 16px; background: rgba(27, 34, 48, .88); border: 1px solid rgba(210, 166, 59, .3); text-align: center; position: relative; overflow: hidden; box-shadow: 0 22px 50px rgba(0, 0, 0, .32); }
+.kompass-funnel::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at top, rgba(210, 166, 59, .12), transparent 60%); pointer-events: none; }
+.kompass-funnel .eyebrow { color: #5e9590; position: relative; }
+.kompass-funnel h2 { position: relative; margin: 0 0 12px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.6rem, 3.6vw, 2.2rem); line-height: 1.2; color: var(--foreground, #edebe6); }
+.kompass-funnel .k-sub { position: relative; max-width: 580px; margin: 0 auto 20px; color: rgba(247, 242, 234, .82); line-height: 1.65; }
+.kompass-funnel .k-phases { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0 0 24px; }
+.kompass-funnel .k-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; font-size: .8rem; font-weight: 700; background: rgba(15, 20, 45, .42); border: 1px solid rgba(210, 166, 59, .3); color: rgba(247, 242, 234, .88); }
+.kompass-funnel .k-pill.p1 { border-color: #c4836e; color: #e7b39f; }
+.kompass-funnel .k-pill.p2 { border-color: #5e9590; color: #5e9590; }
+.kompass-funnel .k-pill.p3 { border-color: #d2a63b; color: #e7c596; }
+.kompass-funnel .k-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; gap: 10px; padding: 14px 30px; border-radius: 10px; background: linear-gradient(135deg, #7d263f, #7d263f); color: #f7f2ea; font-weight: 800; text-decoration: none; box-shadow: 0 14px 35px rgba(0, 0, 0, .32); }
+.kompass-funnel .k-btn:hover { background: linear-gradient(135deg, #7d263f, #7d263f); }
+.kompass-funnel .k-btn:focus-visible { outline: 3px solid #e7c596; outline-offset: 3px; }
+.kompass-funnel .k-note { position: relative; display: block; margin-top: 12px; font-size: .8rem; color: rgba(247, 242, 234, .65); }
+
+.report-book { text-align: center; }
+.report-book .btn { margin-top: 6px; }
+.report-restart { text-align: center; margin: 26px 0 8px; }
+.report-restart .report-hint { margin-top: 8px; }
+.report-empty { text-align: center; }
+.report-empty .btn { margin-top: 10px; }
+
+@media (max-width: 760px) {
+  .report-card { padding: 20px 16px; }
+  .report-result-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .report-cat { grid-template-columns: minmax(0, 1fr) auto; row-gap: 6px; }
+  .report-cat-bar { grid-column: 1 / -1; grid-row: 2; }
+  .report-btn { flex: 1 1 100%; }
+  .report-plan { grid-template-columns: minmax(0, 1fr); }
+  .report-phases li { padding-left: 52px; }
+  .kompass-funnel { padding: 26px 16px; }
+  .kompass-funnel .k-btn { width: 100%; }
+}
+
+@media print {
+  body.report-page.web-page { background: #fff !important; color: #111 !important; }
+  .report-page .trust-bar, .report-page .topnav, .report-page .footer, .report-page .unbond-footer,
+  #cookieBanner, #cookieReopen, .skip-link, .report-actions, .report-link-field, .report-status,
+  .report-hint, .kompass-funnel .k-btn, .funnel-bridge-section, .report-book, .report-restart, .report-empty { display: none !important; }
+  .report-card, .kompass-funnel { background: #fff !important; border: 1px solid #bbb !important; box-shadow: none !important; break-inside: avoid; }
+  .report-card *, .kompass-funnel *, .report-hero * { color: #111 !important; }
+  .report-radar-box { background: #0b1019 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .report-phases li, .report-plan-week, .report-note, .report-takeaway { background: #fff !important; }
+  .report-cat-fill { background: #888 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { text-decoration: underline; }
+}

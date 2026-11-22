@@ -1,0 +1,205 @@
+/* UNBOND · Klarheit · Zwei v0-Richtungen · Nur der Inhaltsbereich. */
+html body.nt-skin #tests {
+  --k-surface: #0d0d0d;
+  --k-surface-2: #161616;
+  --k-line: #343434;
+  --k-line-soft: #222222;
+  --k-text: #e8e8e8;
+  --k-text-2: #a3a3a3;
+  --k-text-3: #8a8a8a;
+  --k-accent: #b4869f;
+  padding: 72px 0;
+  color: var(--k-text);
+  background: #000;
+  font-size: 17px;
+  line-height: 1.6;
+}
+html body.nt-skin #tests .k-container { width: calc(100% - 48px); max-width: 1120px; margin: 0 auto; }
+html body.nt-skin #tests :is(.k-container, .k-arrival, .k-intro, .k-finder, .k-card, .k-card-body, .k-list-copy, .k-summary-copy) { min-width: 0; }
+html body.nt-skin #tests :is(p, h1, h2, h3) { text-wrap: pretty; }
+html body.nt-skin #tests :is(.k-trust, .k-finder ul, .k-test-list, .k-accordion) { list-style: none; padding: 0; margin: 0; }
+html body.nt-skin #tests :is(.k-trust, .k-finder ul, .k-test-list, .k-accordion) > li { padding: 0; margin: 0; }
+html body.nt-skin #tests :is(.k-trust, .k-finder ul, .k-test-list, .k-accordion) > li::before { content: none !important; }
+html body.nt-skin #tests .k-label { display: block; margin: 0; color: var(--k-accent); font-size: .72rem; font-weight: 700; letter-spacing: .14em; line-height: 1.6; text-transform: uppercase; }
+html body.nt-skin #tests .k-eyebrow { max-width: 50ch; margin-bottom: 24px; }
+html body.nt-skin #tests .k-title { max-width: 16ch; margin: 0; color: var(--k-text); font-size: clamp(2.3rem, 6.4vw, 4.4rem); font-weight: 400; line-height: 1.04; letter-spacing: -.015em; text-transform: none; overflow-wrap: normal; }
+html body.nt-skin #tests .k-core { margin: 24px 0; color: var(--k-accent); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.35; font-weight: 400; }
+html body.nt-skin #tests .k-lead { max-width: 58ch; margin: 0; color: var(--k-text-2); font-size: 1.05rem; line-height: 1.6; }
+html body.nt-skin #tests .k-trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 24px; }
+html body.nt-skin #tests .k-trust li { display: flex; align-items: center; gap: 6px; color: var(--k-text-3); font-size: .72rem; line-height: 1.6; }
+html body.nt-skin #tests .k-trust svg { color: #5e9590; }
+html body.nt-skin #tests svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+html body.nt-skin #tests .k-arrival { display: grid; grid-template-columns: 1.06fr 1fr; gap: 72px; align-items: start; margin-bottom: 48px; }
+html body.nt-skin #tests .k-finder { padding: 24px; border: 1px solid var(--k-line); border-radius: 8px; background: var(--k-surface); }
+html body.nt-skin #tests :is(.k-finder h2, .k-all-heading h2, .k-reading-heading h2) { margin: 12px 0; color: var(--k-text); font-size: clamp(1.6rem, 2.8vw, 2.25rem); font-weight: 500; line-height: 1.15; }
+html body.nt-skin #tests :is(.k-finder-note, .k-rec-note) { color: var(--k-text-2); font-size: .92rem; line-height: 1.6; margin: 0 0 24px; }
+html body.nt-skin #tests .k-finder ul { display: grid; gap: 8px; }
+html body.nt-skin #tests .k-question { display: grid; grid-template-columns: 26px 1fr 18px; gap: 12px; align-items: center; width: 100%; min-height: 56px; padding: 12px; color: var(--k-text); background: #000; border: 1px solid var(--k-line); border-radius: 4px; font-size: .95rem; line-height: 1.4; text-decoration: none; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+html body.nt-skin #tests .k-number { color: var(--k-accent); font-size: .84rem; font-weight: 600; letter-spacing: .065em; }
+html body.nt-skin #tests .k-question.is-selected { border-color: var(--k-accent); background: var(--k-surface-2); }
+html body.nt-skin #tests .k-question:hover { background: #7d263f; border-color: #7d263f; color: #fff; }
+html body.nt-skin #tests .k-question:hover .k-number { color: #fff; }
+html body.nt-skin #tests .k-all { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-top: 16px; color: var(--k-text-2); font-size: .84rem; text-decoration: underline; text-underline-offset: 5px; border-radius: 4px; }
+html body.nt-skin #tests .k-all:hover { color: #fff; }
+html body.nt-skin #tests :is(a, button, summary):focus-visible { outline: 2px solid #fff !important; outline-offset: 4px !important; }
+html body.nt-skin #tests :is(a, summary) { scroll-margin-top: 220px; }
+/* Native Sicherheits- und Literaturhinweise: Inhalte unverändert; passende neue Flächen. */
+html body.nt-skin:not(#s1):not(#s2):not(#s3) #tests .test-disclaimer { max-width: none !important; margin: 0 0 32px !important; border: 1px solid var(--k-line) !important; border-radius: 8px !important; background: var(--k-surface) !important; box-shadow: none !important; }
+html body.nt-skin #tests .test-disclaimer summary { display: flex; gap: 12px; align-items: center; min-height: 56px; padding: 16px 24px; color: var(--k-text); cursor: pointer; list-style: none; font-size: .9rem; line-height: 1.5; }
+html body.nt-skin #tests .test-disclaimer summary::-webkit-details-marker { display: none; }
+html body.nt-skin #tests .test-disclaimer summary::after { content: '+'; margin-left: auto; color: #d2a63b; font-size: 22px; }
+html body.nt-skin #tests .test-disclaimer[open] summary::after { content: '−'; }
+html body.nt-skin #tests .test-disclaimer ul { padding: 0 24px 24px 48px; margin: 0; }
+html body.nt-skin #tests .test-disclaimer li { color: var(--k-text-2); font-size: .92rem; line-height: 1.6; }
+html body.nt-skin #tests .td-icon { flex: 0 0 20px; font-size: 16px; }
+html body.nt-skin #tests .k-recommendation { margin: 32px 0 0; }
+html body.nt-skin #tests .k-rec-heading { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; margin-bottom: 16px; }
+html body.nt-skin #tests .k-rec-note { max-width: 62ch; font-size: .84rem; margin: 0; }
+html body.nt-skin #tests .k-card { position: relative; isolation: isolate; overflow: hidden; border: 1px solid var(--k-line); border-radius: 8px; background: var(--k-surface); box-shadow: none; transition: border-color .25s ease, background-color .25s ease; }
+html body.nt-skin #tests .k-card::before { content: ''; position: absolute; inset: 0; z-index: -2; background: var(--tile-img) right 35% center / cover no-repeat; opacity: .36; filter: grayscale(1); transition: opacity .25s ease; }
+html body.nt-skin #tests .k-card::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#0d0d0d 0%,#0d0d0d 42%,rgba(13,13,13,.88) 61%,rgba(13,13,13,.2) 100%); }
+html body.nt-skin #tests .k-card:hover::before { opacity: .52; }
+html body.nt-skin #tests .k-card--featured { border-color: var(--k-accent); min-height: 380px; }
+html body.nt-skin #tests .k-card--featured::before { left: 54%; background-position: center; }
+html body.nt-skin #tests .k-card-body { padding: 24px; max-width: 66%; }
+html body.nt-skin #tests .k-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 20px; }
+html body.nt-skin #tests .k-flag { display: inline-block; padding: 3px 8px; background: var(--k-surface-2); color: var(--k-text); border: 1px solid var(--k-line); border-radius: 4px; font-size: .65rem; line-height: 1.6; font-weight: 700; letter-spacing: .065em; text-transform: uppercase; }
+html body.nt-skin #tests .k-test-title { margin: 0 0 12px; color: var(--k-text); font-size: clamp(1.6rem, 2.8vw, 2.25rem); font-weight: 500; line-height: 1.15; overflow-wrap: anywhere; }
+html body.nt-skin #tests .k-meta { display: block; color: var(--k-text-3); font-size: .72rem; line-height: 1.6; margin-bottom: 16px; }
+html body.nt-skin #tests .k-description { color: var(--k-text-2); font-size: 17px; line-height: 1.6; margin: 0; }
+html body.nt-skin #tests .k-after { color: var(--k-text); font-size: .92rem; line-height: 1.6; margin: 20px 0 0; }
+html body.nt-skin #tests .k-after .k-label { margin-bottom: 4px; color: var(--k-text-3); font-size: .65rem; }
+html body.nt-skin #tests .k-start { display: inline-flex; justify-content: center; align-items: center; gap: 24px; min-height: 44px; margin-top: 24px; padding: 12px 18px; border: 1px solid #7d263f; border-radius: 4px; background: #7d263f; color: var(--k-text); font-size: .78rem; font-weight: 700; line-height: 1.5; letter-spacing: .065em; text-decoration: none; text-transform: uppercase; transition: background-color .18s ease, color .18s ease; }
+html body.nt-skin #tests .k-start:hover { background: #7d263f; color: #fff; }
+html body.nt-skin #tests .k-start:active { background: #7d263f; color: #fff; }
+html body.nt-skin #tests .k-announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+html body.nt-skin #tests .k-all-heading { margin: 72px 0 24px; scroll-margin-top: 210px; }
+html body.nt-skin #tests .k-all-heading p:last-child { margin: 0; color: var(--k-text-2); font-size: .92rem; }
+html body.nt-skin #tests .k-test-list { display: grid; gap: 16px; }
+html body.nt-skin #tests .k-list-item { scroll-margin-top: 210px; }
+html body.nt-skin #tests .k-card--compact { display: grid; grid-template-columns: 32px 1fr 188px; gap: 24px; padding: 24px; }
+html body.nt-skin #tests .k-card--compact::before { left: 58%; background-position: center; }
+html body.nt-skin #tests .k-card--compact::after { background: linear-gradient(90deg,#0d0d0d 0%,#0d0d0d 55%,rgba(13,13,13,.95) 80%,rgba(13,13,13,.9) 100%); }
+html body.nt-skin #tests .k-list-question { margin: 0 0 8px; color: var(--k-accent); font-size: .9rem; }
+html body.nt-skin #tests .k-card--compact .k-test-title { font-size: clamp(1.6rem, 2.8vw, 2.25rem); }
+html body.nt-skin #tests .k-card--compact .k-description { font-size: .95rem; }
+html body.nt-skin #tests .k-list-action { align-self: center; }
+html body.nt-skin #tests .k-list-action .k-meta { margin: 0; }
+html body.nt-skin #tests .k-list-action .k-start { gap: 12px; margin-top: 16px; width: 100%; }
+html body.nt-skin #tests .k-card--compact .k-after { font-size: .84rem; color: var(--k-text-3); margin-top: 12px; }
+html body.nt-skin #tests .k-list-item.is-selected .k-card { border-color: var(--k-accent); }
+html body.nt-skin #tests .k-support { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 72px; }
+html body.nt-skin #tests :is(.k-how, .k-soon) { padding: 24px; border: 1px solid var(--k-line); border-radius: 8px; background: var(--k-surface); }
+html body.nt-skin #tests .k-how summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; color: var(--k-text); font-size: 1.25rem; font-weight: 600; cursor: pointer; list-style: none; }
+html body.nt-skin #tests .k-how summary::-webkit-details-marker { display: none; }
+html body.nt-skin #tests .k-how summary > span { color: var(--k-accent); font-size: 24px; }
+html body.nt-skin #tests .k-how[open] summary > span { font-size: 0; }
+html body.nt-skin #tests .k-how[open] summary > span::after { content: '−'; font-size: 24px; }
+html body.nt-skin #tests .kb-steps { margin: 24px 0 0; padding: 0 0 0 24px; display: grid; gap: 12px; }
+html body.nt-skin #tests .kb-steps li { display: list-item; list-style: decimal; padding: 0; font-size: .95rem; line-height: 1.6; color: var(--k-text-2); }
+html body.nt-skin #tests .kb-steps li::before { content: none !important; }
+html body.nt-skin #tests .kb-steps li::marker { color: var(--k-accent); }
+html body.nt-skin #tests .k-soon { border-style: dashed; }
+html body.nt-skin #tests .k-soon h2 { color: var(--k-text); font-size: clamp(1.6rem, 2.8vw, 2.25rem); font-weight: 500; line-height: 1.15; margin: 12px 0; }
+html body.nt-skin #tests .k-soon p { color: var(--k-text-2); font-size: .92rem; margin: 0; }
+html body.nt-skin #tests .info-section { max-width: none; margin: 16px 0 0; }
+html body.nt-skin #tests .info-grid { display: block; max-width: none; }
+html body.nt-skin:not(#s1):not(#s2):not(#s3) #tests .lit-details { border: 1px solid var(--k-line) !important; border-radius: 8px !important; padding: 0 !important; background: var(--k-surface) !important; box-shadow: none !important; }
+html body.nt-skin #tests .lit-details summary { display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 24px; cursor: pointer; list-style: none; }
+html body.nt-skin #tests .lit-details summary::-webkit-details-marker { display: none; }
+html body.nt-skin #tests .lit-details summary h2 { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+html body.nt-skin #tests .lit-hint { margin-left: auto; color: var(--k-text-3); font-size: .72rem; }
+html body.nt-skin #tests .lit-details summary::after { content: '+'; color: var(--k-accent); font-size: 24px; }
+html body.nt-skin #tests .lit-details[open] summary::after { content: '−'; }
+html body.nt-skin #tests .lit-details :is(.lit-list, .lit-note) { margin: 0 24px 24px; }
+html body.nt-skin #tests .lit-list li { color: var(--k-text-2); font-size: .84rem; }
+html body.nt-skin #tests .lit-list em { color: var(--k-text-2); }
+html body.nt-skin #tests .lit-note { color: var(--k-text-3); font-size: .84rem; }
+html body.nt-skin #tests .k-footnote { margin: 32px 0 0; color: var(--k-text-3); font-size: .72rem; text-align: center; }
+/* B · Leseraum: ruhiger Textanker und echte, native Frage-Akkordeons. */
+html body.nt-skin #tests.k-direction-b .k-arrival { grid-template-columns: 1.3fr 1fr; gap: 96px; }
+html body.nt-skin #tests .k-pause { border-top: 1px solid var(--k-line); padding-top: 24px; margin-top: 82px; }
+html body.nt-skin #tests .k-pause-text { font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--k-accent); font-weight: 400; line-height: 1.35; margin: 24px 0; }
+html body.nt-skin #tests .k-pause > p:last-child { font-size: .92rem; color: var(--k-text-2); max-width: 34ch; margin: 0; }
+html body.nt-skin #tests .k-reading { margin-top: 72px; }
+html body.nt-skin #tests .k-reading-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+html body.nt-skin #tests .k-reading-heading .k-all { flex: 0 0 auto; margin-bottom: 12px; }
+html body.nt-skin #tests .k-accordion { display: grid; gap: 16px; }
+html body.nt-skin #tests .k-accordion-item { scroll-margin-top: 210px; }
+html body.nt-skin #tests .k-test-detail { border: 1px solid var(--k-line); border-radius: 8px; background: var(--k-surface); overflow: visible; transition: border-color .25s ease; }
+html body.nt-skin #tests .k-test-detail[open] { border-color: var(--k-accent); }
+html body.nt-skin #tests .k-test-detail > summary { display: grid; grid-template-columns: 32px 1fr 24px; gap: 24px; align-items: center; min-height: 100px; padding: 24px; cursor: pointer; list-style: none; border-radius: 4px; transition: background-color .18s ease, color .18s ease; }
+html body.nt-skin #tests .k-test-detail > summary::-webkit-details-marker { display: none; }
+html body.nt-skin #tests .k-test-detail > summary:hover { background: #7d263f; color: #fff; }
+html body.nt-skin #tests .k-test-detail > summary:hover :is(.k-number, .k-summary-question, .k-summary-name, .k-expand) { color: #fff; }
+html body.nt-skin #tests .k-summary-question { display: block; font-size: clamp(1.25rem, 2.2vw, 1.65rem); font-weight: 500; line-height: 1.35; color: var(--k-text); }
+html body.nt-skin #tests .k-summary-name { display: block; margin-top: 8px; color: var(--k-text-3); font-size: .72rem; line-height: 1.6; }
+html body.nt-skin #tests .k-expand { color: var(--k-accent); font-size: 26px; line-height: 1; font-weight: 400; }
+html body.nt-skin #tests .k-expand::before { content: '+'; }
+html body.nt-skin #tests .k-test-detail[open] .k-expand::before { content: '−'; }
+html body.nt-skin #tests .k-detail-content { position: relative; isolation: isolate; overflow: hidden; border-top: 1px solid var(--k-line-soft); border-radius: 0 0 8px 8px; }
+html body.nt-skin #tests .k-detail-content::before { content: ''; position: absolute; z-index: -2; inset: 0 0 0 58%; background: var(--tile-img) center / cover no-repeat; opacity: .36; filter: grayscale(1); transition: opacity .25s ease; }
+html body.nt-skin #tests .k-detail-content::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#0d0d0d 0%,#0d0d0d 52%,rgba(13,13,13,.8) 75%,rgba(13,13,13,.2) 100%); }
+html body.nt-skin #tests .k-test-detail:hover .k-detail-content::before { opacity: .52; }
+html body.nt-skin #tests .k-detail-content .k-card-body { max-width: 68%; padding: 24px 24px 24px 80px; }
+html body.nt-skin #tests .k-detail-content .k-card-top { margin-bottom: 12px; }
+html body.nt-skin #tests .k-detail-content .k-test-title { display: none; }
+html body.nt-skin #tests .k-detail-content .k-meta { display: none; }
+html body.nt-skin #tests .k-detail-content .k-card-top > .k-label { display: none; }
+html body.nt-skin #tests .k-detail-content .k-card-top:has(:only-child) { display: none; }
+@media (max-width: 960px) {
+  html body.nt-skin #tests .k-arrival, html body.nt-skin #tests.k-direction-b .k-arrival { grid-template-columns: 1fr; gap: 32px; }
+  html body.nt-skin #tests .k-pause { margin-top: 0; padding-top: 24px; }
+  html body.nt-skin #tests .k-pause-text br { display: none; }
+  html body.nt-skin #tests .k-pause-text { margin: 12px 0; }
+  html body.nt-skin #tests .k-card-body { max-width: 72%; }
+  html body.nt-skin #tests .k-card--compact { grid-template-columns: 24px 1fr; gap: 16px; }
+  html body.nt-skin #tests .k-list-action { grid-column: 2; display: flex; align-items: center; gap: 24px; }
+  html body.nt-skin #tests .k-list-action .k-start { width: auto; margin: 0; }
+  html body.nt-skin #tests .k-rec-heading { display: block; }
+  html body.nt-skin #tests .k-rec-note { margin-top: 8px; }
+}
+@media (max-width: 600px) {
+  html body.nt-skin #tests { padding: 48px 0; }
+  html body.nt-skin #tests .k-container { width: calc(100% - 32px); }
+  html body.nt-skin #tests .k-eyebrow { margin-bottom: 20px; }
+  html body.nt-skin #tests .k-core { margin: 20px 0; }
+  html body.nt-skin #tests .k-arrival { margin-bottom: 32px; }
+  html body.nt-skin #tests .k-finder { padding: 24px; }
+  html body.nt-skin #tests .k-finder h2 { font-size: 1.6rem; }
+  html body.nt-skin #tests .k-question { grid-template-columns: 22px 1fr 18px; gap: 8px; padding: 12px; }
+  html body.nt-skin #tests .k-finder-note { margin-bottom: 20px; }
+  html body.nt-skin #tests .test-disclaimer summary { padding: 16px; }
+  html body.nt-skin #tests .test-disclaimer ul { padding: 0 16px 24px 36px; }
+  html body.nt-skin #tests .k-card--featured { min-height: 0; }
+  html body.nt-skin #tests .k-card-body { max-width: none; }
+  html body.nt-skin #tests .k-card--featured::before { left: 0; }
+  html body.nt-skin #tests .k-card--featured::after { background: linear-gradient(180deg,rgba(13,13,13,.82),rgba(13,13,13,.98)); }
+  html body.nt-skin #tests .k-card--compact { padding: 24px; }
+  html body.nt-skin #tests .k-card--compact .k-test-title { font-size: 1.6rem; }
+  html body.nt-skin #tests .k-list-action { display: block; }
+  html body.nt-skin #tests .k-list-action .k-start { width: 100%; margin-top: 12px; }
+  html body.nt-skin #tests .k-card--compact .k-after { display: none; }
+  html body.nt-skin #tests .k-support { grid-template-columns: 1fr; }
+  html body.nt-skin #tests .k-how summary { font-size: 1.1rem; }
+  html body.nt-skin #tests .k-reading { margin-top: 48px; }
+  html body.nt-skin #tests .k-reading-heading { display: block; }
+  html body.nt-skin #tests .k-reading-heading .k-all { margin: 0 0 12px; }
+  html body.nt-skin #tests .k-test-detail > summary { grid-template-columns: 24px 1fr 20px; gap: 12px; padding: 24px; }
+  html body.nt-skin #tests .k-detail-content .k-card-body { max-width: none; padding: 24px; }
+  html body.nt-skin #tests .k-detail-content::before { left: 0; }
+  html body.nt-skin #tests .k-detail-content::after { background: linear-gradient(180deg,rgba(13,13,13,.86),rgba(13,13,13,.98)); }
+  html body.nt-skin #tests .lit-details summary { padding: 24px; }
+  html body.nt-skin #tests .lit-hint { display: none; }
+  html body.nt-skin #tests .lit-details summary::after { margin-left: auto; }
+  html body.nt-skin #tests .k-start { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.nt-skin #tests, html body.nt-skin #tests *, html body.nt-skin #tests *::before, html body.nt-skin #tests *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* v0-Feinschliff aus der ersten Browserprüfung. */
+html body.nt-skin #tests.k-direction-b .k-title { text-wrap: balance; }
+@media (max-width: 600px) {
+  html body.nt-skin #tests .k-finder { padding: 0; border: 0; background: transparent; }
+}

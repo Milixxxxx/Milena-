@@ -1,0 +1,42 @@
+UNBOND – GESAMTPAKET ZUR SICHERUNG UND DURCHSICHT
+Stand: 9. November 2026
+
+WAS WO LIEGT
+
+1. public html
+   Die zusammengestellte lokale Fassung der Website: aktuelle Startseite, Klarheit, Selbsttests mit Live-Diagrammen, ToxiCometer-Ergebnis, Report, Illustrationen und Icons sowie die vorhandenen CSS-, JS-, Schrift-, Video- und übrigen Mediendateien aus dem ursprünglichen Komplettpaket. Die freiwillige Einladung zur Begleitserie ist auf der Reportseite vorbereitet. Der Report selbst bleibt ohne E-Mail zugänglich.
+
+2. 01_Brevo_Mails
+   Die fünf neuesten Begleitmails als einzelne HTML-Dateien, Betreff- und Zeitplan, Anleitungen sowie die HTML-Bestätigungsmail. Unter Brevo_Originalsicherung liegen zusätzlich die am 09.11. aus dem Konto gelesenen fünf Vorlagen und die fünf Workflow-Kopien. Die Begleitunterlagen gehören NICHT auf den Webserver.
+
+3. 02_Dokumentation
+   Der aktuelle Status, offene Prüfpunkte und erklärende Unterlagen. Ebenfalls nicht auf den Webserver hochladen.
+
+4. 03_Archiv_Historisch
+   Alte hochgeladene Vorlagen, Entwürfe und vorherige Vergleichsdateien zur Sicherung. Sie sind nicht die aktuelle Website und gehören nicht auf den Webserver.
+
+5. 04_Vorschaubilder
+   Bildschirmaufnahmen zum schnellen Durchsehen. Nicht auf den Webserver hochladen.
+
+WICHTIG: DIESES PAKET IST NOCH KEIN VOLLSTÄNDIGES HOSTINGER-BACKUP
+
+Es bündelt den neuesten HIER VORLIEGENDEN lokalen Arbeitsstand. Es ist keine Sicherung des aktuellen Hostinger-Webverzeichnisses und keine vollständige Sicherung des Brevo-Kontos. Dort können zusätzliche oder neuere Dateien, Einstellungen, Kontakte und Nachweise liegen, die in diesem Paket nicht enthalten sind.
+
+Konkret fehlt die serverseitige Datei funnel_send_to_brevo.php. Die No-Contact-Seite verweist darauf. Auf www.unbond.de antwortete die Adresse am 09.11.2026 auf eine reine GET-Abfrage mit „Nur POST-Anfragen sind erlaubt“ (HTTP 405). Das zeigt, dass ein Endpunkt antwortet; ob er eine Anmeldung korrekt verarbeitet, wurde nicht getestet. Der PHP-Quelltext und etwaige Geheimnisse gehören nicht zu den gelieferten Projektdateien und sind hier NICHT gesichert. Bei einem späteren Hostinger-Backup und Update muss diese Datei deshalb ausdrücklich erhalten und geprüft werden.
+
+Die Website und Brevo wurden mit diesem Sicherungspaket nicht verändert oder veröffentlicht. Brevo-Automation 9 war nach dem letzten dokumentierten Stand weiterhin inaktiv. Die fünf Vorlagen und Bestätigungsmail sichern den HTML-Inhalt, NICHT den kompletten Brevo-Workflow, Kontakte, Zustimmungsnachweise oder sämtliche Kontoeinstellungen.
+
+VOR EINER SPÄTEREN VERÖFFENTLICHUNG
+
+- Noch nicht blind über die bestehende Website kopieren: Zuerst das tatsächliche Hostinger-Webverzeichnis vollständig sichern und mit diesem Paket abgleichen. Der öffentliche Stand unterschied sich bei der letzten Prüfung von diesem Projekt; gemeinsame Dateien und andere Seiten dürfen nicht ungeprüft ersetzt oder gelöscht werden.
+- Der Paketordner heißt auf deinen Wunsch „public html“. Der entsprechende Ordner bei Hostinger heißt üblicherweise „public_html“ mit Unterstrich. Nach einer späteren Freigabe werden die INHALTE von „public html“ in das richtige Webverzeichnis übertragen – nicht ein zusätzlicher Unterordner namens „public html“ erzeugt. Daten in anderen Paketordnern bleiben privat.
+- Die Tools-Warteliste auf wissen.html ist noch nicht mit einer Liste verbunden; die vorhandene Eingabe meldet „noch nicht freigeschaltet“. Sie ist getrennt von der Brevo-Begleitserie auf dem Report.
+- Das Reportformular nutzt Brevo. Datenschutztext, Einwilligung, Abmeldeverhalten und den echten Automationsablauf vor Aktivierung prüfen. Die Serie ist keine pauschale Zustimmung zu beliebiger späterer Werbung.
+- Drei von dir wiederhergestellte Zahlen auf den Kartenrückseiten sind als nicht verifizierte Arbeitszahlen gekennzeichnet. Bitte ihre Quellen prüfen, bevor sie öffentlich als Tatsachen genutzt werden.
+- Im lokalen Seitenstand steht die von dir bestätigte Angebotsfrist 31.12.2026. Die öffentliche Leseprobe und den Checkout vor Veröffentlichung bzw. Versand auf dieselbe Frist prüfen.
+
+Details und Prüfergebnisse: 02_Dokumentation/AKTUELLER_STAND_UND_PRUEFPUNKTE.md.
+
+ZUM ANSEHEN
+
+HTML-Dateien in einem lokalen Webserver oder in einer geschützten Testumgebung öffnen, damit relative Pfade und lokale Speicherung wie vorgesehen funktionieren. Nicht jede Funktion ist ohne Internet verfügbar: Das optionale Brevo-Formular, Karten, manche Bilder in E-Mails und weitere Dienste werden extern geladen. Eine echte Formularanmeldung oder einen Versand nur bewusst und mit eigener Testadresse ausführen.

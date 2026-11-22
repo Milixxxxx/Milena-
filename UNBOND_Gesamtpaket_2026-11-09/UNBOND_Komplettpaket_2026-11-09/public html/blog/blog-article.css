@@ -1,0 +1,55 @@
+/* UNBOND Blog – gemeinsame Ergänzungen für alle Artikel (nach unbond-shell.css und unbond-consent.css einbinden).
+   Einfarbig dunkler Hintergrund, Text-Links, Fokus, Weiterlesen-Block. */
+body { background: #0b1019 !important; }
+body::before, body::after { content: none !important; display: none !important; }
+
+/* Links im Fließtext erkennbar (nicht nur durch Farbe) */
+.article-body p a, .article-body li a { color: var(--gold, #d2a63b); text-decoration: underline; text-underline-offset: 3px; }
+.article-body p a:hover, .article-body li a:hover { color: #e7c596; }
+
+/* Selbstcheck-Kasten: Überschrift im Kasten ohne zusätzlichen Abstand */
+.article-body .intext-cta h3 { margin: 0 0 8px; font-size: 1.02rem; line-height: 1.4; color: var(--foreground, #edebe6); }
+.article-body .intext-cta p { margin-bottom: 14px; }
+
+/* Fokus für Selbstcheck und Angebot (von blog-funnel.js eingefügt) */
+.intext-cta a:focus-visible, .article-cta a:focus-visible, .article-related a:focus-visible, .btn-pdf:focus-visible {
+  outline: 3px solid #e7c596; outline-offset: 3px;
+}
+.intext-cta a, .article-cta a { min-height: 44px; }
+
+/* Weiterlesen */
+.article-related {
+  margin: 0 0 28px;
+  padding: 28px 32px;
+  background: rgba(27, 34, 48, .72);
+  border: 1px solid rgba(210, 166, 59, .2);
+  border-radius: 16px;
+}
+.article-related h2 {
+  margin: 0 0 6px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--foreground, #edebe6);
+}
+.article-related .rel-lead { margin: 0 0 16px; font-size: .9rem; color: rgba(247, 242, 234, .68); }
+.article-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.article-related a {
+  display: block;
+  min-height: 48px;
+  padding: 14px 18px;
+  border: 1px solid rgba(210, 166, 59, .28);
+  border-radius: 10px;
+  background: rgba(11, 16, 23, .45);
+  color: var(--foreground, #edebe6);
+  text-decoration: none;
+}
+.article-related a:hover { border-color: var(--gold, #d2a63b); background: rgba(210, 166, 59, .08); }
+.article-related .rel-title { display: block; font-weight: 700; line-height: 1.35; }
+.article-related .rel-desc { display: block; margin-top: 2px; font-size: .85rem; color: rgba(247, 242, 234, .65); line-height: 1.5; }
+
+@media (max-width: 640px) {
+  .article-related { padding: 22px 18px; }
+}
+@media print {
+  .article-related { display: none !important; }
+}

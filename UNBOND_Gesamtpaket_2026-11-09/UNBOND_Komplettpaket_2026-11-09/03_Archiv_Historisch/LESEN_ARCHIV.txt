@@ -1,0 +1,5 @@
+ARCHIV – NICHT DIE AKTUELLE WEBSITE
+
+Hier liegen ältere hochgeladene Eingaben, alte Report- und Mailvorlagen, Entwürfe, Vorher-Versionen und Belege aus dem ursprünglichen Projektpaket. Diese Dateien dienen ausschließlich als Sicherung und Vergleich und gehören nicht auf den Webserver.
+
+Die aktuellen Webdateien befinden sich im Ordner „public html“, die aktuelle Mailserie unter „01_Brevo_Mails“. Dokumente in diesem Archiv geben frühere Zwischenstände wieder; Aussagen zu offenen Entscheidungen, Brevo-Status, fehlenden Dateien und Upload-Anleitungen können veraltet sein. Einzelne Archiv-HTMLs sind nicht als eigenständige Website eingerichtet und benötigen die Ressourcen des jeweiligen alten Projektkontexts.

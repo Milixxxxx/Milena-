@@ -1,0 +1,176 @@
+/* UNBOND · Live-Radar-Erweiterung · 08.11.2026
+   Nur body[data-test-radar], keine Shell-/Consent-/Ergebnisregeln. */
+body[data-test-radar] {
+  --test-radar-top: 88px;
+  --test-radar-clearance: 88px;
+  /* hidden auf einer Achse erzeugt einen Scroll-Vorfahren für Sticky.
+     clip begrenzt horizontal, ohne den Dokument-Scroll zu übernehmen. */
+  overflow-x: clip !important;
+}
+body[data-test-radar] .test-radar-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+body[data-test-radar] .test-radar-flow { min-width: 0; }
+body[data-test-radar] .test-radar-flow .q-stage { grid-template-columns: minmax(0, 1fr); }
+body[data-test-radar] .test-radar-sticky {
+  position: sticky;
+  top: var(--test-radar-top);
+  align-self: start;
+  min-width: 0;
+  z-index: 20;
+}
+body[data-test-radar] .test-radar-card {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid #343434;
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: #e8e8e8;
+  font-family: Poppins, sans-serif;
+  box-shadow: none;
+}
+body[data-test-radar] .test-radar-title {
+  margin: 0 0 6px;
+  color: #e8e8e8;
+  font: 500 15px/1.4 Poppins, sans-serif;
+  letter-spacing: 0;
+}
+body[data-test-radar] .test-radar-status {
+  margin: 0;
+  color: #a3a3a3;
+  font: 400 13px/1.5 Poppins, sans-serif;
+  text-wrap: pretty;
+}
+body[data-test-radar] .test-radar-status[hidden] { display: none !important; }
+body[data-test-radar] .test-radar-plot {
+  width: 100%;
+  height: 250px;
+  margin-top: 8px;
+  min-width: 0;
+}
+body[data-test-radar] .test-radar-plot canvas { display: block; width: 100%; height: 100%; }
+body[data-test-radar] .test-radar-values {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+body[data-test-radar] .test-radar-values li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #a3a3a3;
+  font: 400 12px/1.5 Poppins, sans-serif;
+}
+body[data-test-radar] .test-radar-values strong { color: #e8e8e8; font-weight: 500; text-align: right; }
+body[data-test-radar] .test-radar-mobile-key { display: none; }
+body[data-test-radar] .test-radar-note {
+  margin: 10px 0 0;
+  color: #8a8a8a;
+  font: 400 12px/1.5 Poppins, sans-serif;
+}
+body[data-test-radar] .test-radar-flow :is(button, [tabindex]),
+body[data-test-radar] .tox-grid :is(button, [tabindex]) {
+  scroll-margin-top: var(--test-radar-clearance);
+  scroll-margin-bottom: 24px;
+}
+/* Toxi: bestehendes Canvas + bestehende Berechnung unverändert nutzen. */
+body[data-test-radar="toxikometer"] #toxikometer { overflow: visible !important; }
+body[data-test-radar="toxikometer"] .tox-grid { overflow: visible; }
+body[data-test-radar="toxikometer"] .radar-card .test-radar-status { margin-top: 12px; }
+body[data-test-radar="toxikometer"] .radar-card.radar-bump,
+body[data-test-radar="toxikometer"] .radar-card.radar-bump .radar-score-num { animation: none !important; }
+body[data-test-radar="toxikometer"] #toxikometer.is-done .test-radar-sticky { position: static; }
+@media (min-width: 851px) {
+  body[data-test-radar="toxikometer"] .tox-grid { min-height: var(--test-radar-row-height, 0px); }
+  body[data-test-radar="toxikometer"] .test-radar-desktop-fixed {
+    position: fixed;
+    top: var(--test-radar-top);
+    left: var(--test-radar-left);
+    width: var(--test-radar-width);
+  }
+}
+@media (min-width: 881px) {
+  /* Die bestehende Fade-Einblendung darf keinen Fixed-Containing-Block bilden. */
+  body[data-test-radar] #screen-q { animation: none !important; transform: none !important; }
+  body[data-test-radar] .test-radar-layout { min-height: var(--test-radar-row-height, 0px); }
+  body[data-test-radar] .test-radar-desktop-fixed {
+    position: fixed;
+    top: var(--test-radar-top);
+    left: var(--test-radar-left);
+    width: var(--test-radar-width);
+  }
+}
+
+@media (max-width: 880px) {
+  body[data-test-radar] .test-radar-layout { display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
+  body[data-test-radar] .test-radar-layout > .test-radar-sticky { order: -1; align-self: stretch; }
+  body[data-test-radar] .test-radar-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 45%);
+    gap: 4px 10px;
+    align-items: center;
+    padding: 10px 12px;
+  }
+  body[data-test-radar] .test-radar-copy { min-width: 0; }
+  body[data-test-radar] .test-radar-title { font-size: 13px; }
+  body[data-test-radar] .test-radar-status { font-size: 12px; line-height: 1.45; }
+  body[data-test-radar] .test-radar-plot { height: 142px; margin: 0; }
+  body[data-test-radar] .test-radar-mobile-key {
+    display: block;
+    margin: 6px 0 0;
+    color: #a3a3a3;
+    font: 400 11px/1.45 Poppins, sans-serif;
+    text-wrap: pretty;
+  }
+  /* Vollständiges textliches Datenäquivalent bleibt für Screenreader erhalten. */
+  body[data-test-radar] .test-radar-values,
+  body[data-test-radar] .test-radar-note {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+@media (max-width: 850px) {
+  body[data-test-radar="toxikometer"] .tox-grid { display: flex; flex-direction: column; align-items: stretch; }
+  body[data-test-radar="toxikometer"] .tox-grid > .test-radar-sticky { order: -1; align-self: stretch; }
+  body[data-test-radar="toxikometer"] .radar-card.glass {
+    grid-template-columns: minmax(0, min(200px, 58%)) minmax(0, 1fr);
+    padding: 8px 10px !important;
+  }
+  body[data-test-radar="toxikometer"] .radar-card canvas {
+    grid-row: 1 / span 4;
+    width: 100% !important;
+    height: auto !important;
+  }
+  body[data-test-radar="toxikometer"] .radar-card .radar-score {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px 6px;
+  }
+  body[data-test-radar="toxikometer"] .radar-card .radar-score-label { font-size: 10px !important; letter-spacing: 0 !important; }
+  body[data-test-radar="toxikometer"] .radar-card #tox-total { font-size: 22px; }
+  body[data-test-radar="toxikometer"] .radar-card .radar-profile:empty { display: none; }
+  body[data-test-radar="toxikometer"] .radar-card .test-radar-status { grid-column: 2; margin-top: 4px; font-size: 11px; }
+}
+/* Passt die Karte nicht in das verbleibende Sichtfenster, bleibt sie im Fluss.
+   Bei überdecktem Tastaturfokus schaltet JS nur Sticky aus, ohne zu scrollen. */
+body[data-test-radar] .test-radar-sticky.test-radar-in-flow { position: static !important; }
+@media (prefers-reduced-motion: reduce) {
+  body[data-test-radar] .test-radar-card,
+  body[data-test-radar] .test-radar-plot { animation: none !important; transition: none !important; }
+}
+@media print {
+  body[data-test-radar] .test-radar-sticky { position: static !important; }
+}

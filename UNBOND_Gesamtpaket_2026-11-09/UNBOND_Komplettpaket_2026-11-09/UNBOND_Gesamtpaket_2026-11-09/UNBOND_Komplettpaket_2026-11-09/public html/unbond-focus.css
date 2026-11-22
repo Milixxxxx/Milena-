@@ -1,0 +1,57 @@
+/* UNBOND focus layer: Hero-Breite, gleiche Zitatkarten, #angebot, #start. Lädt nach unbond-unified.css. */
+:root { --uf-gold:#d2a63b; --uf-bord:#7d263f; --uf-line:rgba(226,232,228,.16); --uf-panel:rgba(8,13,20,.88); }
+
+/* Hero: etwas breiter, Gesicht rechts bleibt frei */
+html body .hero-inner { width:min(660px,calc(100% - 40px)) !important; max-width:660px !important; }
+@media (max-width:760px){ html body .hero-inner { width:calc(100% - 30px) !important; max-width:none !important; } }
+
+/* Zitatkarten: identische Maße */
+
+/* #angebot: Leistungsraster links, ein Kaufpanel rechts */
+html body[data-page] #angebot .price strong { font-size:clamp(3rem,5vw,4rem) !important; line-height:.9; color:#f1f3f0; letter-spacing:-.04em; }
+html body #angebot .price-secondary { align-self:flex-start; margin-top:16px; }
+
+@media (max-width:860px){
+  html body #angebot .price-secondary { align-self:center; }
+}
+
+/* #start: linksbündiger Abschluss, Text links, Kauf rechts */
+html body #start .final-inner {
+  display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+  grid-template-areas:"label action" "title action" "text action" "text note";
+  column-gap:clamp(32px,6vw,80px); row-gap:12px; align-items:start; text-align:left;
+  padding:clamp(28px,5vw,56px) 0 !important; border-top:1px solid var(--uf-line);
+}
+html body #start .final-inner > .product-label { grid-area:label; margin:0; }
+html body #start .final-inner > h2 { grid-area:title; margin:0; }
+html body #start .final-inner > p:not(.product-label):not(.checkout-note) { grid-area:text; margin:8px 0 0; max-width:36em; text-align:left; }
+html body #start .final-inner > .core-cta { grid-area:action; align-self:end; justify-self:stretch; width:100% !important; justify-content:center; padding:18px 24px !important; }
+html body #start .final-inner > .checkout-note { grid-area:note; margin:0; padding-top:12px; border-top:1px solid var(--uf-line); text-align:left; font-family:"Space Mono",monospace !important; font-size:.7rem; letter-spacing:.03em; }
+@media (max-width:760px){
+  html body #start .final-inner { grid-template-columns:minmax(0,1fr); grid-template-areas:"label" "title" "text" "action" "note"; }
+  html body #start .final-inner > .core-cta { align-self:start; margin-top:12px; }
+}
+
+/* Finale, gezielt stärkere Regeln gegen die globale Alt-Kaskade. */
+html body #start .final-inner > .core-cta {
+  background:#7d263f !important;
+  border:1px solid #7d263f !important;
+  color:#fff !important;
+  min-height:60px !important;
+  border-radius:5px !important;
+}
+html body #start .final-inner > .core-cta:hover { background:#7d263f !important; }
+html body #start .core-cta [data-price] { color:#fff !important; }
+html body #start .final-inner {
+  padding:clamp(28px,4vw,48px) !important;
+  background:rgba(8,13,20,.82) !important;
+  border:1px solid var(--uf-line) !important;
+  border-top:2px solid #5e9590 !important;
+  border-radius:8px !important;
+  overflow:visible !important;
+}
+html body[data-page] #start #final-title,
+html body[data-page] #start #final-title * {
+  font-size:clamp(2.1rem,3.5vw,3rem) !important;
+  line-height:1.16 !important;
+}

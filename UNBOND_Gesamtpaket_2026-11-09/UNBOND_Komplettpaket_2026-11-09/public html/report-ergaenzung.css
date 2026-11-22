@@ -1,0 +1,37 @@
+/* UNBOND · lokale Reportkorrektur, gemeinsame Seitengestaltung unverändert. */
+html body.nt-skin.report-page #report :is(h1,h2,h3,p,li) { text-align: right !important; }
+html body.nt-skin.report-page #report .eyebrow { justify-content: flex-end; }
+html body.nt-skin.report-page #report :is(.report-hero,.report-lead-line,.report-empty) { text-align: right; }
+html body.nt-skin.report-page #report :is(.report-actions,.report-endbar,.ub-buch-actions) { justify-content: flex-end; }
+html body.nt-skin.report-page #report :is(.ub-buch h2,.ub-buch-text,.report-profile-hint,.report-lead-line) { margin-left: auto; }
+html body.nt-skin.report-page #report .ub-weiter-head { text-align: right; }
+html body.nt-skin.report-page #report .ub-weiter-head p { margin-left: auto; margin-right: 0; }
+html body.nt-skin.report-page #report .ub-weiter-card { align-items: flex-end; border-radius: 8px; }
+html body.nt-skin.report-page #report .ub-weiter-go { justify-content: flex-end; width: 100%; }
+html body.nt-skin.report-page #report :is(.ub-weiter-points li,.report-legend) { justify-content: flex-end; }
+html body.nt-skin.report-page #report .report-profile-hint:empty { display: none; }
+html body.nt-skin.report-page #report .report-long-profile { margin-top: 24px; }
+html body.nt-skin.report-page #report .report-long-profile h2 { margin-top: 8px; }
+html body.nt-skin.report-page #report .report-long-profile h3 { margin: 28px 0 12px; font-size: 1.2rem; }
+html body.nt-skin.report-page #report .report-long-profile p { line-height: 1.65; }
+html body.nt-skin.report-page #report .report-long-context { color: #a3a3a3; font-size: .95rem; }
+html body.nt-skin.report-page #report .report-long-signs { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+html body.nt-skin.report-page #report .report-long-signs li { padding: 14px 16px; border: 1px solid #343434; border-radius: 4px; background: #000; line-height: 1.6; }
+html body.nt-skin.report-page #report .report-long-phases { margin-top: 24px; padding-top: 12px; border-top: 1px solid #343434; }
+html body.nt-skin.report-page #report .report-long-phases summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-weight: 500; }
+html body.nt-skin.report-page #report .report-long-phase-list { list-style: none; display: grid; gap: 18px; margin: 8px 0 0; padding: 0; }
+html body.nt-skin.report-page #report .report-long-phase-list li { border-top: 1px solid #222; padding-top: 12px; }
+html body.nt-skin.report-page #report .report-long-phase-list h3 { margin-top: 0; }
+html body.nt-skin.report-page #report .report-print-title { display: none; }
+html body.nt-skin.report-page #report :is(a,button,summary):focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+@media print {
+  html body.nt-skin.report-page #report .report-area-panel[hidden] { display: block !important; margin-top: 20px; }
+  html body.nt-skin.report-page #report .report-print-title { display: block !important; }
+  html body.nt-skin.report-page #report #report-areas-list [role="tablist"],
+  html body.nt-skin.report-page #report :is(.ub-buch,.ub-weiter) { display: none !important; }
+  html body.nt-skin.report-page #report .report-book { display: block !important; }
+  html body.nt-skin.report-page #report :is(.report-cliff,.report-cliff-where,.report-long-phases > summary) { display: none !important; }
+  html body.nt-skin.report-page #report .report-long-profile { break-inside: auto; }
+  html body.nt-skin.report-page #report .report-long-signs li,
+  html body.nt-skin.report-page #report .report-long-phase-list li { break-inside: avoid; }
+}

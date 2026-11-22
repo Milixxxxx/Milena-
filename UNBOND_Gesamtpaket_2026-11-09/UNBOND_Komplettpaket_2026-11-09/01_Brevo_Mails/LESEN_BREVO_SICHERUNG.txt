@@ -1,0 +1,12 @@
+BREVO-MAILS – WAS IST WAS?
+Stand: 9. November 2026
+
+UNBOND_Begleitserie_01.html bis _05.html sind die übersichtlichen lokalen HTML-Fassungen der fünf aktuellen Mails, mit „Hallo du,“ und der zuletzt überarbeiteten Formulierung und Hoverfarbe. BETREFFE_UND_ABSTAENDE.md enthält Betreffzeilen, Vorschautexte und die Zeitfolge. ANLEITUNG_BREVO.md und HINWEISE_KORREKTUR.md erläutern Details und die noch offenen Tests.
+
+UNBOND_Bestaetigung_Double_Opt_In_43.html wurde am 9.11.2026 schreibgeschützt aus der tatsächlich vorhandenen Bestätigungsvorlage #43 in Brevo gelesen. Der Inhalt ist unverändert, einschließlich {{ doubleoptin }}. Betreff: Bitte bestätige deine UNBOND-Begleitserie. Absender: Milena von UNBOND <milena@unbond.de>. Vorschautext: Ein Klick – dann kann es losgehen.
+
+Brevo_Originalsicherung/Vorlagen enthält die am 9.11.2026 aus Brevo ausgelesenen HTML-Inhalte der separaten Vorlagen #29–33. Brevo_Originalsicherung/Workflow enthält die tatsächlich für Workflow 9 genutzten HTML-Inhalte #34, #35, #36, #41 und #42. Diese Kopien sind zusätzlich zur leichter lesbaren lokalen Fassung gesichert, weil Brevo HTML teils anders formatiert. Sichtbare Mailtexte und Links stimmen nach Vergleich überein.
+
+Dies ist eine Sicherung des Mail-HTMLs und ein dokumentierter Einrichtungsstand – kein Export des ganzen Kontos, der Kontaktlisten, Einwilligungsnachweise oder Automationskonfiguration. Alle Dateien in diesem Ordner bleiben außerhalb des Website-Webverzeichnisses.
+
+Der Workflow war nach dem letzten dokumentierten Stand inaktiv. Eine frühere Testserie wurde zugestellt; nach der letzten Text-/Hoverkorrektur wurde nur Mail 1 erneut versendet und Mails 2–5 nicht erneut. Der Testversand ersetzt keine Prüfung der echten Wartezeiten und des Abmeldeschutzes.

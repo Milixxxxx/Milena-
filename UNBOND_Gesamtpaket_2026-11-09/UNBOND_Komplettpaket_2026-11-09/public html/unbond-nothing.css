@@ -1,0 +1,219 @@
+/* UNBOND · Nothing-Design für Unterseiten (OLED-Schwarz)
+   Eigenständig: braucht weder style.css noch unbond-shell.css. Gilt nur für <body class="nt">.
+   Die Landingpage (index.html) nutzt diese Datei NICHT.
+   Schriften: Space Grotesk (Text) + Space Mono (Beschriftung). Lokal ablegen unter fonts/:
+     space-grotesk-regular.woff2, space-grotesk-500.woff2, space-mono-regular.woff2, space-mono-700.woff2
+   Solange die Dateien fehlen, greifen die Systemschriften (kein Abruf bei Google). */
+
+@font-face { font-family: "Space Grotesk"; font-weight: 400; font-style: normal; font-display: swap; src: local("Space Grotesk"), url("fonts/SpaceGrotesk-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 500; font-style: normal; font-display: swap; src: local("Space Grotesk Medium"), url("fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Space Mono"; font-weight: 400; font-style: normal; font-display: swap; src: local("Space Mono"), url("fonts/SpaceMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Space Mono"; font-weight: 700; font-style: normal; font-display: swap; src: local("Space Mono Bold"), url("fonts/SpaceMono-Bold.ttf") format("truetype"); }
+
+:root {
+  --nt-black: #000;
+  --nt-surface: #0d0d0d;
+  --nt-line: #343434;
+  --nt-line-soft: #222;
+  --nt-text: #e8e8e8;
+  --nt-text2: #a3a3a3;
+  --nt-text3: #8a8a8a;
+  --nt-red: #7d263f;
+  --nt-red-hover: #7d263f;
+  --nt-gold: #d2a63b;
+  --nt-sans: "Space Grotesk", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --nt-mono: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --nt-w: 1120px;
+  --nt-nav-h: 72px;
+}
+
+body.nt {
+  margin: 0;
+  background: var(--nt-black);
+  color: var(--nt-text);
+  font-family: var(--nt-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body.nt *, body.nt *::before, body.nt *::after { box-sizing: border-box; }
+body.nt a { color: inherit; }
+body.nt :focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.nt .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.nt-skip { position: absolute; left: -9999px; top: 8px; z-index: 100; padding: 10px 14px; background: #fff; color: #000; font-family: var(--nt-mono); font-size: .75rem; text-transform: uppercase; text-decoration: none; }
+.nt-skip:focus { left: 8px; }
+.nt-wrap { width: min(100% - 48px, var(--nt-w)); margin-inline: auto; }
+.nt-label { font-family: var(--nt-mono); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--nt-text2); }
+
+/* ── Krisenleiste (Tertiär, ganz oben) ── */
+.nt-trust { background: var(--nt-black); border-bottom: 1px solid var(--nt-line-soft); font-family: var(--nt-mono); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; color: var(--nt-text2); }
+.nt-trust-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; min-height: 38px; padding-block: 6px; }
+.nt-trust a { display: inline-flex; align-items: center; min-height: 24px; color: var(--nt-text); font-weight: 700; text-decoration: none; }
+.nt-trust a:hover { text-decoration: underline; }
+.nt-sep { color: var(--nt-line); }
+
+/* ── Kopfzeile: schwarzes Instrumentenpanel mit Punktraster ── */
+.topnav { position: sticky; top: 0; z-index: 50; background: var(--nt-black); border-bottom: 1px solid var(--nt-line); }
+.topnav::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: min(32vw, 360px); background-image: radial-gradient(circle, #333 1px, transparent 1px); background-size: 16px 16px; opacity: .55; pointer-events: none; }
+.nav-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--nt-nav-h); }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--nt-text); font-family: var(--nt-sans); font-size: .9rem; font-weight: 500; letter-spacing: .12em; text-decoration: none; }
+.brand img { width: 44px; height: 44px; padding: 2px; object-fit: contain; border: 1px solid var(--nt-line); border-radius: 50%; }
+.brand-dot { color: #e8e8e8; }
+
+.desktop-nav { display: flex; align-items: center; gap: 4px; }
+.desktop-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; color: var(--nt-text2); font-family: var(--nt-mono); font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; transition: color .18s ease; }
+.desktop-nav a:hover, .desktop-nav a[aria-current="page"] { color: #fff; }
+
+/* ── Knöpfe: eckig, getönt, bordeauxrote Linie; Hover bordeaux gefüllt ── */
+.nt-btn, .topnav a.cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 48px; padding: 11px 18px;
+  border: 1px solid var(--nt-red); border-radius: 4px;
+  background: rgba(125, 38, 63, .13); color: var(--nt-text);
+  font-family: var(--nt-mono); font-size: .78rem; font-weight: 700; letter-spacing: .065em; line-height: 1.25;
+  text-align: center; text-decoration: none; text-transform: uppercase; cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.nt-btn:hover, .topnav a.cta:hover { background: var(--nt-red); border-color: var(--nt-red-hover); color: #fff; }
+.nt-btn--lg { min-height: 54px; padding: 14px 24px; font-size: .84rem; }
+.topnav .desktop-nav a.cta { min-height: 44px; margin-left: 8px; padding: 0 16px; color: var(--nt-text); }
+.topnav .desktop-nav a.cta:hover { color: #fff; }
+
+/* ── Mobiles Menü (script.js schaltet die Klasse .show) ── */
+.menu-btn { display: none; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--nt-line); border-radius: 4px; background: var(--nt-black); color: var(--nt-text); font-family: var(--nt-mono); font-size: 1.2rem; cursor: pointer; }
+.menu-btn:hover { border-color: var(--nt-red); }
+.mobile-panel { display: none; position: absolute; left: 0; right: 0; top: 100%; padding: 8px 16px 20px; background: var(--nt-black); border-bottom: 1px solid var(--nt-line); }
+.mobile-panel.show { display: grid; }
+.mobile-panel a { display: flex; align-items: center; min-height: 52px; padding: 0 4px; border-bottom: 1px solid var(--nt-line-soft); color: var(--nt-text2); font-family: var(--nt-mono); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; }
+.mobile-panel a[aria-current="page"] { color: #fff; }
+.mobile-panel a.cta { margin-top: 16px; border: 1px solid var(--nt-red); border-radius: 4px; justify-content: center; background: rgba(125, 38, 63, .13); color: var(--nt-text); }
+@media (max-width: 1020px) {
+  .desktop-nav { display: none; }
+  .menu-btn { display: inline-flex; }
+}
+
+/* ── Hero: Primär = große Überschrift, Sekundär = Text, Tertiär = Beschriftung ── */
+.nt-hero { padding: clamp(56px, 10vw, 112px) 0 clamp(40px, 6vw, 72px); }
+.nt-hero h1 { max-width: 16ch; margin: 18px 0 22px; font-family: var(--nt-sans); font-size: clamp(2.3rem, 6.4vw, 4.4rem); font-weight: 400; line-height: 1.04; letter-spacing: -.015em; color: var(--nt-text); }
+.nt-hero h1 em { display: block; margin-top: .25em; font-style: normal; color: var(--nt-text2); }
+.nt-lead { max-width: 58ch; margin: 0; color: var(--nt-text2); font-size: 1.05rem; }
+
+/* ── Drei Wege (Kacheln) ── */
+.nt-tiles { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.nt-tile { display: flex; flex-direction: column; gap: 14px; height: 100%; min-height: 340px; padding: 24px; border: 1px solid var(--nt-line); border-radius: 8px; background: var(--nt-surface); color: var(--nt-text); text-decoration: none; transition: border-color .18s ease; }
+.nt-tile:hover { border-color: var(--nt-red-hover); }
+.nt-tile--lead { border-color: var(--nt-red); }
+.nt-tile-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--nt-mono); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--nt-text3); }
+.nt-tile-top .nt-flag { color: var(--nt-text); }
+.nt-tile h2 { margin: 8px 0 0; font-family: var(--nt-sans); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 500; line-height: 1.15; color: var(--nt-text); }
+.nt-tile p { margin: 0; color: var(--nt-text2); font-size: .98rem; }
+.nt-tags { display: grid; gap: 2px; margin: 4px 0 0; padding: 0; list-style: none; font-family: var(--nt-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--nt-text2); }
+.nt-tags > span::before { content: "› "; color: #e8e8e8; }
+.nt-label + .nt-tiles { margin-top: 16px; }
+.nt-tile-go { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .5em; min-height: 44px; padding: 10px 16px; border: 1px solid var(--nt-red); border-radius: 4px; background: rgba(125, 38, 63, .13); color: var(--nt-text); font-family: var(--nt-mono); font-size: .74rem; font-weight: 700; letter-spacing: .065em; text-transform: uppercase; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+.nt-tile:hover .nt-tile-go { background: var(--nt-red); border-color: var(--nt-red-hover); color: #fff; }
+@media (max-width: 900px) {
+  .nt-tiles { grid-template-columns: minmax(0, 1fr); }
+  .nt-tile { min-height: 0; }
+}
+
+/* ── Buch: ein ruhiger Abschluss ── */
+.nt-book { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 32px; margin-top: clamp(64px, 9vw, 112px); padding-top: 32px; border-top: 1px solid var(--nt-line-soft); }
+.nt-book-copy { max-width: 52ch; }
+.nt-book-copy p { margin: 10px 0 0; color: var(--nt-text); font-size: 1.1rem; }
+.nt-book-meta { flex-basis: 100%; margin: 0; font-family: var(--nt-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--nt-text3); }
+.nt-note { margin: 40px 0 0; max-width: 62ch; font-family: var(--nt-mono); font-size: .72rem; letter-spacing: .04em; color: var(--nt-text3); }
+
+/* ── Footer: nur Rechtliches ── */
+.nt-footer { margin-top: clamp(72px, 10vw, 120px); padding: 28px 0 40px; border-top: 1px solid var(--nt-line); }
+.nt-footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.nt-footer-links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.nt-footer-links a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--nt-mono); font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; color: var(--nt-text2); }
+.nt-footer-links a:hover { color: #fff; }
+.nt-footer-note { flex-basis: 100%; margin: 0; font-size: .85rem; color: var(--nt-text3); }
+.nt-copy { margin: 0; font-family: var(--nt-mono); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; color: var(--nt-text3); }
+
+/* ── Hintergrundvideo (nur wissen.html): fest hinter allem, stark abgedunkelt ── */
+.nt-bgvideo { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--nt-black); pointer-events: none; }
+.nt-bgvideo video { width: 100%; height: 100%; object-fit: cover; opacity: .38; }
+.nt-bgvideo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.8) 100%); }
+html:has(.nt-bgvideo) { background: var(--nt-black); }
+body.nt:has(.nt-bgvideo) { background: transparent; }
+@media (prefers-reduced-motion: reduce) { .nt-bgvideo video { display: none; } }
+
+/* ── Cookie-Knopf im Nothing-Stil (Banner selbst bleibt unbond-consent.css) ── */
+html body.nt #cookieReopen { border-radius: 4px !important; border-color: var(--nt-red) !important; background: var(--nt-black) !important; box-shadow: none !important; }
+
+@media (max-width: 640px) {
+  .nt-wrap { width: min(100% - 32px, var(--nt-w)); }
+  .nt-hide-s { display: none; }
+  .nt-trust { font-size: .66rem; }
+  .nav-inner { min-height: 64px; gap: 12px; }
+  .nt-btn--lg { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.nt * { transition: none !important; }
+}
+
+/* Wissen: vier Bereiche, Tools gesperrt (31.10.2026) */
+.nt-tiles.nt-tiles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nt-tile--locked { border-style: dashed; cursor: default; }
+.nt-tile--locked:hover { border-color: #343434; }
+.nt-tile--locked h2, .nt-tile--locked p { color: var(--nt-text2); }
+.nt-tile-state { margin-top: auto; align-self: flex-start; font-family: var(--nt-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--nt-text2); }
+.nt-phases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 16px 0 0; list-style: none; }
+.nt-phase { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px; border: 1px dashed #343434; border-radius: 8px; background: #0d0d0d; }
+.nt-phase-num { font-family: var(--nt-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--nt-gold); }
+.nt-phase h2 { margin: 0; font-family: var(--nt-sans); font-size: 1.15rem; font-weight: 500; color: var(--nt-text); }
+.nt-phase p { margin: 0; color: var(--nt-text2); font-size: .95rem; }
+@media (max-width: 760px) { .nt-tiles.nt-tiles--4, .nt-phases { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Wortmarke als Logo oben links (05.11.2026) ──
+   Füllt die Kopfzeile (72 px) fast ganz aus. Die :not(#w…)-Teile schlagen ältere Regeln für .brand img. */
+html body .topnav .brand:not(#w1):not(#w2):not(#w3) { gap: 0 !important; padding: 0 !important; }
+html body .topnav .brand img.ub-wortmarke:not(#w1):not(#w2):not(#w3) {
+  display: block !important; width: auto !important; height: 64px !important; max-width: none !important;
+  padding: 0 !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; object-fit: contain !important;
+}
+@media (max-width: 760px) {
+  html body .topnav .brand img.ub-wortmarke:not(#w1):not(#w2):not(#w3) { height: 48px !important; }
+}
+
+/* ═════ Manus-Vorschlag 07.11.2026 · zur Prüfung, nicht live ═════
+   Diese Datei lädt index.html NICHT – die Startseite bleibt unverändert.
+   1 · Kopfzeile entdoppeln: Auf Seiten mit der Leiste „Dein Weg“ zeigt die Kopfzeile nur Logo + „Zum Buch“.
+       Grund: Kopfzeile und „Dein Weg“ führten zu denselben Zielen, aber mit anderen Namen
+       (Wissen/Übersicht, Klarheit/Erkennen, Blog/Verstehen), anderer Reihenfolge und ohne Tools.
+       Impressum und Datenschutz (ohne „Dein Weg“) behalten ihre Kopfzeile (:has-Abfrage).
+   2 · „Zum Buch“ ist am Handy direkt in der Kopfzeile sichtbar (bisher nur im ☰-Menü).
+   3 · Touch-Ziele in „Dein Weg“ und in der Testleiste mindestens 44 × 44 px (bisher 18–28 px breit).
+   4 · Kontraste nach WCAG AA (axe-core): ToxiCometer „/75“, Zitatquellen im Blog. */
+@media (min-width: 1021px) {
+  html body:has(.ub-weg) header.topnav .desktop-nav > a:not(.cta) { display: none !important; }
+}
+@media (max-width: 1020px) {
+  html body:has(.ub-weg) header.topnav .nav-inner { gap: 8px; }
+  /* unbond-nothing-skin.css blendet .desktop-nav am Handy mit !important aus → hier ebenfalls !important */
+  html body:has(.ub-weg) header.topnav .desktop-nav { display: flex !important; margin-left: auto !important; }
+  html body:has(.ub-weg) header.topnav .desktop-nav > a:not(.cta) { display: none !important; }
+  html body:has(.ub-weg) header.topnav .desktop-nav > a.cta { min-height: 44px !important; margin-left: 0 !important; padding: 0 12px !important; font-size: .72rem !important; white-space: nowrap; }
+}
+@media (max-width: 359px) {
+  /* sehr schmale Geräte: Platz reicht nicht, „Zum Buch“ bleibt im ☰-Menü */
+  html body:has(.ub-weg) header.topnav .desktop-nav { display: none !important; }
+}
+@media (max-width: 760px) {
+  /* 44 px breite Ziffern; Pfeile ohne Außenabstand. Reicht die Breite nicht (z. B. 320 px), ist die Leiste wischbar
+     wie schon auf den Klarheit-Seiten – die Seite selbst läuft nicht mehr seitlich über. */
+  html body .ub-weg-inner { overflow-x: auto; scrollbar-width: none; }
+  html body .ub-weg-inner::-webkit-scrollbar { display: none; }
+  html body .ub-weg ol { gap: 0; }
+  html body .ub-weg li + li::before { margin: 0 1px; }
+  html body .ub-weg a { min-width: 44px; justify-content: center; }
+  html body .ub-weg a:focus-visible { outline-offset: -2px; }
+  html body[data-bereich] .ub-ktests a:not(.ub-ktests-label) { min-width: 44px; justify-content: center; }
+}
+/* ToxiCometer: „/75“ hatte 2,7 : 1 (script.js setzt die Farbe inline) → jetzt 6,1 : 1 */
+html body #tox-total > span { color: #8a8a8a !important; }
+/* Blog: Zitatquelle in Bordeaux auf Schwarz hatte 2,0 : 1 → Rosé-Ton mit 5,3 : 1 */
+html body .article-body blockquote cite, html body blockquote cite { color: #e8e8e8 !important; }

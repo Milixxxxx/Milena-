@@ -1,0 +1,2 @@
+375 Index: 3 Rückseiten + Zahlen + Hinweise; Desktop-Hover wenn vorhanden; keine lokalen HTTP- oder JS-Fehler: BESTANDEN
+1280 Index: 3 Rückseiten + Zahlen + Hinweise; Desktop-Hover wenn vorhanden; keine lokalen HTTP- oder JS-Fehler: BESTANDEN
