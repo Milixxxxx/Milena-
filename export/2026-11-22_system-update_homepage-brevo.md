@@ -20,7 +20,7 @@ Das Archiv `UNBOND_Gesamtpaket_2026-11-09/` und die Brevo-Automation wurden **ni
 1. Krisenleiste (Telefonseelsorge 0800 111 0 111 · Hilfetelefon 08000 116 016)
 2. Kopfzeile: Logo · Wissen · Klarheit · Blog · No Contact · **Zum Buch → angebot.html**
 3. Wegweiser „Dein Weg“ (00–04)
-4. Hero: „UNBOND – Breaking Chains“ + „Dein Selbsthilfeprogramm nach einer toxischen Beziehung.“, Knöpfe „Kostenlos testen“ (→ klarheit.html) und „Zum Buch“ (→ angebot.html)
+4. Hero: „UNBOND – Breaking Chains“ + „Dein Selbsthilfeprogramm nach einer toxischen Beziehung.“ + „Für Frauen, die Frauen lieben.“, Knöpfe „Kostenlos testen“ (→ klarheit.html) und „Zum Buch“ (→ angebot.html)
 5. Vier Bereichskarten: Erkennen · Verstehen · Abstand halten · Weitergehen
 6. Leseprobe „Erst kostenlos reinlesen“ → `blick-ins-buch.html` (+ Link zur Wolf-Leseprobe)
 7. Buchbereich `id="angebot"`: 10 Schritte · 120+ Seiten · 15 Übungen · 29 € (Early Bird bis 31.12.2026) → `angebot.html#angebot`
