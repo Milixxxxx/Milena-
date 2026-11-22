@@ -46,7 +46,7 @@
       text: "UNBOND – Breaking Chains ist das Selbsthilfe-Ebook für Frauen, die Frauen lieben – mit Erklärungen und Übungen, die dir helfen, dich aus dem Kreislauf zu lösen.",
       note: "UNBOND – Breaking Chains · Ebook für Frauen, die Frauen lieben",
       btn: "Das Ebook kennenlernen →",
-      href: "../index.html#programm"
+      href: "../angebot.html#programm"
     }
   };
 

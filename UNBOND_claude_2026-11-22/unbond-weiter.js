@@ -23,7 +23,7 @@
       title: "Warum kann ich nicht loslassen?", text: "Trauma Bonding in 60 Sekunden selbst erleben.", facts: ["Selbstexperiment", "60 Sekunden"], go: "Ausprobieren" },
     nocontact: { name: "No Contact", href: "no-contact/index.html", c: "#5e9590", icon: "icon-hand-blaetter2",
       title: "Abstand, der hält", text: "Schritt 02 deines Wegs: Kontakt beenden, ohne rückfällig zu werden.", facts: ["Soforthilfe bei Kontaktimpuls", "Speziell für die kleine Szene"], go: "Weiter zu No Contact" },
-    buch: { name: "Das Buch", href: "index.html#angebot", c: "#d2a63b", icon: "icon-hand-schmetterling",
+    buch: { name: "Das Buch", href: "angebot.html#angebot", c: "#d2a63b", icon: "icon-hand-schmetterling",
       title: "Der Weg raus", text: "UNBOND – Breaking Chains, für Frauen, die Frauen lieben.", facts: ["Trauma Bonding verstehen", "Einmalzahlung, kein Abo"], go: "Zum Buch" }
   };
   /* Reihenfolge der Selbsttests in Klarheit (wie auf klarheit.html) */
