@@ -3,6 +3,7 @@
 // Haupt-Leadmagnet -> Liste 12
 // SOS-Notfallkoffer -> Liste 13
 // Keine Test-/Report-Routings. Erfolg erst nach verifizierter Listenzugehörigkeit.
+// Optional: Double-Opt-in pro Liste (Schalter BREVO_DOI_TEMPLATE_* unten, 0 = aus).
 
 declare(strict_types=1);
 
@@ -44,6 +45,39 @@ Diese wird zuerst verwendet.
 const BREVO_LIST_MAIN = 12;
 const BREVO_LIST_SOS = 13;
 const MAX_VERIFY_ATTEMPTS = 3;
+
+/*
+======================================================================
+             DOUBLE-OPT-IN (BESTAETIGUNGSMAIL) – SCHALTER
+======================================================================
+
+Hier stellst du ein, ob eine Frau ihre Anmeldung erst per Mail
+bestaetigen muss, bevor sie in der Liste landet (Double-Opt-in).
+
+    0            = AUS. Alles bleibt wie bisher: Die Adresse wird
+                   sofort in die Liste eingetragen.
+    eine Zahl    = AN. Die Zahl ist die ID deiner DOI-Vorlage in Brevo
+    groesser 0     (Marketing -> Templates, die Nummer hinter dem #).
+                   Brevo schickt dann eine Mail mit dem Knopf
+                   "Anmeldung bestaetigen". Erst nach dem Klick steht die
+                   Adresse in der Liste. Der Link ist 30 Tage gueltig.
+
+Beispiel: Deine Vorlage heisst "#45" -> eintragen:
+    const BREVO_DOI_TEMPLATE_SOS = 45;
+
+Die Vorlage braucht in Brevo das Tag "optin" und einen Knopf mit dem
+Link-Typ "Double-Opt-in-Link". Ohne aktive Vorlage NICHT umstellen.
+
+Nach dem Aendern diese Datei erneut nach public_html hochladen.
+
+REDIRECT = die Seite, die sich nach dem Klick auf den Bestaetigungs-
+knopf oeffnet. Muss mit https:// beginnen.
+======================================================================
+*/
+const BREVO_DOI_TEMPLATE_SOS = 0;    // SOS-Notfallkoffer (Liste 13)
+const BREVO_DOI_TEMPLATE_MAIN = 0;   // Haupt-Leadmagnet (Liste 12)
+const BREVO_DOI_REDIRECT_SOS = 'https://www.unbond.de/no-contact/bestaetigt.html';
+const BREVO_DOI_REDIRECT_MAIN = 'https://www.unbond.de/';
 
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -127,6 +161,78 @@ if ($vorname !== '') {
     if ($nameLength > 80) {
         respond(false, 'Der Vorname ist zu lang.', 400);
     }
+}
+
+// ================================================================
+// DOUBLE-OPT-IN-MODUS
+// Nur aktiv, wenn oben fuer diese Liste eine Vorlagen-ID > 0 steht.
+// Bei 0 wird dieser Block uebersprungen und es geht unveraendert
+// mit der direkten Eintragung (Schritt 1 bis 4) weiter.
+// ================================================================
+$doiTemplateId = (int) ($isSos ? BREVO_DOI_TEMPLATE_SOS : BREVO_DOI_TEMPLATE_MAIN);
+if ($doiTemplateId > 0) {
+    $funnel = $isSos ? 'sos' : 'main';
+
+    // a) Ist die Adresse schon bestaetigt in der Zielliste (und nicht abgemeldet)?
+    //    Dann keine zweite Bestaetigungsmail verschicken.
+    $existing = brevoRequest(
+        'GET',
+        'https://api.brevo.com/v3/contacts/' . rawurlencode($email) . '?identifierType=email_id',
+        null,
+        $apiKey
+    );
+    if ($existing['curl_error'] === '' && $existing['status'] >= 200 && $existing['status'] < 300
+        && is_array($existing['body'])) {
+        $existingLists = isset($existing['body']['listIds']) && is_array($existing['body']['listIds'])
+            ? array_map('intval', $existing['body']['listIds'])
+            : [];
+        $blacklisted = !empty($existing['body']['emailBlacklisted']);
+        if (in_array($listId, $existingLists, true) && !$blacklisted) {
+            respond(true, null, 200, [
+                'already_subscribed' => true,
+                'list_id' => $listId,
+                'funnel' => $funnel,
+            ]);
+        }
+    } elseif ($existing['status'] !== 404) {
+        // 404 = Kontakt gibt es noch nicht (normal). Alles andere nur protokollieren
+        // und trotzdem die Bestaetigungsmail anfordern.
+        serverLog('doi_lookup http=' . $existing['status'] . ' curl=' . $existing['curl_error'], $email);
+    }
+
+    // b) Brevo verschickt die Bestaetigungsmail. Erst nach dem Klick landet
+    //    der Kontakt in der Liste.
+    $doiPayload = [
+        'email' => $email,
+        'includeListIds' => [$listId],
+        'templateId' => $doiTemplateId,
+        'redirectionUrl' => $isSos ? BREVO_DOI_REDIRECT_SOS : BREVO_DOI_REDIRECT_MAIN,
+    ];
+    if ($vorname !== '') {
+        $doiPayload['attributes'] = ['VORNAME' => $vorname];
+    }
+    $doi = brevoRequest('POST', 'https://api.brevo.com/v3/contacts/doubleOptinConfirmation', $doiPayload, $apiKey);
+
+    // c) 201 = neu angelegt, 204 = Kontakt gab es schon; in beiden Faellen ist die Mail unterwegs.
+    if ($doi['curl_error'] !== '') {
+        serverLog('doi list=' . $listId . ' curl=' . $doi['curl_error'], $email);
+        respond(false, 'Brevo konnte nicht erreicht werden.', 502, [
+            'brevo_step' => 'doi',
+        ]);
+    }
+    if ($doi['status'] < 200 || $doi['status'] >= 300) {
+        serverLog('doi list=' . $listId . ' template=' . $doiTemplateId . ' http=' . $doi['status'] . ' body=' . compactBody($doi['raw']), $email);
+        respond(false, 'Die Bestätigungsmail konnte gerade nicht verschickt werden. Bitte versuch es in ein paar Minuten noch einmal.', 502, [
+            'brevo_step' => 'doi',
+            'brevo_status' => $doi['status'],
+        ]);
+    }
+
+    respond(true, null, 200, [
+        'doi_pending' => true,
+        'list_id' => $listId,
+        'funnel' => $funnel,
+    ]);
 }
 
 // 1) Kontakt bewusst ohne optionale Custom-Attribute anlegen/aktualisieren.
