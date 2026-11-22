@@ -1,0 +1,128 @@
+/* UNBOND · Testfassung Startseite im Nothing-Design (08.11.2026)
+   Nur von index1.html geladen, als letzte Stildatei. index.html bleibt unverändert.
+   Regeln aus dem Designsystem Version 3: Schwarz, flach, Poppins, ein Bordeaux, ein Grün,
+   Gold nur für Zahlen, Radien 4 und 8 px, keine Schatten, kein Glas, kein Nebula. */
+
+:root {
+  --t-black: #000;
+  --t-surface: #0d0d0d;
+  --t-line: #343434;
+  --t-line-soft: #222;
+  --t-text: #e8e8e8;
+  --t-text-2: #a3a3a3;
+  --t-red: #7d263f;
+  --t-sage: #5e9590;
+  --t-gold: #d2a63b;
+}
+
+/* 1 · Grund: Schwarz statt Navy, kein Video, kein Nebula */
+html,
+html:root body.ub-test.ub-test.ub-test { background: var(--t-black) !important; background-image: none !important; }
+html:root body.ub-test.ub-test.ub-test .page-background { display: none !important; }
+html:root body.ub-test.ub-test.ub-test::before,
+html:root body.ub-test.ub-test.ub-test::after,
+html:root body.ub-test.ub-test.ub-test main::before,
+html:root body.ub-test.ub-test.ub-test main::after { background-image: none !important; }
+
+/* 2 · Flächen: alle Karten und Kästen auf eine Flächenstufe */
+html:root body.ub-test.ub-test.ub-test :is(
+  .container.at-inner, .vt-tile, .phase, .pf-front, .pf-back, .pf-stat,
+  .container.lookinside-inner, .t-card, .author-frame, .author-body,
+  .ed-card, .perspectives-card, .perspectives-card-label, .faq-answer-inner,
+  summary, .container.final-inner, .hero-eyebrow, .cookie-bar-inner, .cookie-option
+) {
+  background: var(--t-surface) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 3 · Linien: 1 px in #343434 statt heller Transparenzlinien */
+html:root body.ub-test.ub-test.ub-test :is(
+  .container.at-inner, .vt-tile, .phase, .t-card, .author-body, .ed-card,
+  .perspectives-card, .perspectives-player, summary, .cookie-bar-inner, .cookie-option
+) { border-color: var(--t-line) !important; }
+html:root body.ub-test.ub-test.ub-test :is(
+  figcaption, .author-sign, .ed-body, .ed-buy, .ed-privacy, .perspectives-transcript,
+  .checkout-note, .footer-crisis, .cookie-details
+) { border-top-color: var(--t-line) !important; }
+html:root body.ub-test.ub-test.ub-test :is(.ed-card li, .faq-section li) { border-color: var(--t-line-soft) !important; }
+
+/* 4 · Tiefe nur über Flächen und Linien: keine Schatten, kein Glas */
+html:root body.ub-test.ub-test.ub-test *,
+html:root body.ub-test.ub-test.ub-test *::before,
+html:root body.ub-test.ub-test.ub-test *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 5 · Radien: 4 px für alles Bedienbare, 8 px für Karten und Kacheln */
+html:root body.ub-test.ub-test.ub-test :is(a.button, button.button, .button, .header-beacon-cta, .price-secondary,
+  .cookie-button, .cookie-option, summary, .hero-eyebrow, .eb-badge, .t-topic,
+  .step-number, .faq-answer-inner, .hero-inner) { border-radius: 4px !important; }
+html:root body.ub-test.ub-test.ub-test :is(.pf-card, .pf-front, .pf-back, .container.lookinside-inner, .t-card,
+  .author-body, .author-frame, .author-frame img, .perspectives-card, .cookie-bar-inner,
+  .phase, .vt-tile, .ed-card, .container.at-inner, .container.final-inner,
+  main img) { border-radius: 8px !important; }
+html:root body.ub-test.ub-test.ub-test .t-card span { border-radius: 4px !important; }
+
+/* 6 · Schrift: nur Poppins; Space Mono fällt weg. Playfair bleibt für Zitate */
+html:root body.ub-test.ub-test.ub-test :is(.header-beacon-cta, .button, .checkout-note, .hero-scroll-link,
+  figcaption, .pf-kicker, .rc-modules-sign, .phase-word, .phase-meta, .phase-cue-text,
+  .phase-plus, .eb-badge, .ed-once, .price-secondary, .faq-number, .faq-kicker,
+  .footer-link, .cookie-button, .ed-card strong) {
+  font-family: "Poppins", system-ui, sans-serif !important;
+  letter-spacing: .06em;
+}
+html:root body.ub-test.ub-test.ub-test :is(.button, .header-beacon-cta, .cookie-button) { font-weight: 500 !important; }
+
+/* 7 · Knöpfe: Bordeaux, Hover gefüllt mit weißer Schrift, kein zweiter Rotton */
+html:root body.ub-test.ub-test.ub-test :is(a.button, button.button, .header-beacon-cta):hover {
+  background-color: var(--t-red) !important;
+  border-color: var(--t-red) !important;
+  color: #fff !important;
+}
+
+/* 8 · Farben: Gold nur in einem Ton, Nebentext neutral grau statt Blaugrau */
+html:root body.ub-test.ub-test.ub-test .pf-stat-num { color: var(--t-gold) !important; }
+html:root body.ub-test.ub-test.ub-test :is(.pf-front, .pf-back) { border-color: rgba(210, 166, 59, .35) !important; }
+html:root body.ub-test.ub-test.ub-test :is(.phase-word, .t-note, .perspectives-muted-note, .faq-kicker) { color: var(--t-text-2) !important; }
+
+/* 9 · Fokus nach System: 2 px weiß, Abstand 4 px */
+html:root body.ub-test.ub-test.ub-test :is(a, button, summary, input, [tabindex]):focus-visible {
+  outline: 2px solid #fff !important;
+  outline-offset: 4px !important;
+}
+
+/* 10 · Testhinweis als schmale Leiste oben, damit die Fassung nicht verwechselt wird */
+html:root body.ub-test.ub-test.ub-test .ub-test-flag {
+  display: block; text-align: center;
+  font: 500 .72rem/1 "Poppins", system-ui, sans-serif; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--t-gold); background: var(--t-surface); border-bottom: 1px solid var(--t-line);
+  padding: 8px 16px;
+}
+
+/* 11 · Variablen der alten Ebenen auf Systemwerte setzen */
+html:root body.ub-test.ub-test.ub-test {
+  --bh-line: #343434;
+  --bh-panel: #0d0d0d;
+  --ux-line: #343434;
+}
+
+/* 12 · Gegen die sehr starke Space-Mono-Regel in unbond-index-typo.css (sechs :not(#…)) */
+html body.ub-test :is(
+  a.header-beacon-cta, a.button, a.hero-scroll-link, .at-fig > figcaption, span.pf-kicker,
+  button.button, span.rc-modules-sign, span.phase-word, span.phase-meta, span.phase-cue-text,
+  span.phase-plus, .ed-top > span, span.eb-badge, .ed-stats strong, .ed-stats span,
+  .ed-price > strong, p.ed-once, a.price-secondary, span.faq-number, span.faq-kicker,
+  p.checkout-note, button.footer-link, button.cookie-button, .at-band, .rc-modules-bar, .ed-card
+):not(#t1):not(#t2):not(#t3):not(#t4):not(#t5):not(#t6):not(#t7) {
+  font-family: "Poppins", system-ui, sans-serif !important;
+}
+html body.ub-test :is(.faq-section summary, .at-band, #start .final-inner, .ed-card):not(#t1):not(#t2):not(#t3):not(#t4):not(#t5):not(#t6):not(#t7) {
+  background: #0d0d0d !important;
+  border-color: #343434 !important;
+}
+html body.ub-test :is(.faq-section summary, .faq-answer-inner, .t-dots span):not(#t1):not(#t2):not(#t3):not(#t4):not(#t5):not(#t6):not(#t7) { border-radius: 4px !important; }

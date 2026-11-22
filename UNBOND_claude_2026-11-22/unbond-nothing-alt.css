@@ -1,0 +1,18 @@
+/* UNBOND · Nothing-Farben für Seiten mit eigenen Variablen (No Contact, Spielautomat) · 31.10.2026 */
+html:root {
+  --bg:#000;--card:#0d0d0d;--fg:#e8e8e8;--fg-m:#a3a3a3;--border:#343434;
+  --green:#5e9590;--sage:#5e9590;--accent:#7d263f;--accent-h:#7d263f;
+  --glass:#0d0d0d;--glass-border:#343434;
+  --color-bg:#000;--color-bg-alt:#000;--color-card:#0d0d0d;--color-card-glass:#0d0d0d;--color-muted-bg:#0d0d0d;
+  --color-fg:#e8e8e8;--color-fg-warm:#e8e8e8;--color-fg-muted:#a3a3a3;--color-fg-subtle:#a3a3a3;
+  --color-border:#343434;--color-border-gold:#343434;--color-border-green:#343434;
+  --color-accent:#7d263f;--color-accent-hover:#7d263f;--color-accent-muted:#7d263f;
+  --cta-gradient:none;--color-gold:#d2a63b;--color-gold-light:#e8e8e8;--color-gold-faint:transparent;
+  --color-green:#5e9590;--color-warm:#a3a3a3;--cta-bg:#7d263f;--cta-bg-hover:#7d263f;
+  --font-display:'Poppins',system-ui,sans-serif;--font-heading:'Poppins',system-ui,sans-serif;--font-body:'Poppins',system-ui,sans-serif;
+  --shadow-md:none;--shadow-glow-accent:none;
+}
+body { background:#000; }
+/* Reste alter Kartenfarben und breite Tabellen (Datenschutz, Kompass, Spielautomat) */
+.ds-box, .ds-toc, .result-box, .tbx-card, .jackpot-hint { background: #0d0d0d !important; border-color: #343434 !important; backdrop-filter: none !important; }
+.legal-page table { display: block; max-width: 100%; overflow-x: auto; }

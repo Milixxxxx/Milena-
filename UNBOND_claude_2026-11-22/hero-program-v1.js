@@ -1,0 +1,42 @@
+(() => {
+  "use strict";
+  const moduleArea = document.getElementById("hero-program-modules");
+  const modulesToggle = document.querySelector("[data-modules-toggle]");
+  const collapseButton = document.querySelector("[data-program-collapse]");
+
+  /* Zitatkarten: eigenständig, ohne Verbindung zu den Modulen. */
+  document.querySelectorAll(".rc-card").forEach((card) => {
+    const panel = document.getElementById(card.getAttribute("aria-controls"));
+    card.addEventListener("click", () => {
+      const open = card.getAttribute("aria-expanded") !== "true";
+      card.setAttribute("aria-expanded", String(open));
+      if (panel) panel.hidden = !open;
+      const t = card.querySelector(".rc-more-text");
+      if (t) t.textContent = open ? "Einordnung schließen" : "Einordnung ansehen";
+      const p = card.querySelector(".rc-plus");
+      if (p) p.textContent = open ? "−" : "+";
+    });
+  });
+
+  const setModules = (open) => {
+    if (!moduleArea || !modulesToggle) return;
+    if (!open) {
+      document.querySelectorAll("[data-phase-toggle][aria-expanded='true']").forEach((t) => t.click());
+    }
+    moduleArea.hidden = !open;
+    modulesToggle.setAttribute("aria-expanded", String(open));
+    const s = modulesToggle.querySelector(".rc-modules-sign");
+    if (s) s.textContent = open ? "−" : "+";
+  };
+
+  modulesToggle?.addEventListener("click", () => {
+    const open = modulesToggle.getAttribute("aria-expanded") !== "true";
+    setModules(open);
+    if (open) moduleArea?.querySelector("h3")?.setAttribute("tabindex", "-1");
+  });
+
+  collapseButton?.addEventListener("click", () => {
+    setModules(false);
+    modulesToggle?.focus();
+  });
+})();

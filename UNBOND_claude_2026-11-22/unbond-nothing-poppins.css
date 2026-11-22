@@ -1,0 +1,22 @@
+/* UNBOND · Nothing-Design, Schriftvariante Poppins (29.10.2026)
+   Ändert NUR die Schrift: Space Grotesk und Space Mono werden durch Poppins ersetzt.
+   Farben, Abstände, Größen und Layout bleiben wie in unbond-nothing.css / unbond-nothing-skin.css.
+   Zurück zur kantigen Fassung: die <link>-Zeile zu dieser Datei aus der Seite entfernen
+   (Sicherung des Stands davor: Versionen/2026-10-29_nothing_space_grotesk/). */
+
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: normal; font-display: swap; src: url("fonts/poppins-v24-latin-300.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/poppins-v24-latin-regular.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/poppins-v24-latin-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/poppins-v24-latin-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/poppins-v24-latin-700.woff2") format("woff2"); }
+
+:root {
+  --nt-sans: "Poppins", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --nt-mono: "Poppins", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Fängt Stellen ab, an denen die Schrift fest eingetragen ist statt über die Variablen */
+html body.nt,
+html body.nt *:not(svg):not(svg *) {
+  font-family: var(--nt-sans) !important;
+}

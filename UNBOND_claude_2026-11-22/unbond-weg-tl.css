@@ -1,0 +1,46 @@
+/* UNBOND · Zeitstrahl-Raster wie auf wissen.html (05.11.2026)
+   Kachel und Text stehen abwechselnd links und rechts an einer Linie.
+   Gebraucht auf: klarheit.html, tools/index.html, blog/index.html, no-contact/index.html.
+   wissen.html und tools/phase-2/index.html haben dieselben Regeln noch inline. */
+
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/playfair-display-v40-latin.woff2') format('woff2')}
+
+.nt-tile--img{position:relative;isolation:isolate;overflow:hidden}
+.nt-tile--img::after{content:"";position:absolute;right:8px;bottom:6px;width:62%;height:96%;background:var(--tile-img) right bottom/contain no-repeat;opacity:.36;z-index:-1;pointer-events:none;transition:opacity .25s ease}
+.nt-tile--lead.nt-tile--img::after{width:46%}
+a.nt-tile--img:hover::after{opacity:.52}
+.nt-tile--locked.nt-tile--img::after{opacity:.26}
+@media (max-width:900px){.nt-tile--img::after{width:58%;height:88%;opacity:.28}.nt-tile--lead.nt-tile--img::after{width:58%}}
+
+.wissen-dots{color:var(--nt-gold);letter-spacing:.2em;margin-right:.4em}
+.w-num{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(34px,4.4vw,52px);line-height:1;letter-spacing:0;text-transform:none;color:var(--nt-gold)}
+.w-tl .nt-tile .nt-tile-top{align-items:flex-start}
+.nt-tile--locked .w-num{opacity:.55}
+.w-tl .nt-tile{text-decoration:none}
+.w-tl .nt-tile-top .nt-flag{flex:none;white-space:nowrap}
+.w-tl .nt-tile h2,.w-tl .nt-tile h3{margin:8px 0 0;font-family:var(--nt-sans);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:500;line-height:1.15;letter-spacing:normal;color:var(--nt-text)}
+.w-tl .nt-tile--locked h2,.w-tl .nt-tile--locked h3{color:var(--nt-text2)}
+.w-tl .nt-tile p{margin:0;color:var(--nt-text2);font-size:.98rem;line-height:1.6}
+
+/* Zeitstrahl */
+.w-tl{position:relative;list-style:none;margin:32px 0 0;padding:0;--w-tl-p:0}
+.w-tl-track{position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--nt-line)}
+.w-tl-fill{position:absolute;inset:0;background:var(--nt-text);transform:scaleY(var(--w-tl-p));transform-origin:top}
+.w-tl-dot{position:absolute;top:0;left:-4px;width:9px;height:9px;border-radius:50%;background:var(--nt-text);box-shadow:0 0 0 6px rgba(232,232,232,.1);transform:translateY(var(--w-tl-y,0))}
+.w-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:120px;align-items:center;margin:0;padding:0 0 72px;scroll-margin-top:calc(var(--nt-nav-h) + 24px)}
+.w-stage:last-child{padding-bottom:0}
+.w-stage .nt-tile{height:auto;min-height:380px}
+.w-tl--compact .w-stage .nt-tile{min-height:300px}
+.w-stage-text{display:flex;flex-direction:column;gap:10px}
+.w-stage-t{margin:6px 0 0;font-family:var(--nt-sans);font-size:clamp(1.6rem,2.8vw,2.25rem);font-weight:500;line-height:1.15;color:var(--nt-text)}
+.w-stage-s{margin:0;font-size:1.05rem;color:var(--nt-text2)}
+.w-stage-text .nt-tags{margin-top:8px;gap:8px;font-size:.8rem}
+.w-stage-proof{margin:4px 0 0;padding-left:12px;border-left:2px solid #5e9590;font-size:.95rem;line-height:1.55;color:var(--nt-text2)}
+.js-tl .w-stage>.nt-tile,.js-tl .w-stage-text{opacity:0;transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.js-tl .w-stage>.nt-tile{transform:translateX(-28px)}
+.js-tl .w-stage-text{transform:translateX(28px)}
+@media (min-width:901px){.w-stage:nth-child(odd)>.nt-tile{order:2}}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){.js-tl .w-stage:nth-child(odd)>.nt-tile{transform:translateX(28px)}.js-tl .w-stage:nth-child(odd) .w-stage-text{transform:translateX(-28px)}}
+.js-tl .w-stage.is-in>.nt-tile,.js-tl .w-stage.is-in .w-stage-text{opacity:1;transform:none}
+@media (max-width:900px){.w-tl-track{left:4px}.w-stage{grid-template-columns:minmax(0,1fr);row-gap:20px;padding:0 0 48px 28px}.w-stage-text{order:-1}.w-stage .nt-tile,.w-tl--compact .w-stage .nt-tile{min-height:0}.js-tl .w-stage>.nt-tile,.js-tl .w-stage-text{transform:translateY(20px)}}
+@media (prefers-reduced-motion:reduce){.js-tl .w-stage>.nt-tile,.js-tl .w-stage-text{opacity:1;transform:none;transition:none}.w-tl-dot{display:none}.nt-tile--img::after{transition:none}}

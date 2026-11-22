@@ -1,0 +1,42 @@
+/* UNBOND · Zurück-Knopf am Seitenende, links (06.11.2026)
+   Gilt auf allen Seiten außer der Startseite. Farbe beim Überfahren folgt der Bereichsfarbe. */
+.ub-zurueck {
+  width: min(100% - 48px, 1120px);
+  margin: 48px auto 32px;
+  text-align: left;
+}
+.ub-zurueck-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid #343434;
+  border-radius: 4px;
+  background: transparent;
+  color: #e8e8e8;
+  font-family: "Poppins", system-ui, "Segoe UI", Arial, sans-serif;
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color .18s ease, color .18s ease;
+}
+.ub-zurueck-link:hover,
+.ub-zurueck-link:focus-visible {
+  border-color: var(--ub-c, #7d263f);
+  color: #fff;
+}
+.ub-zurueck-link:focus-visible {
+  outline: 2px solid var(--ub-c, #e8e8e8);
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  .ub-zurueck { width: calc(100% - 32px); margin-top: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ub-zurueck-link { transition: none; }
+}
+@media print {
+  .ub-zurueck { display: none; }
+}

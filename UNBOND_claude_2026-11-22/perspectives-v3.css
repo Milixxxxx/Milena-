@@ -1,0 +1,301 @@
+/*
+ * Direkte exemplarische Perspektiven — strikt auf den Videoabschnitt begrenzt.
+ * Poster laden vorab, die jeweilige MP4-Quelle erst nach bewusster Auswahl.
+ */
+
+.perspectives-section--inline {
+  --perspective-bg: #0c121a;
+  --perspective-surface: #111a23;
+  --perspective-surface-soft: #141e28;
+  --perspective-text: #f1f3f0;
+  --perspective-muted: #b8c0c6;
+  --perspective-line: rgba(94,149,144, .72);
+  --perspective-line-soft: rgba(233, 233, 228, .18);
+  --perspective-number: var(--unbond-number-gold, #d2a63b);
+  background: transparent;
+}
+
+.perspectives-section--inline .container {
+  width: min(calc(100% - 40px), var(--ux-page, 1180px));
+}
+
+.perspectives-section--inline .perspectives-context-label {
+  color: var(--unbond-teal, #5e9590);
+}
+
+.perspectives-section--inline .perspectives-heading {
+  max-width: 740px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.perspectives-section--inline .perspectives-card-index,
+.perspectives-section--inline .perspectives-context-label {
+  font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .095em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.perspectives-section--inline .perspectives-heading h2 {
+  margin: 0;
+  color: var(--perspective-text);
+}
+
+.perspectives-section--inline .perspectives-heading > p:not(.perspectives-kicker):not(.perspectives-muted-note) {
+  max-width: 58ch;
+  margin: 12px auto 0;
+  color: var(--perspective-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.perspectives-section--inline .perspectives-muted-note {
+  margin: 12px 0 0;
+  color: var(--perspective-muted);
+  font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .095em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.perspectives-section--inline .perspectives-deck {
+  display: flex;
+  gap: 8px;
+  min-height: clamp(470px, 42vw, 560px);
+}
+
+.perspectives-section--inline .perspectives-card {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--perspective-line-soft);
+  border-radius: 6px;
+  background: var(--perspective-surface);
+  transition: flex 190ms cubic-bezier(.25, .1, .25, 1), border-color 190ms ease;
+}
+
+.perspectives-section--inline .perspectives-card.is-active {
+  flex: 7 1 0;
+  border-color: var(--perspective-line);
+}
+
+.perspectives-section--inline .perspectives-card-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--perspective-text);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+}
+
+.perspectives-section--inline .perspectives-card-button::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  content: "";
+  pointer-events: none;
+}
+
+.perspectives-section--inline .perspectives-card-button:hover::after,
+.perspectives-section--inline .perspectives-card-button:focus-visible::after {
+  border-color: var(--unbond-teal, #5e9590);
+}
+
+.perspectives-section--inline .perspectives-card-button:focus-visible {
+  outline: 3px solid var(--unbond-teal, #5e9590);
+  outline-offset: -3px;
+}
+
+.perspectives-section--inline .perspectives-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--perspective-surface);
+}
+
+.perspectives-section--inline .perspectives-card-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(12, 18, 26, .9);
+  pointer-events: none;
+}
+
+.perspectives-section--inline .perspectives-card-index {
+  color: var(--perspective-number);
+}
+
+.perspectives-section--inline .perspectives-card-name {
+  color: var(--perspective-text);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.perspectives-section--inline .perspectives-inline-detail {
+  display: none;
+  height: 100%;
+  grid-template-columns: minmax(0, 1.02fr) minmax(230px, .88fr);
+  gap: clamp(16px, 2.8vw, 30px);
+  align-items: center;
+  padding: clamp(14px, 2.4vw, 24px);
+}
+
+.perspectives-section--inline .perspectives-card.is-active .perspectives-card-button {
+  display: none;
+}
+
+.perspectives-section--inline .perspectives-card.is-active .perspectives-inline-detail:not([hidden]) {
+  display: grid;
+}
+
+.perspectives-section--inline .perspectives-player-wrap {
+  min-width: 0;
+}
+
+.perspectives-section--inline .perspectives-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--perspective-line-soft);
+  border-radius: 4px;
+  background: #05080d;
+}
+
+.perspectives-section--inline .perspectives-copy {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  align-content: center;
+  max-height: none;
+  padding: 4px 0 4px clamp(12px, 2vw, 20px);
+  border-left: 1px solid var(--perspective-line);
+  overflow: visible;
+}
+
+.perspectives-section--inline .perspectives-context-label,
+.perspectives-section--inline .perspectives-copy h3,
+.perspectives-section--inline .perspectives-context-copy {
+  margin: 0;
+}
+
+.perspectives-section--inline .perspectives-copy h3 {
+  color: var(--perspective-text);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.45rem, 2.5vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.perspectives-section--inline .perspectives-context-copy {
+  color: var(--perspective-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.perspectives-section--inline .perspectives-transcript {
+  max-width: 62ch;
+  margin: 4px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--perspective-line-soft);
+  color: var(--perspective-muted);
+  font-size: .95rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+@media (min-width: 761px) and (max-width: 1060px) {
+  .perspectives-section--inline .perspectives-deck {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+  }
+
+  .perspectives-section--inline .perspectives-card {
+    min-height: 300px;
+  }
+
+  .perspectives-section--inline .perspectives-card.is-active {
+    grid-column: 1 / -1;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 760px) {
+  .perspectives-section--inline .container {
+    width: min(calc(100% - 32px), var(--ux-page, 1180px));
+  }
+
+  .perspectives-section--inline .perspectives-deck {
+    display: flex;
+    min-height: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--unbond-teal, #5e9590) var(--perspective-surface);
+  }
+
+  .perspectives-section--inline .perspectives-card {
+    flex: 0 0 min(72vw, 272px);
+    min-height: 260px;
+    scroll-snap-align: start;
+  }
+
+  .perspectives-section--inline .perspectives-deck.has-active {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .perspectives-section--inline .perspectives-deck.has-active .perspectives-card.is-active {
+    flex-basis: auto;
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+
+  .perspectives-section--inline .perspectives-deck.has-active .perspectives-card:not(.is-active) {
+    flex-basis: auto;
+    min-height: 118px;
+  }
+
+  .perspectives-section--inline .perspectives-inline-detail {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    height: auto;
+  }
+
+  .perspectives-section--inline .perspectives-copy {
+    max-height: none;
+    padding: 14px 0 2px;
+    border-top: 1px solid var(--perspective-line);
+    border-left: 0;
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perspectives-section--inline .perspectives-card {
+    scroll-behavior: auto;
+    transition: none !important;
+  }
+}
