@@ -616,7 +616,9 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
     }
   } catch (e) {}
 
-  // Lead-Formular → Brevo (über unbond.de)
+  // Lead-Formular → Brevo über ../send_to_brevo.php (liegt im Website-Hauptordner, gleiche Domain → kein CORS-Problem).
+  // profil 'notfallkoffer_sos' sorgt in der PHP dafür, dass der Kontakt in Liste 13 (SOS) landet und kein Vorname nötig ist.
+  // Der API-Key steht NICHT in der PHP, sondern in brevo_key.txt eine Ebene oberhalb von public_html.
   var form = document.getElementById('lead-form');
   var btn = document.getElementById('lead-btn');
   var ok = document.getElementById('lead-success');
@@ -634,7 +636,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
     btn.disabled = true;
     btn.textContent = 'Wird gesendet…';
     err.hidden = true;
-    fetch('https://www.unbond.de/funnel_send_to_brevo.php', {
+    fetch('../send_to_brevo.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ funnel: 'sos', email: email, vorname: '', profil: 'notfallkoffer_sos', quelle: 'no_contact_landingpage', nurture: false })
