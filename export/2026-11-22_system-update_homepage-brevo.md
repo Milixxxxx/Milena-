@@ -12,6 +12,7 @@ Das Archiv `UNBOND_Gesamtpaket_2026-11-09/` und die Brevo-Automation wurden **ni
 | `index.html` | **Neue Startseite** im Nothing-Design (Vorlage `wissen.html`) | komplett neu |
 | `angebot.html` | Verkaufsseite (bisherige `index.html`) | Inhalt gleich; canonical/og:url auf `angebot.html`, Mary & Sandra als erfundene Figuren gekennzeichnet, Fußzeilen-Link „Startseite“ |
 | `blick-ins-buch.html` | Interaktive Leseprobe | aus `testsite_blick-ins-buch-interaktiv_2026-11-20_v2.html` umbenannt, `noindex` entfernt |
+| `blick-ins-buch-interaktiv.html` | Weiterleitung → `blick-ins-buch.html` | Auf `main` wurde die Testfassung parallel unter diesem Namen abgelegt. Damit es keinen doppelten Inhalt gibt, leitet der Name jetzt weiter (noindex, Parameter und Anker bleiben erhalten). |
 | `send_to_brevo.php` | Brevo-Anmeldung (SOS-Koffer und Haupt-Leadmagnet) | neu im Repo, Inhalt 1:1 aus dem Upload |
 | `no-contact/index.html` | No-Contact-Seite | Formular sendet an `../send_to_brevo.php`; Hintergrundvideo zeigt auf `assets/videos/nocontact.mp4` |
 | `sitemap.xml` | Sitemap | `angebot.html`, Leseprobe „Wolf“ und Impressum ergänzt |
