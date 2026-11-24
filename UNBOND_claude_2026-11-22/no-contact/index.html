@@ -84,6 +84,11 @@ details[open] .faq-chev { transform: rotate(180deg); }
 #email-input:focus { border-color: var(--color-gold); box-shadow: 0 0 0 1px rgba(94,149,144,.5); }
 #lead-btn:hover { background: var(--cta-bg-hover); transform: translateY(-1px); }
 #lead-btn:disabled { opacity: .6; cursor: wait; transform: none; }
+/* Formular und Datenschutz-Zeile haben display:flex inline – ohne diese Regel
+   wuerde das hidden-Attribut sie nach dem Absenden nicht ausblenden. */
+#lead-form[hidden], #lead-erwartung[hidden], label[for="lead-dsgvo"][hidden], #lead-success[hidden], #lead-error[hidden] { display: none !important; }
+#lead-soforttool:hover { border-bottom-color: var(--color-fg); }
+#lead-again:hover { opacity: 1; color: var(--color-fg); }
 @media (max-width: 850px) {
   .split-grid { grid-template-columns: 1fr !important; }
   .split-grid > figure { order: 2; max-width: 380px; margin: 0 auto; }
@@ -437,13 +442,21 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
         <input id="email-input" name="EMAIL" type="email" required autocomplete="email" placeholder="Deine E-Mail-Adresse" style="flex:1;min-width:220px;background:rgba(13,15,26,.6);border:1px solid var(--color-border);border-radius:8px;padding:14px 16px;color:var(--color-fg);font-family:var(--font-body);font-size:16px;outline:none">
         <button id="lead-btn" type="submit" style="background:var(--cta-bg);color:var(--color-fg);border:none;border-radius:8px;padding:14px 26px;font-family:var(--font-body);font-weight:500;font-size:16px;cursor:pointer;transition:all .25s var(--ease-soft);box-shadow:0 14px 35px rgba(0,0,0,.22)">SOS-Koffer kostenlos holen</button>
       </form>
+      <!-- Erwartungszeile (22.11.2026): sagt vor dem Absenden, was als Naechstes passiert. -->
+      <p id="lead-erwartung" style="margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--color-fg-muted);opacity:.72">Du bekommst gleich eine Mail von UNBOND. Abmelden geht jederzeit.</p>
       <!-- Pflichtangabe: Einwilligung + Link zur Datenschutzerklaerung muessen
            unmittelbar am Formular stehen, nicht nur im Fusszeilen-Link. -->
       <label for="lead-dsgvo" style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--color-fg-muted);cursor:pointer">
         <input type="checkbox" id="lead-dsgvo" required style="margin-top:3px;flex-shrink:0;accent-color:var(--color-green);width:17px;height:17px">
         <span>Ich möchte den SOS-Notfallkoffer per E-Mail erhalten und akzeptiere die <a href="../datenschutz.html" target="_blank" rel="noopener" style="color:var(--color-gold-light)">Datenschutzerklärung</a>. Abmeldung jederzeit über den Link in jeder Mail.</span>
       </label>
-      <p id="lead-success" role="status" hidden style="margin:0;padding:14px 16px;border-radius:8px;color:var(--color-green);background:rgba(94,149,144,.12);border:1px solid rgba(94,149,144,.35);font-size:16px">Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.</p>
+      <!-- Erfolgsmeldung: Der Text wird je nach Antwort von send_to_brevo.php gesetzt
+           (doi_pending / already_subscribed / direkte Eintragung), siehe Skript unten. -->
+      <div id="lead-success" role="status" hidden style="margin:14px 0 0;padding:14px 16px;border-radius:8px;color:var(--color-green);background:rgba(94,149,144,.12);border:1px solid rgba(94,149,144,.35);font-size:16px">
+        <p id="lead-success-text" style="margin:0">Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.</p>
+        <p style="margin:12px 0 0;font-size:15px"><a id="lead-soforttool" href="#leadmagnet" style="color:var(--color-fg);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(94,149,144,.6);padding-bottom:1px">Brauchst du jetzt sofort Halt? <span aria-hidden="true">→</span> Soforttool gratis</a></p>
+        <p style="margin:6px 0 0"><button id="lead-again" type="button" style="background:none;border:none;padding:6px 0;margin:0;font-family:var(--font-body);font-size:13px;color:var(--color-fg-muted);opacity:.8;text-decoration:underline;text-underline-offset:3px;cursor:pointer">Falsche Adresse? Nochmal eintragen</button></p>
+      </div>
       <p id="lead-error" role="alert" hidden style="margin:12px 0 0;padding:12px 16px;border-radius:8px;color:var(--color-warm);background:rgba(196,131,110,.1);border:1px solid rgba(196,131,110,.35);font-size:16px">Das hat gerade nicht geklappt. Bitte versuch es in ein paar Sekunden noch einmal.</p>
       <p style="margin:16px 0 0;font-size:12px;color:var(--color-fg-subtle)">Kein Spam · Jederzeit abmeldbar · DSGVO-konform</p>
     </div>
@@ -622,7 +635,41 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
   var form = document.getElementById('lead-form');
   var btn = document.getElementById('lead-btn');
   var ok = document.getElementById('lead-success');
+  var okText = document.getElementById('lead-success-text');
   var err = document.getElementById('lead-error');
+  var errDefault = err.textContent;
+  var erwartung = document.getElementById('lead-erwartung');
+  var dsgvoLabel = document.querySelector('label[for="lead-dsgvo"]');
+  var btnDefault = 'SOS-Koffer kostenlos holen';
+  // Erfolgsmeldungen je nach Antwort von send_to_brevo.php
+  // (doi_pending = Bestaetigungsmail verschickt, already_subscribed = schon in Liste 13, sonst direkt eingetragen).
+  var MELDUNG = {
+    doi: 'Fast geschafft: Wir haben dir eine Mail geschickt. Tipp auf den Knopf „Anmeldung bestätigen“ – erst dann kommt dein SOS-Koffer. Nichts da? Schau im Spam- oder Werbung-Ordner nach. Der Absender ist UNBOND.',
+    schon: 'Du bist schon eingetragen. Deine Mails von UNBOND findest du in deinem Postfach.',
+    direkt: 'Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.'
+  };
+  function zeigeErfolg(d) {
+    var art = d.doi_pending === true ? 'doi' : (d.already_subscribed === true ? 'schon' : 'direkt');
+    okText.textContent = MELDUNG[art];
+    ok.setAttribute('data-ergebnis', art);
+    form.hidden = true;
+    if (erwartung) erwartung.hidden = true;
+    if (dsgvoLabel) dsgvoLabel.hidden = true;
+    ok.hidden = false;   // erst jetzt einblenden: Text steht schon, die Lead-Messung unten haengt an diesem Schritt
+  }
+  // „Falsche Adresse? Nochmal eintragen“: Formular zurueckholen, Adresse bleibt zum Korrigieren stehen.
+  document.getElementById('lead-again').addEventListener('click', function () {
+    ok.hidden = true;
+    err.hidden = true;
+    form.hidden = false;
+    if (erwartung) erwartung.hidden = false;
+    if (dsgvoLabel) dsgvoLabel.hidden = false;
+    btn.disabled = false;
+    btn.textContent = btnDefault;
+    var input = form.elements.EMAIL;
+    input.focus();
+    try { input.select(); } catch (e2) {}
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = form.elements.EMAIL.value.trim();
@@ -643,14 +690,15 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
     })
       .then(function (r) { return r.json().catch(function () { return {}; }); })
       .then(function (d) {
-        if (d && d.success) { form.hidden = true; ok.hidden = false; }
+        if (d && d.success) { zeigeErfolg(d); }
         else { fail(); }
       })
       .catch(fail);
     function fail() {
+      err.textContent = errDefault;   // falls vorher der Datenschutz-Hinweis drinstand
       err.hidden = false;
       btn.disabled = false;
-      btn.textContent = 'SOS-Koffer kostenlos holen';
+      btn.textContent = btnDefault;
     }
   });
 })();
@@ -766,7 +814,8 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
   var ok=document.getElementById('lead-success');
   if(ok && 'MutationObserver' in window){
     new MutationObserver(function(){
-      if(!ok.hidden){
+      /* "schon eingetragen" ist kein neuer Lead und wird nicht gezaehlt */
+      if(!ok.hidden && ok.getAttribute('data-ergebnis')!=='schon'){
         track('generate_lead',{event_category:'SOS-Notfallkoffer',value:0,currency:'EUR'});
         if(typeof fbq==='function') fbq('track','Lead',{content_name:'SOS-Notfallkoffer'});
       }
