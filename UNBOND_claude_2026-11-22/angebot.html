@@ -31,71 +31,9 @@
       font-size: var(--type-h2);
       line-height: 1.08;
     }
-    /* Große gelbe Kennzahlen – verwendet weiterhin nur die vorhandene große Textstufe. */
-    .phase-num {
-      min-width: 78px;
-      display: grid;
-      justify-items: center;
-      gap: 5px;
-      line-height: 1;
-    }
-    .phase-num .phase-word {
-      font-size: var(--type-small);
-      letter-spacing: .16em;
-    }
-    .phase-num strong {
-      color: var(--gold);
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: var(--type-display);
-      font-weight: 700;
-      line-height: .82;
-      letter-spacing: -.05em;
-    }
-
-    /* Ruhige, moderne Kapitel-Popups statt des seitlichen Aufklapp-Effekts. */
-    .module-dialog {
-      clip-path: inset(0 round 20px) !important;
-      transform-origin: 50% 58%;
-      will-change: transform, opacity, filter;
-    }
-    @keyframes chapter-popup-enter {
-      0% { transform: translateY(30px) scale(.94); filter: blur(5px); }
-      68% { transform: translateY(-3px) scale(1.006); filter: blur(0); }
-      100% { transform: translateY(0) scale(1); filter: blur(0); }
-    }
-    @keyframes chapter-content-enter {
-      0% { opacity: 0; transform: scale(1.035); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes chapter-close-enter {
-      0% { opacity: 0; transform: translateY(-8px) scale(.72) rotate(-18deg); }
-      100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
-    }
-    @keyframes chapter-popup-exit {
-      0% { transform: translateY(0) scale(1); filter: blur(0); }
-      100% { transform: translateY(18px) scale(.965); filter: blur(3px); }
-    }
     @media (max-width: 760px) {
       :root { --type-h2: clamp(1.75rem, 8vw, 2.4rem); }
-      .phase-num { justify-items: start; }
     }
-
-    /* v24: Bildkarten. Alle drei Karten gleich hoch (3:5), gleicher Rahmen, Text steckt im Bild. */
-    .oflip-card { aspect-ratio: 3 / 5 !important; }
-    .oflip-front,
-    .oflip-back,
-    .oflip-card:nth-child(n) .oflip-front,
-    .oflip-card:nth-child(n) .oflip-back {
-      border: 1px solid rgba(210, 166, 59, .45);
-      border-radius: 18px;
-    }
-    .oflip-front { background: #0d1118; }
-    @media (max-width: 900px) {
-      .oflip-card { aspect-ratio: 3 / 5 !important; }
-    }
-
-    /* v25: Hochkant-Modulkarten als Raster (ersetzt die Querformat-Elastic-Leiste) */
-    /* Popup: Hochformat statt Querformat */
   </style>
 
   <style id="cro-mobile-overrides">
@@ -105,20 +43,6 @@
       .hero-scroll-link { min-height: 44px; align-items: center; }
       .t-card blockquote { font-size: 1rem; }
     }
-  </style>
-
-  <style id="redesign-v2">
-    .method-section { background:linear-gradient(180deg,rgba(17,25,38,.96),rgba(13,20,31,.98)); border-top:1px solid rgba(180,195,180,.12); border-bottom:1px solid rgba(180,195,180,.12); }
-    .method-heading { max-width:720px; margin-inline:auto; }
-    .method-heading > p:last-child { color:var(--muted); }
-    .module-steps { list-style:none; margin:0; padding:5px 0 8px; display:grid; gap:0; }
-    .module-steps li { display:grid; grid-template-columns:48px 1fr; gap:16px; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.09); }
-    .module-steps li:last-child { border-bottom:0; }
-    .step-number { display:grid; place-items:center; width:38px; height:38px; border:1px solid rgba(210,166,59,.45); border-radius:10px; color:var(--gold); font-weight:700; font-size:.8rem; }
-    .module-steps h4 { margin:0 0 6px; color:var(--fg); font-size:1rem; }
-    .module-steps p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.55; }
-    .step-method { display:inline-block; margin-top:9px; color:var(--sage); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; }
-    @media (max-width:760px) { .module-steps li { grid-template-columns:40px 1fr; gap:12px; } .step-number { width:34px; height:34px; } }
   </style>
 
   <style id="hybrid-v3">
@@ -137,26 +61,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Ich habe noch Kontakt zu ihr. Hilft mir das trotzdem?",
+      "name": "Ist das Therapie?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Das Programm setzt nicht voraus, dass der Kontakt schon abgebrochen ist. Schritt 01 gibt dir einen Notfallplan für Momente, in denen der Drang nach Kontakt übermächtig wird. Schritt 04 hilft dir, eine Kontaktpause zu planen, die auch bei gemeinsamen Orten und Freundinnen umsetzbar ist."
+        "text": "Nein. UNBOND ist psychoedukative Selbsthilfe – keine Therapie, keine Diagnose und keine Krisenhilfe. Es ersetzt keine Psychotherapie oder medizinische Behandlung. Es passt auch nicht, wenn du eine Ex-zurück-Strategie suchst."
       }
     },
     {
       "@type": "Question",
-      "name": "Was, wenn ich noch nicht bereit bin, loszulassen?",
+      "name": "Was ist, wenn mir alles zu viel wird?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Du musst nichts entscheiden, bevor du anfängst. Die ersten Schritte erklären, was in deinem Nervensystem passiert. Verstehen kommt vor Loslassen. Ob und wann du gehst, bleibt deine Entscheidung. Wenn du in der Beziehung Angst vor Gewalt hast, wende dich bitte an das Hilfetelefon Gewalt gegen Frauen: 08000 116 016."
+        "text": "Dann mach eine Pause. Du arbeitest das Programm selbstständig durch und bestimmst dein Tempo. Wenn es dir sehr schlecht geht, hol dir bitte sofort Unterstützung: Telefonseelsorge 0800 111 0 111 oder Hilfetelefon Gewalt gegen Frauen 08000 116 016 – kostenlos, rund um die Uhr. Bei akuter Gefahr: 110."
       }
     },
     {
       "@type": "Question",
-      "name": "Bin ich überempfindlich – oder war das Gaslighting?",
+      "name": "Brauche ich eine Anmeldung?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein Warnsignal ist, wenn du nach Gesprächen regelmäßig deiner eigenen Wahrnehmung misstraust. Typisch sind Sätze wie: „Du dramatisierst“, „Das habe ich nie gesagt“, „Du bist zu sensibel“ oder „Du machst alles kaputt“. Gaslighting bedeutet nicht, dass einmal gestritten wurde. Es bedeutet, dass deine Realität wiederholt verschoben wird."
+        "text": "Für die Leseprobe nicht: Sie öffnet ohne Anmeldung und ohne E-Mail-Adresse. Für das Ebook gibst du beim Kauf über Digistore24 deine E-Mail-Adresse an und bekommst danach eine E-Mail mit deinem Zugangslink. Du öffnest das Programm direkt im Browser, auf dem Handy, dem Tablet oder am Computer. Du musst nichts herunterladen oder installieren."
       }
     },
     {
@@ -169,34 +93,10 @@
     },
     {
       "@type": "Question",
-      "name": "Für wen ist UNBOND gemacht?",
+      "name": "Wer hat das geschrieben?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "UNBOND richtet sich an Frauen, die Frauen lieben und nach einer toxischen oder emotional verwirrenden Beziehung Klarheit, Abstand und eine konkrete Selbsthilfestruktur suchen – lesbisch, bisexuell, pansexuell, queer oder ohne Label. Es passt nicht, wenn du eine Ex-zurück-Strategie, eine Diagnose oder akute Krisenhilfe suchst. In diesen Fällen braucht es andere Unterstützung."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie bekomme ich Zugang nach dem Kauf?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nach dem Kauf bekommst du von Digistore24 eine E-Mail mit deinem Zugangslink. Du öffnest das Programm direkt im Browser, auf dem Handy, dem Tablet oder am Computer. Du musst nichts herunterladen oder installieren."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Muss ich vorher den ToxiCometer gemacht haben?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nein. Das Programm funktioniert vollständig ohne Test. Der ToxiCometer kann dir helfen, deine Beziehung vorab einzuordnen. Du kannst ihn jederzeit kostenlos auf unbond.de/toxikometer machen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ich bin nicht lesbisch. Kann ich das Programm trotzdem nutzen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. UNBOND ist für Frauen geschrieben, die Frauen lieben, und nimmt deren besondere Lage ernst, zum Beispiel die kleine Szene oder das Nicht-geoutet-Sein. Trauma Bonding, Gaslighting und der Entzug nach einer toxischen Beziehung funktionieren aber in allen Beziehungen gleich. Die Erklärungen und Übungen lassen sich auf deine Situation übertragen."
+        "text": "Milena, die Gründerin von UNBOND. Sie hat Gaslighting, Trauma Bonding und das On-Off in einer Frauenbeziehung selbst erlebt. Mehr über sie steht direkt über diesen Fragen. Mary und Sandra, deren Geschichte durch die Kapitel führt, sind erfundene Figuren."
       }
     }
   ]
@@ -233,14 +133,7 @@
     html body #cookieRejectAll:hover { background:rgba(125,38,63,.28) !important; border-color:#7d263f !important; }
 
     /* Interaktive Inhaltsleisten erhalten nur technische Typografie und Zustände, keine neue Bildsprache. */
-    html body .phase { border-radius:8px !important; box-shadow:none !important; }
-    html body .phase-toggle::before { width:2px; background:var(--nothing-line) !important; }
-    html body .phase:hover .phase-toggle::before, html body .phase.is-open .phase-toggle::before { background:var(--nothing-bordeaux) !important; }
     html body :is(.phase-word, .phase-meta, .phase-cue, .phase-cue-text, .faq-kicker, .faq-number, .method-boundary summary, .price-secondary, .hero-scroll-link, .footer-link) { font-family:"Space Mono",monospace !important; font-size:.69rem !important; font-weight:700 !important; letter-spacing:.06em !important; text-transform:uppercase; }
-    html body .phase-name { font-family:"Space Grotesk",system-ui,sans-serif !important; font-weight:500 !important; }
-    html body .phase-num strong { color:var(--nothing-text) !important; font-family:"Space Mono",monospace !important; font-size:1.05rem !important; }
-    html body .phase-plus { width:32px; height:32px; border:1px solid var(--nothing-line) !important; border-radius:4px !important; background:transparent !important; box-shadow:none !important; color:var(--nothing-text) !important; font-family:"Space Mono",monospace !important; }
-    html body .phase.is-open .phase-plus { border-color:var(--nothing-bordeaux) !important; background:var(--nothing-bordeaux) !important; color:#fff !important; }
     html body .faq-chevron { border-color:var(--nothing-line) !important; border-radius:4px !important; background:transparent !important; }
     html body .faq-chevron::before, html body .faq-chevron::after { background:var(--nothing-text) !important; }
     html body .faq-list details[open] .faq-chevron { border-color:var(--nothing-bordeaux) !important; background:var(--nothing-bordeaux) !important; }
@@ -289,15 +182,10 @@
       background:rgba(18,25,35,.55) !important;
     }
     html body .yellow-label { color:var(--g-yellow) !important; }
-    html body .yellow-label-large { font-size:clamp(.875rem,1.4vw,1rem) !important; letter-spacing:.14em !important; }
-    .oflip-back { --g-gold:var(--g-yellow); --gold:var(--g-yellow); }
-    html body .oflip-back .oflip-tag { color:var(--g-yellow) !important; }
     @media (max-width:760px) { .lookinside-inner { padding:26px 20px; } }
   </style>
   <link rel="stylesheet" href="prompt-v5.css?v=20261107g">
-  <link rel="stylesheet" href="methodik-v6.css?v=20261105-clean">
   <link rel="stylesheet" href="faq-chat-v7.css?v=20261107g">
-  <link rel="stylesheet" href="perspectives-v3.css?v=20261107g">
   <link rel="stylesheet" href="unbond-preserve-v2.css?v=20261105-clean">
   <link rel="stylesheet" href="hero-program-v1.css?v=20261107g">
   <link rel="stylesheet" href="unbond-unified.css?v=20261107g">
@@ -306,7 +194,6 @@
   <link rel="stylesheet" href="unbond-final-cta.css?v=20261107g">
   <link rel="stylesheet" href="unbond-nothing-buttons.css?v=20261107g">
   <link rel="stylesheet" href="unbond-painpoints.css?v=20261107g">
-<style>video.perspectives-poster { pointer-events:none; }</style>
 <style id="understand-style">
     /* Dezenter Wissens-Abschnitt vor dem letzten CTA */
     .understand-section { padding-block: clamp(40px, 6vw, 72px); text-align: center; }
@@ -324,41 +211,10 @@
   .mirror-inner { max-width: 720px; margin-inline: auto; text-align: center; }
   .mirror-inner h2 { margin: 8px 0 10px; }
   .mirror-lead { margin: 0 auto 22px; color: var(--nothing-muted, #a3a3a3); max-width: 520px; }
-  .mirror-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; text-align: left; }
-  .mirror-item { width: 100%; min-height: 56px; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid #343434; border-radius: 8px; background: rgba(13,13,13,.72); color: #e8e8e8; font: inherit; font-size: 1rem; line-height: 1.4; text-align: left; cursor: pointer; transition: border-color .18s ease, background-color .18s ease; -webkit-tap-highlight-color: transparent; }
-  .mirror-item::before { content: ""; flex: 0 0 22px; height: 22px; border: 1px solid #5a5a5a; border-radius: 4px; transition: background-color .18s ease, border-color .18s ease; }
-  .mirror-item:hover { border-color: #5a5a5a; }
-  .mirror-item[aria-pressed="true"] { border-color: #7d263f; background: rgba(125,38,63,.18); }
-  .mirror-item[aria-pressed="true"]::before { border-color: #7d263f; background: #7d263f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 15px no-repeat; }
-  .mirror-item:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
   .mirror-result { margin-top: 22px; min-height: 3em; }
-  .mirror-result-text { margin: 0 auto 16px; max-width: 560px; color: #e8e8e8; font-size: 1.02rem; }
-  .mirror-result-text strong { color: #d2a63b; }
-  .mirror-result-actions { display: grid; justify-items: center; gap: 10px; }
-  .mirror-secondary { display: inline-flex; align-items: center; min-height: 44px; color: #a3a3a3; text-decoration: underline; text-underline-offset: 4px; }
-  .mirror-secondary:hover { color: #e8e8e8; }
-
-  .myth-list { list-style: none; max-width: 920px; margin: 28px auto 0; padding: 0; display: grid; gap: 12px; }
-  .myth-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); border: 1px solid #343434; border-radius: 8px; overflow: hidden; background: rgba(13,13,13,.72); }
-  .myth-row p { margin: 0; padding: 18px 20px; line-height: 1.55; }
-  .myth-row p span { display: block; margin-bottom: 6px; font-family: "Space Mono", monospace; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .myth-old { color: #a3a3a3; text-decoration: line-through; text-decoration-color: rgba(163,163,163,.5); border-right: 1px solid #343434; }
-  .myth-row p.myth-old span { display: inline-block; width: 100%; color: #7a7a7a; }
-  .myth-new { color: #e8e8e8; }
-  .myth-new span { color: #d2a63b; }
-  .myth-boundary { max-width: 720px; margin: 22px auto 0; color: #a3a3a3; font-size: .88rem; text-align: center; }
-  .myth-boundary a { color: #e8e8e8; white-space: nowrap; }
-
   .ed-per-step { margin: 2px 0 10px; color: #d2a63b; font-size: .86rem; }
   .final-today { display: block; margin-top: 12px; color: #e8e8e8; }
   .final-buy .price-secondary { margin-top: 10px; }
-  @media (max-width: 760px) {
-    .mirror-item { font-size: .96rem; padding: 13px 14px; }
-    .myth-row { grid-template-columns: 1fr; }
-    .myth-old { border-right: 0; border-bottom: 1px solid #343434; padding-bottom: 14px !important; }
-    .myth-row p { padding: 16px; }
-  }
-  @media (prefers-reduced-motion: reduce) { .mirror-item, .mirror-item::before { transition: none; } }
 </style>
 <style id="selbstcheck-kacheln">
   /* 15.11.2026 · Selbstcheck als ruhige Bildkacheln (Vorlage vt-tile + Zeichnungen aus Nothing-Bordeaux). Keine Bewegung. */
@@ -375,8 +231,6 @@
   .mirror-tile[aria-pressed="true"]::after { opacity: .5; }
   .mirror-tile[aria-pressed="true"] .mirror-tile-box { border-color: #7d263f; background: #7d263f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 14px no-repeat; }
   .mirror-tile:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-  .mirror-step { display: block; margin-top: 6px; color: #a3a3a3; font-size: .92rem; }
-  .mirror-step b { color: #e8e8e8; }
   @media (hover: hover) {
     .mirror-tile:hover { border-color: #5e9590; background: rgba(18,26,34,.88); box-shadow: 0 10px 24px rgba(0,0,0,.35); transform: translateY(-2px); }
     .mirror-tile:hover::after { opacity: .45; }
@@ -401,27 +255,22 @@
   .mr-meter i { height: 6px; border-radius: 3px; background: #2c3442; transition: background-color .25s ease; }
   .mr-meter i.is-on { background: #7d263f; }
   .mr-text { margin: 12px 0 14px; color: #e8e8e8; font-size: 1.05rem; font-weight: 600; line-height: 1.4; }
-  .mr-label { margin: 0 0 8px; color: #5e9590; font-family: "Space Mono", monospace; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .mr-steps { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 6px; }
   .mr-steps li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #2c3442; border-radius: 10px; background: rgba(0,0,0,.28); }
-  .mr-step-num { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(210,166,59,.45); border-radius: 8px; color: #d2a63b; font-family: "Space Mono", monospace; font-size: .8rem; font-weight: 700; }
   .mr-step-body { display: grid; gap: 3px; min-width: 0; }
   .mr-step-name { color: #fff; font-size: 1rem; font-weight: 800; line-height: 1.3; }
   .mr-actions { display: grid; justify-items: center; gap: 6px; }
   .mr-actions .button { width: 100%; justify-content: center; }
   @media (min-width: 560px) { .mr-actions .button { width: auto; } .mr-card { padding: 24px; } }
 
-  /* Kompakte Schrittzeile: Nummer · Name + Nutzen · Thema rechts. */
+  /* Kompakte Schrittzeile: Name, Nutzen, Methode. */
   .mr-step-gain { color: #d6d6d6; font-size: .92rem; line-height: 1.5; }
   .mr-step-method { margin-top: 4px; color: #5e9590; font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-  .mr-steps li .mr-step-theme { margin-left: auto; flex: 0 0 auto; padding: 3px 8px; border-radius: 6px; background: rgba(125,38,63,.28); color: #f1d9e0; font-size: .7rem; font-weight: 600; white-space: nowrap; }
   .mr-trust { margin: 0; color: #a3a3a3; font-size: .8rem; text-align: center; }
   .mr-trust a { color: #e8e8e8; text-underline-offset: 3px; }
   html body #wiedererkennen [data-reveal] { opacity: 1 !important; transform: none !important; }
   /* Die Seiten-Typo setzt font-size mit fünf :not(#id) fest; deshalb hier sechs, nur für diese eine Zahl. */
   html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-count strong { color: #d2a63b !important; font-family: "Space Mono", monospace !important; font-size: 2.6rem !important; line-height: 1 !important; }
-  /* Handy: Themenmarke weglassen, die gewählte Kachel steht direkt darüber. Spart eine Zeile pro Schritt. */
-  @media (max-width: 480px) { .mr-steps li .mr-step-theme { display: none; } }
   @media (prefers-reduced-motion: reduce) { .mr-meter i { transition: none; } }
 </style>
 <style id="wissen-hover">
@@ -452,7 +301,6 @@ html body:not(#a1):not(#a2):not(#a3) main section.section#angebot { padding-top:
 html body:not(#a1):not(#a2):not(#a3) main section .section-heading { margin-bottom: 22px !important; }
 html body:not(#a1):not(#a2):not(#a3) main section h2 { margin-bottom: 8px !important; }
 html body:not(#a1):not(#a2):not(#a3) main section h2 + p { margin-top: 0 !important; }
-html body:not(#a1):not(#a2):not(#a3) #methodik .myth-boundary { margin-top: 0; }
 /* Kapitelzeilen der Ergebniskarte wie in der früheren Modulübersicht; Seiten-Typo erzwingt sonst 16px/400. */
 html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-step-name { font-size: 1rem !important; font-weight: 800 !important; line-height: 1.3 !important; }
 html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-step-gain { font-size: .92rem !important; font-weight: 400 !important; line-height: 1.5 !important; }
@@ -546,6 +394,7 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
       <div class="container">
         <span class="section-anchor" id="schmerzpunkte" aria-hidden="true"></span>
         <span class="section-anchor" id="warum-unbond" aria-hidden="true"></span>
+        <span class="section-anchor" id="methodik" aria-hidden="true"></span>
 
         <header class="hero-program-intro">
           <h2 id="hero-program-title">Gaslighting <span class="hero-program-accent">überwinden</span> · Narzissmus <span class="hero-program-accent">erkennen</span> · Trauma Bonding <span class="hero-program-accent">lösen</span></h2>
@@ -558,11 +407,40 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
           <li class="vt-tile"><img class="vt-icon" src="assets/icon-molekuel-blatt.png" width="40" height="40" loading="lazy" decoding="async" alt=""><div><h3 class="vt-term">Reale Erfahrung</h3><p class="vt-desc">Aus gelebter Erfahrung, nicht aus dem Lehrbuch.</p></div></li>
           <li class="vt-tile"><img class="vt-icon" src="assets/icon-zielscheibe.png" width="40" height="40" loading="lazy" decoding="async" alt=""><div><h3 class="vt-term">Diskret</h3><p class="vt-desc">DSGVO-konform und neutral abgerechnet.</p></div></li>
         </ul>
+      </div>
+    </section>
 
-
-
-
-
+    <section class="section pricing-section" id="angebot" aria-labelledby="pricing-title">
+      <div class="container">
+        <article class="ed-card">
+          <div class="ed-top"><span>EDITION I</span><span class="eb-badge ed-badge" data-eb-only>Early-Bird bis 31.12.2026</span></div>
+          <h2 id="pricing-title">UNBOND CORE</h2>
+          <p class="ed-lead">UNBOND – Breaking Chains · Core-Edition. Das 10-Schritte-Programm zum selbstständigen Durcharbeiten.</p>
+          <div class="ed-body">
+            <div class="ed-info">
+              <ul class="ed-stats" aria-label="Umfang: 10 Schritte, 120+ Seiten, 15 Übungen, Journaling &amp; Reality Checks">
+                <li><strong>10</strong><span>Schritte</span></li>
+                <li><strong>120+</strong><span>Seiten</span></li>
+                <li><strong>15</strong><span>Übungen</span></li>
+              </ul>
+              <ul class="ed-features">
+                <li>Schritt 01 sofort: Notfallplan für die ersten 24 Stunden</li>
+                <li>Journaling &amp; Reality Checks</li>
+                <li>No-Contact-Strategien</li>
+                <li>Direkt im Browser · kein Abo</li>
+                <li data-access-period hidden></li>
+              </ul>
+            </div>
+            <div class="ed-buy">
+              <p class="ed-price"><strong data-price>29 €</strong><em class="price-after" data-eb-only>danach 49 €</em></p>
+              <p class="ed-once">Einmalig · kein Abo</p>
+              <p class="ed-per-step" data-eb-only>Das sind 2,90 € pro Schritt.</p>
+              <a class="button core-cta ed-cta" href="https://www.checkout-ds24.com/product/695399" data-cta-location="pricing" target="_blank" rel="noopener">Ebook für <span data-price>29 €</span> kaufen</a>
+              <a class="price-secondary" href="blick-ins-buch.html">Vorher kostenlos ins Buch schauen</a>
+            </div>
+          </div>
+          <p class="ed-privacy"><strong>Dein Schutz ist mitgedacht.</strong> Neutrale Abrechnung · keine App · kein Community-Forum</p>
+        </article>
       </div>
     </section>
 
@@ -578,6 +456,7 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
 
     <section class="section testimonials-section" id="stimmen" aria-label="Stimmen von Leserinnen">
       <div class="container">
+        <span class="section-anchor" id="perspektiven" aria-hidden="true"></span>
         <div class="section-heading centered proof-heading">
           <p class="eyebrow yellow-label">Echte Rückmeldungen</p>
           <h2>Stimmen aus dem <span class="signal">Beta-Test</span></h2>
@@ -625,163 +504,33 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
           <p class="eyebrow yellow-label">Über die Autorin</p>
           <h2 id="author-title">Wer steht hinter <span class="signal">UNBOND?</span></h2>
           <blockquote class="author-pull"><em>„Ich kenne diesen Schmerz nicht nur aus Büchern – ich habe Gaslighting, Trauma Bonding und das ewige On-Off in einer Frauenbeziehung selbst durchlebt.“</em></blockquote>
-          <p>Ein Programm wie dieses gab es damals nicht. Also habe ich es geschrieben.</p>
-          <p>Was mir beim Suchen fehlte, war nicht Literatur über Narzissmus – davon gibt es genug. Es fehlte Material, das toxische Dynamiken zwischen Frauen ernst nimmt: geteilte Freundinnen, dieselbe Szene, dieselben Räume. Genau das, was das Loslassen so viel schwerer macht, kommt in den meisten Ratgebern gar nicht vor.</p>
-          <p>Im Programm begleiten dich wissenschaftlich fundierte Erklärungen und über 15 praktische Übungen – jedes Kapitel öffnet mit einer kurzen Geschichte aus dem Leben zweier Frauen: Mary und Sandra (erfundene Figuren). Ihre Beziehung ist ein Paradebeispiel für toxische Dynamiken.</p>
-          <p class="author-sign">Ich bin überzeugt: Hätte es UNBOND damals gegeben, wäre mein Weg kürzer gewesen – und ein Teil des Schmerzes erspart geblieben.</p>
+          <p>Ein Programm, das toxische Dynamiken zwischen Frauen ernst nimmt, gab es damals nicht. Also habe ich es geschrieben: klinisch informiert, mit Methoden aus DBT, ACT und Traumatherapie.</p>
+          <p>Jedes Kapitel öffnet mit einer kurzen Geschichte von Mary und Sandra (erfundene Figuren).</p>
         </div>
       </div>
     </section>
-
-    <section class="section method-section" id="methodik" aria-labelledby="method-title">
-      <div class="container">
-        <div class="section-heading method-heading methodik-heading">
-          <p class="product-label yellow-label yellow-label-large">METHODIK MIT KLAREN GRENZEN</p>
-          <h2 id="method-title">Psychologie statt „Lass einfach los“.</h2>
-        </div>
-        <p class="myth-boundary">Selbsthilfe, keine Therapie und keine Krisenhilfe. Wenn du Angst vor Gewalt oder Eskalation hast: Hilfetelefon Gewalt gegen Frauen <a href="tel:08000116016">08000 116 016</a>, bei akuter Gefahr <a href="tel:110">110</a>.</p>
-      </div>
-    </section>
-
-    <section class="section pricing-section" id="angebot" aria-labelledby="pricing-title">
-      <div class="container">
-        <article class="ed-card">
-          <div class="ed-top"><span>EDITION I</span><span class="eb-badge ed-badge" data-eb-only>Early-Bird bis 31.12.2026</span></div>
-          <h2 id="pricing-title">UNBOND CORE</h2>
-          <p class="ed-lead">UNBOND – Breaking Chains · Core-Edition. Das 10-Schritte-Programm zum selbstständigen Durcharbeiten.</p>
-          <div class="ed-body">
-            <div class="ed-info">
-              <ul class="ed-stats" aria-label="Umfang: 10 Schritte, 120+ Seiten, 15 Übungen, Journaling &amp; Reality Checks">
-                <li><strong>10</strong><span>Schritte</span></li>
-                <li><strong>120+</strong><span>Seiten</span></li>
-                <li><strong>15</strong><span>Übungen</span></li>
-              </ul>
-              <ul class="ed-features">
-                <li>Schritt 01 sofort: Notfallplan für die ersten 24 Stunden</li>
-                <li>Journaling &amp; Reality Checks</li>
-                <li>No-Contact-Strategien</li>
-                <li>Direkt im Browser · kein Abo</li>
-                <li data-access-period hidden></li>
-              </ul>
-            </div>
-            <div class="ed-buy">
-              <p class="ed-price"><strong data-price>29 €</strong><em class="price-after" data-eb-only>danach 49 €</em></p>
-              <p class="ed-once">Einmalig · kein Abo</p>
-              <p class="ed-per-step" data-eb-only>Das sind 2,90 € pro Schritt.</p>
-              <a class="button core-cta ed-cta" href="https://www.checkout-ds24.com/product/695399" data-cta-location="pricing" target="_blank" rel="noopener">Ebook für <span data-price>29 €</span> kaufen</a>
-              <a class="price-secondary" href="blick-ins-buch.html">Vorher kostenlos ins Buch schauen</a>
-            </div>
-          </div>
-          <p class="ed-privacy"><strong>Dein Schutz ist mitgedacht.</strong> Neutrale Abrechnung · keine App · kein Community-Forum</p>
-        </article>
-      </div>
-    </section>
-
-
-        <section class="section perspectives-section perspectives-section--inline" id="perspektiven" aria-labelledby="perspectives-title" data-perspectives>
-      <div class="container">
-        <div class="perspectives-heading">
-          <h2 id="perspectives-title">Deine Stimme wird gehört</h2>
-          <p>Vier exemplarische Perspektiven zu Momenten, in denen Loslassen schwer sein kann.</p>
-          <p class="perspectives-muted-note">Keine Kundinnenstimmen. Keine Diagnose.</p>
-        </div>
-
-        <div class="perspectives-deck" data-perspectives-deck role="group" aria-label="Vier exemplarische Video-Perspektiven">
-          <article class="perspectives-card" data-perspective-card>
-            <button class="perspectives-card-button" type="button" data-perspective="eva" aria-controls="perspective-detail-eva" aria-expanded="false" aria-label="Perspektive 01: Eva direkt abspielen">
-              <img class="perspectives-poster" src="assets/personas/eva-poster.webp" width="640" height="640" loading="lazy" decoding="async" alt="">
-              <span class="perspectives-card-label"><span class="perspectives-card-index">01</span><span class="perspectives-card-name">Eva</span></span>
-            </button>
-            <div class="perspectives-inline-detail" id="perspective-detail-eva" data-perspective-detail hidden>
-              <div class="perspectives-player-wrap">
-                <video class="perspectives-player" data-perspective-player controls playsinline preload="none" muted aria-describedby="perspective-copy-eva">Dein Browser unterstützt dieses Video nicht.</video>
-              </div>
-              <div class="perspectives-copy">
-                <p class="perspectives-context-label" data-perspectives-label></p>
-                <h3 data-perspectives-title></h3>
-                <p class="perspectives-context-copy" id="perspective-copy-eva" data-perspectives-copy></p>
-                <p class="perspectives-transcript" data-perspectives-transcript></p>
-              </div>
-            </div>
-          </article>
-          <article class="perspectives-card" data-perspective-card>
-            <button class="perspectives-card-button" type="button" data-perspective="lisa" aria-controls="perspective-detail-lisa" aria-expanded="false" aria-label="Perspektive 02: Lisa direkt abspielen">
-              <img class="perspectives-poster" src="assets/personas/lisa-poster.webp" width="640" height="640" loading="lazy" decoding="async" alt="">
-              <span class="perspectives-card-label"><span class="perspectives-card-index">02</span><span class="perspectives-card-name">Lisa</span></span>
-            </button>
-            <div class="perspectives-inline-detail" id="perspective-detail-lisa" data-perspective-detail hidden>
-              <div class="perspectives-player-wrap">
-                <video class="perspectives-player" data-perspective-player controls playsinline preload="none" muted aria-describedby="perspective-copy-lisa">Dein Browser unterstützt dieses Video nicht.</video>
-              </div>
-              <div class="perspectives-copy">
-                <p class="perspectives-context-label" data-perspectives-label></p>
-                <h3 data-perspectives-title></h3>
-                <p class="perspectives-context-copy" id="perspective-copy-lisa" data-perspectives-copy></p>
-                <p class="perspectives-transcript" data-perspectives-transcript></p>
-              </div>
-            </div>
-          </article>
-          <article class="perspectives-card" data-perspective-card>
-            <button class="perspectives-card-button" type="button" data-perspective="mary" aria-controls="perspective-detail-mary" aria-expanded="false" aria-label="Perspektive 03: Mary direkt abspielen">
-              <video class="perspectives-poster" data-video-file="assets/personas/mary.mp4" width="640" height="640" muted playsinline preload="metadata" disablepictureinpicture tabindex="-1" aria-hidden="true"></video>
-              <span class="perspectives-card-label"><span class="perspectives-card-index">03</span><span class="perspectives-card-name">Mary</span></span>
-            </button>
-            <div class="perspectives-inline-detail" id="perspective-detail-mary" data-perspective-detail hidden>
-              <div class="perspectives-player-wrap">
-                <video class="perspectives-player" data-perspective-player controls playsinline preload="none" muted aria-describedby="perspective-copy-mary">Dein Browser unterstützt dieses Video nicht.</video>
-              </div>
-              <div class="perspectives-copy">
-                <p class="perspectives-context-label" data-perspectives-label></p>
-                <h3 data-perspectives-title></h3>
-                <p class="perspectives-context-copy" id="perspective-copy-mary" data-perspectives-copy></p>
-                <p class="perspectives-transcript" data-perspectives-transcript></p>
-              </div>
-            </div>
-          </article>
-          <article class="perspectives-card" data-perspective-card>
-            <button class="perspectives-card-button" type="button" data-perspective="monika" aria-controls="perspective-detail-monika" aria-expanded="false" aria-label="Perspektive 04: Monika direkt abspielen">
-              <img class="perspectives-poster" src="assets/personas/monika-poster.webp" width="640" height="640" loading="lazy" decoding="async" alt="">
-              <span class="perspectives-card-label"><span class="perspectives-card-index">04</span><span class="perspectives-card-name">Monika</span></span>
-            </button>
-            <div class="perspectives-inline-detail" id="perspective-detail-monika" data-perspective-detail hidden>
-              <div class="perspectives-player-wrap">
-                <video class="perspectives-player" data-perspective-player controls playsinline preload="none" muted aria-describedby="perspective-copy-monika">Dein Browser unterstützt dieses Video nicht.</video>
-              </div>
-              <div class="perspectives-copy">
-                <p class="perspectives-context-label" data-perspectives-label></p>
-                <h3 data-perspectives-title></h3>
-                <p class="perspectives-context-copy" id="perspective-copy-monika" data-perspectives-copy></p>
-                <p class="perspectives-transcript" data-perspectives-transcript></p>
-              </div>
-            </div>
-          </article>
-        </div>
-        <p class="sr-only" data-perspectives-status aria-live="polite"></p>
-      </div>
-    </section>
-
 
     <section class="section faq-section" id="faq" aria-labelledby="faq-title">
       <div class="container faq-layout">
         <div class="faq-heading">
           <p class="product-label">HÄUFIGE FRAGEN</p>
-          <h2 id="faq-title">Acht Fragen vor dem Start</h2>
+          <h2 id="faq-title">Fünf Fragen vor dem Start</h2>
         </div>
         <div class="faq-list">
 
           <details>
-            <summary><span class="faq-number">01</span><span class="faq-copy"><span class="faq-kicker">NOCH KONTAKT</span><span class="faq-question">Ich habe noch Kontakt zu ihr. Hilft mir das trotzdem?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Ja. Das Programm setzt nicht voraus, dass der Kontakt schon abgebrochen ist. Schritt 01 gibt dir einen Notfallplan für Momente, in denen der Drang nach Kontakt übermächtig wird. Schritt 04 hilft dir, eine Kontaktpause zu planen, die auch bei gemeinsamen Orten und Freundinnen umsetzbar ist.</p></div></div>
+            <summary><span class="faq-number">01</span><span class="faq-copy"><span class="faq-kicker">SELBSTHILFE</span><span class="faq-question">Ist das Therapie?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Nein. UNBOND ist psychoedukative Selbsthilfe – keine Therapie, keine Diagnose und keine Krisenhilfe. Es ersetzt keine Psychotherapie oder medizinische Behandlung. Es passt auch nicht, wenn du eine Ex-zurück-Strategie suchst.</p></div></div>
           </details>
 
           <details>
-            <summary><span class="faq-number">02</span><span class="faq-copy"><span class="faq-kicker">NOCH NICHT BEREIT</span><span class="faq-question">Was, wenn ich noch nicht bereit bin, loszulassen?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Du musst nichts entscheiden, bevor du anfängst. Die ersten Schritte erklären, was in deinem Nervensystem passiert. Verstehen kommt vor Loslassen. Ob und wann du gehst, bleibt deine Entscheidung. Wenn du in der Beziehung Angst vor Gewalt hast, wende dich bitte an das Hilfetelefon Gewalt gegen Frauen: <a href="tel:08000116016">08000 116 016</a>.</p></div></div>
+            <summary><span class="faq-number">02</span><span class="faq-copy"><span class="faq-kicker">PAUSE &amp; HILFE</span><span class="faq-question">Was ist, wenn mir alles zu viel wird?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Dann mach eine Pause. Du arbeitest das Programm selbstständig durch und bestimmst dein Tempo. Wenn es dir sehr schlecht geht, hol dir bitte sofort Unterstützung: Telefonseelsorge <a href="tel:08001110111">0800 111 0 111</a> oder Hilfetelefon Gewalt gegen Frauen <a href="tel:08000116016">08000 116 016</a> – kostenlos, rund um die Uhr. Bei akuter Gefahr: <a href="tel:110">110</a>.</p></div></div>
           </details>
 
           <details>
-            <summary><span class="faq-number">03</span><span class="faq-copy"><span class="faq-kicker">SELBSTZWEIFEL</span><span class="faq-question">Bin ich überempfindlich – oder war das Gaslighting?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Ein Warnsignal ist, wenn du nach Gesprächen regelmäßig deiner eigenen Wahrnehmung misstraust. Typisch sind Sätze wie: „Du dramatisierst“, „Das habe ich nie gesagt“, „Du bist zu sensibel“ oder „Du machst alles kaputt“. Gaslighting bedeutet nicht, dass einmal gestritten wurde. Es bedeutet, dass deine Realität wiederholt verschoben wird.</p></div></div>
+            <summary><span class="faq-number">03</span><span class="faq-copy"><span class="faq-kicker">ZUGANG</span><span class="faq-question">Brauche ich eine Anmeldung?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Für die Leseprobe nicht: Sie öffnet ohne Anmeldung und ohne E-Mail-Adresse. Für das Ebook gibst du beim Kauf über Digistore24 deine E-Mail-Adresse an und bekommst danach eine E-Mail mit deinem Zugangslink. Du öffnest das Programm direkt im Browser, auf dem Handy, dem Tablet oder am Computer. Du musst nichts herunterladen oder installieren.</p></div></div>
           </details>
 
           <details>
@@ -789,20 +538,8 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
             <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Die Zahlung wickelt unser Partner Digistore24 ab. Auf deinem Kontoauszug erscheint deshalb „Digistore24“ als Zahlungsempfänger – nicht UNBOND und kein Hinweis auf das Thema. Für nicht geoutete Frauen ist das bewusst so: Auf der Abrechnung steht nichts, was Rückschlüsse zulässt.</p></div></div>
           </details>
           <details>
-            <summary><span class="faq-number">05</span><span class="faq-copy"><span class="faq-kicker">PASSUNG &amp; GRENZE</span><span class="faq-question">Für wen ist UNBOND gemacht?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>UNBOND richtet sich an Frauen, die Frauen lieben und nach einer toxischen oder emotional verwirrenden Beziehung Klarheit, Abstand und eine konkrete Selbsthilfestruktur suchen – lesbisch, bisexuell, pansexuell, queer oder ohne Label. Es passt nicht, wenn du eine Ex-zurück-Strategie, eine Diagnose oder akute Krisenhilfe suchst. In diesen Fällen braucht es andere Unterstützung.</p></div></div>
-          </details>
-          <details>
-            <summary><span class="faq-number">06</span><span class="faq-copy"><span class="faq-kicker">ZUGANG</span><span class="faq-question">Wie bekomme ich Zugang nach dem Kauf?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Nach dem Kauf bekommst du von Digistore24 eine E-Mail mit deinem Zugangslink. Du öffnest das Programm direkt im Browser, auf dem Handy, dem Tablet oder am Computer. Du musst nichts herunterladen oder installieren.</p></div></div>
-          </details>
-          <details>
-            <summary><span class="faq-number">07</span><span class="faq-copy"><span class="faq-kicker">VORAUSSETZUNG</span><span class="faq-question">Muss ich vorher den ToxiCometer gemacht haben?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Nein. Das Programm funktioniert vollständig ohne Test. Der ToxiCometer kann dir helfen, deine Beziehung vorab einzuordnen. Du kannst ihn jederzeit kostenlos auf <a href="https://www.unbond.de/toxikometer.html">unbond.de/toxikometer</a> machen.</p></div></div>
-          </details>
-          <details>
-            <summary><span class="faq-number">08</span><span class="faq-copy"><span class="faq-kicker">PASSUNG</span><span class="faq-question">Ich bin nicht lesbisch. Kann ich das Programm trotzdem nutzen?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Ja. UNBOND ist für Frauen geschrieben, die Frauen lieben, und nimmt deren besondere Lage ernst, zum Beispiel die kleine Szene oder das Nicht-geoutet-Sein. Trauma Bonding, Gaslighting und der Entzug nach einer toxischen Beziehung funktionieren aber in allen Beziehungen gleich. Die Erklärungen und Übungen lassen sich auf deine Situation übertragen.</p></div></div>
+            <summary><span class="faq-number">05</span><span class="faq-copy"><span class="faq-kicker">AUTORIN</span><span class="faq-question">Wer hat das geschrieben?</span></span><span class="faq-chevron" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><div class="faq-answer-inner"><span class="faq-answer-label">UNBOND ANTWORTET</span><p>Milena, die Gründerin von UNBOND. Sie hat Gaslighting, Trauma Bonding und das On-Off in einer Frauenbeziehung selbst erlebt. Mehr über sie steht <a href="#ueber-milena">direkt über diesen Fragen</a>. Mary und Sandra, deren Geschichte durch die Kapitel führt, sind erfundene Figuren.</p></div></div>
           </details>
         </div>
       </div>
@@ -934,6 +671,5 @@ html body:not(#a1):not(#a2):not(#a3):not(#a4):not(#a5) #wiedererkennen .mr-text 
   <script src="hero-program-v1.js?v=20261010-cards"></script>
   <script src="unbond-painpoints.js?v=20261029"></script>
   <script src="video-wechsel.js?v=1"></script>
-  <script src="perspectives-v3.js?v=20261011-mary"></script>
 </body>
 </html>
