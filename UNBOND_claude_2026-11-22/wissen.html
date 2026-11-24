@@ -60,6 +60,11 @@ a.nt-tile--img:hover::after{opacity:.52}
 .w-stage .nt-tile{height:auto;min-height:380px}
 .w-stage-text{display:flex;flex-direction:column;gap:10px}
 .w-stage-t{margin:6px 0 0;font-size:clamp(1.6rem,2.8vw,2.25rem);font-weight:500;line-height:1.15;color:var(--nt-text)}
+/* Textspalte im Zeitstrahl ebenfalls klickbar (gleiches Ziel wie die Kachel) */
+.w-stage-text{position:relative}
+.w-stage-link{color:inherit;text-decoration:none}
+.w-stage-link::after{content:"";position:absolute;inset:0}
+.w-stage-link:hover,.w-stage-link:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .w-stage-s{margin:0;font-size:1.05rem;color:var(--nt-text2)}
 .w-stage-text .nt-tags{margin-top:8px;gap:8px;font-size:.8rem}
 .js-tl .w-stage>.nt-tile,.js-tl .w-stage-text{opacity:0;transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
@@ -106,7 +111,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 <a href="wissen.html" aria-current="page">Wissen</a>
 <a href="klarheit.html">Klarheit</a>
 <a href="blog/index.html">Blog</a>
-<a href="no-contact/">No Contact</a>
+<a href="no-contact/index.html">No Contact</a>
 <a class="cta" href="angebot.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
 </nav>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="unbond-mobile-nav" aria-label="Menü öffnen"><span class="sr-only">Navigation öffnen</span><span class="menu-icon" aria-hidden="true">☰</span></button>
@@ -115,11 +120,11 @@ a.nt-tile--img:hover::after{opacity:.52}
 <a href="wissen.html" aria-current="page">Wissen</a>
 <a href="klarheit.html">Klarheit</a>
 <a href="blog/index.html">Blog</a>
-<a href="no-contact/">No Contact</a>
+<a href="no-contact/index.html">No Contact</a>
 <a class="cta" href="angebot.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
 </nav>
 </header>
-<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="wissen.html" aria-current="step"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="klarheit.html"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="no-contact/"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
+<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="wissen.html" aria-current="step"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="klarheit.html"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="no-contact/index.html"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
 
 <main id="main-content">
 <section class="nt-wrap nt-hero" aria-labelledby="wissen-title">
@@ -142,7 +147,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 </a>
 <div class="w-stage-text">
 <span class="w-num">01</span>
-<p class="w-stage-t">Erkennen</p>
+<p class="w-stage-t"><a class="w-stage-link" href="klarheit.html">Erkennen</a></p>
 <p class="w-stage-s">Was war das?</p>
 <span class="nt-tags">
 <span>ToxiCometer · War es toxisch?</span>
@@ -154,7 +159,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 </div>
 </li>
 <li class="w-stage" id="weg-2">
-<a class="nt-tile nt-tile--img" style="--tile-img:url(assets/gefuehle/ohnmacht.webp)" href="no-contact/">
+<a class="nt-tile nt-tile--img" style="--tile-img:url(assets/gefuehle/ohnmacht.webp)" href="no-contact/index.html">
 <span class="nt-tile-top"><span>Abstand halten · No Contact</span><span class="nt-flag">Soforthilfe</span></span>
 <h2>Ich will ihr schreiben. Jetzt.</h2>
 <p>Das Handy ist schon in deiner Hand. Halt kurz an. Hier ist Hilfe für genau diesen Moment – auch wenn ihr dieselben Freundinnen habt.</p>
@@ -162,7 +167,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 </a>
 <div class="w-stage-text">
 <span class="w-num">02</span>
-<p class="w-stage-t">Abstand halten</p>
+<p class="w-stage-t"><a class="w-stage-link" href="no-contact/index.html">Abstand halten</a></p>
 <p class="w-stage-s">Wenn du ihr schreiben willst</p>
 <span class="nt-tags">
 <span>Soforthilfe beim Kontaktimpuls</span>
@@ -180,7 +185,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 </a>
 <div class="w-stage-text">
 <span class="w-num">03</span>
-<p class="w-stage-t">Verstehen</p>
+<p class="w-stage-t"><a class="w-stage-link" href="blog/index.html">Verstehen</a></p>
 <p class="w-stage-s">Warum du nicht loskommst</p>
 <p class="w-stage-proof">Fundiert statt ausgedacht: Die Artikel stützen sich auf psychologische Forschung, die Übungen auf erprobte Therapieansätze wie Verhaltenstherapie (KVT), DBT und Polyvagal-Theorie.</p>
 <span class="nt-tags">
@@ -216,7 +221,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 </div>
 <div class="w-stage-text">
 <span class="w-num">04</span>
-<p class="w-stage-t">Weitergehen</p>
+<p class="w-stage-t"><a class="w-stage-link" href="tools/index.html">Weitergehen</a></p>
 <p class="w-stage-s">Tools für danach · erste Übung frei</p>
 </div>
 </li>
@@ -250,7 +255,7 @@ a.nt-tile--img:hover::after{opacity:.52}
 <p class="ub-footer-title">Dein Weg</p>
 <a href="wissen.html">Übersicht</a>
 <a href="klarheit.html">Erkennen · Klarheit</a>
-<a href="no-contact/">Abstand halten · No Contact</a>
+<a href="no-contact/index.html">Abstand halten · No Contact</a>
 <a href="blog/index.html">Verstehen · Blog</a>
 <a href="tools/index.html">Weitergehen · Tools</a>
 <a href="angebot.html#angebot">Zum Buch</a>
