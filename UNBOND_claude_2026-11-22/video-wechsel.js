@@ -1,8 +1,8 @@
 (() => {
   "use strict";
 
-  // A fresh URL on each page visit prevents an old clip surviving a file replacement.
-  const revision = Date.now().toString(36);
+  // Feste Version: Der Browser darf das Video zwischenspeichern. Nach einem Dateitausch diese Kennung ändern.
+  const revision = "20261124";
   window.UNBOND_VIDEO_REVISION = revision;
   const background = document.querySelector(".page-background-video");
   let previousY = window.scrollY;
