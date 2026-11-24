@@ -41,7 +41,7 @@ body {
 /* ═══ HINTERGRUNDBILD (darkened, Text bleibt lesbar) ═══ */
 .bg-image {
   position: fixed; inset: 0; z-index: -2;
-  background-image: url('assets/narcissist-verdeckt.png');
+  background-image: url('assets/narcissist-verdeckt.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -820,7 +820,7 @@ function paintResult() {
   // Hintergrundbild ans Profil anpassen
   var bg = el('bg-image');
   if (bg) {
-    var img = (d.typKey === 'gn') ? 'assets/narcissist-grandios.png' : 'assets/narcissist-verdeckt.png';
+    var img = (d.typKey === 'gn') ? 'assets/narcissist-grandios.png' : 'assets/narcissist-verdeckt.webp';
     bg.style.backgroundImage = "url('" + img + "')";
   }
 
