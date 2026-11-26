@@ -1,0 +1,236 @@
+/* UNBOND · Bereichsfarben + Wegweiser (04.11.2026)
+   Jede Seite trägt <body data-bereich="…">. Die Leitfarbe erscheint nur an drei Stellen:
+   1. feine Linie unter der Kopfzeile · 2. aktiver Menüpunkt · 3. kleine Zeile über der Überschrift.
+   Dazu der Wegweiser (.ub-weg) direkt unter der Kopfzeile. Alles andere bleibt im Nothing-Design. */
+
+body[data-bereich="start"],
+body[data-bereich="wissen"]    { --ub-c: #d2a63b; } /* Gold        · Übersicht        */
+body[data-bereich="klarheit"]  { --ub-c: #B4869F; } /* Mauve       · 01 Erkennen      */
+body[data-bereich="nocontact"] { --ub-c: #C97B63; } /* Terrakotta  · 02 Abstand halten */
+body[data-bereich="blog"]      { --ub-c: #E8DCC4; } /* Warmes Beige· 03 Verstehen     */
+body[data-bereich="tools"]     { --ub-c: #5e9590; } /* Mint        · 04 Weitergehen   */
+
+/* 1 · Linie unter der Kopfzeile */
+html body[data-bereich] .topnav { box-shadow: inset 0 -2px 0 var(--ub-c) !important; }
+
+/* 2 · Aktiver Menüpunkt */
+html body[data-bereich] .topnav .desktop-nav > a[aria-current="page"] {
+  color: #fff !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--ub-c) !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 9px !important;
+}
+html body[data-bereich] .topnav .mobile-panel > a[aria-current="page"] {
+  color: #fff !important;
+  box-shadow: inset 3px 0 0 var(--ub-c);
+  padding-left: 12px !important;
+}
+
+/* 3 · Kleine Zeile über der Überschrift */
+html body[data-bereich] .nt-hero > .nt-label:first-child,
+html body[data-bereich] .tests-hero > .eyebrow,
+html body[data-bereich] .hero > .hero-eyebrow,
+html body[data-bereich] .ub-eyebrow { color: var(--ub-c) !important; }
+html body[data-bereich] .nc-hero-kicker .pill { color: var(--ub-c) !important; border-color: var(--ub-c) !important; background: transparent !important; }
+
+/* Wegweiser */
+.ub-weg { background: #050505; border-bottom: 1px solid #222; }
+.ub-weg-inner { width: min(100% - 48px, 1120px); margin-inline: auto; display: flex; align-items: center; gap: 18px; min-height: 48px; }
+.ub-weg-label { flex: none; margin: 0; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a8a8a; }
+.ub-weg ol { display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; min-width: 0; }
+.ub-weg li { display: flex; align-items: center; }
+.ub-weg li + li::before { content: "→"; margin: 0 8px 0 4px; color: #3d3d3d; font-size: .8rem; }
+.ub-weg a { display: inline-flex; align-items: baseline; gap: 7px; min-height: 44px; padding: 12px 2px; color: #8a8a8a; font-size: .8rem; font-weight: 500; text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; }
+.ub-weg a:hover { color: #e8e8e8; }
+.ub-weg a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ub-weg .ub-n { font-weight: 700; letter-spacing: .04em; }
+.ub-weg a[aria-current="step"] { color: #fff; border-bottom-color: var(--ub-c); }
+.ub-weg a[aria-current="step"] .ub-n { color: var(--ub-c); }
+@media (max-width: 760px) {
+  .ub-weg-inner { width: min(100% - 32px, 1120px); gap: 10px; }
+  .ub-weg-label { display: none; }
+  .ub-weg li + li::before { margin: 0 5px 0 2px; }
+  .ub-weg a:not([aria-current="step"]) .ub-t { display: none; }
+  .ub-weg a { font-size: .78rem; }
+}
+@media print { .ub-weg { display: none !important; } }
+
+/* No Contact: Abstand zwischen Wegweiser und Kopfbereich */
+html body[data-bereich="nocontact"] .nc-hero { margin-top: clamp(24px, 4vw, 48px) !important; }
+
+/* Startseite: ein einheitliches Grün. Alle Grün-/Türkistöne (#5e9590, #5E9590, #5e9590 …) werden zum Salbeigrün des Hero (#5e9590), Deckkraft bleibt erhalten. Automatisch erzeugt am 05.11.2026. */
+html body[data-bereich="start"]:not(#ub-x) { --sage: #5e9590 !important; --g-sage: #5e9590 !important; --unbond-teal: #5e9590 !important; --unbond-teal-line: rgba(94,149,144, .55) !important; --unbond-teal-subtle: rgba(94,149,144, .13) !important; --bh-teal: #5e9590 !important; --pf-sage: #5e9590 !important; --pf-sage-line: rgba(94,149,144, .20) !important; }
+html body[data-bereich="start"]:not(#ub-x) .site-header { border-bottom-color: rgba(94,149,144, 0.15) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-eyebrow { border-top-color: rgba(94,149,144, 0.36) !important; border-right-color: rgba(94,149,144, 0.36) !important; border-bottom-color: rgba(94,149,144, 0.36) !important; border-left-color: rgba(94,149,144, 0.36) !important; color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .oflip-tag { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .oflip-hint { border-top-color: rgba(94,149,144, 0.36) !important; border-right-color: rgba(94,149,144, 0.36) !important; border-bottom-color: rgba(94,149,144, 0.36) !important; border-left-color: rgba(94,149,144, 0.36) !important; color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .why-icon { border-top-color: rgba(94,149,144, 0.3) !important; border-right-color: rgba(94,149,144, 0.3) !important; border-bottom-color: rgba(94,149,144, 0.3) !important; border-left-color: rgba(94,149,144, 0.3) !important; background-color: rgba(94,149,144, 0.1) !important; }
+html body[data-bereich="start"]:not(#ub-x) .chapter-flow span { border-top-color: rgba(94,149,144, 0.32) !important; border-right-color: rgba(94,149,144, 0.32) !important; border-bottom-color: rgba(94,149,144, 0.32) !important; border-left-color: rgba(94,149,144, 0.32) !important; background-color: rgba(94,149,144, 0.08) !important; }
+html body[data-bereich="start"]:not(#ub-x) .phase.is-open,
+html body[data-bereich="start"]:not(#ub-x) .phase:hover { border-top-color: rgba(94,149,144, 0.55) !important; border-right-color: rgba(94,149,144, 0.55) !important; border-bottom-color: rgba(94,149,144, 0.55) !important; border-left-color: rgba(94,149,144, 0.55) !important; }
+html body[data-bereich="start"]:not(#ub-x) .phase-plus { border-top-color: rgba(94,149,144, 0.42) !important; border-right-color: rgba(94,149,144, 0.42) !important; border-bottom-color: rgba(94,149,144, 0.42) !important; border-left-color: rgba(94,149,144, 0.42) !important; background-color: rgba(94,149,144, 0.1) !important; }
+html body[data-bereich="start"]:not(#ub-x) .t-topic { border-top-color: rgba(94,149,144, 0.4) !important; border-right-color: rgba(94,149,144, 0.4) !important; border-bottom-color: rgba(94,149,144, 0.4) !important; border-left-color: rgba(94,149,144, 0.4) !important; }
+html body[data-bereich="start"]:not(#ub-x) .t-card mark { background-image: linear-gradient(transparent 65%, rgba(94,149,144, 0.34) 65%) !important; }
+html body[data-bereich="start"]:not(#ub-x) .t-avatar { border-top-color: rgba(94,149,144, 0.55) !important; border-right-color: rgba(94,149,144, 0.55) !important; border-bottom-color: rgba(94,149,144, 0.55) !important; border-left-color: rgba(94,149,144, 0.55) !important; background-color: rgba(94,149,144, 0.15) !important; }
+html body[data-bereich="start"]:not(#ub-x) .author-frame { border-top-color: rgba(94,149,144, 0.35) !important; border-right-color: rgba(94,149,144, 0.35) !important; border-bottom-color: rgba(94,149,144, 0.35) !important; border-left-color: rgba(94,149,144, 0.35) !important; }
+html body[data-bereich="start"]:not(#ub-x) .price-card { border-top-color: rgba(94,149,144, 0.38) !important; border-right-color: rgba(94,149,144, 0.38) !important; border-bottom-color: rgba(94,149,144, 0.38) !important; border-left-color: rgba(94,149,144, 0.38) !important; }
+html body[data-bereich="start"]:not(#ub-x) .faq-chevron { border-top-color: rgba(94,149,144, 0.4) !important; border-right-color: rgba(94,149,144, 0.4) !important; border-bottom-color: rgba(94,149,144, 0.4) !important; border-left-color: rgba(94,149,144, 0.4) !important; }
+html body[data-bereich="start"]:not(#ub-x) .faq-list details[open] summary { background-color: rgba(94,149,144, 0.07) !important; }
+html body[data-bereich="start"]:not(#ub-x) .final-inner { border-top-color: rgba(94,149,144, 0.3) !important; border-right-color: rgba(94,149,144, 0.3) !important; border-bottom-color: rgba(94,149,144, 0.3) !important; border-left-color: rgba(94,149,144, 0.3) !important; }
+html body[data-bereich="start"]:not(#ub-x) .akut-bruecke-inner { border-top-color: rgba(94,149,144, 0.26) !important; border-right-color: rgba(94,149,144, 0.26) !important; border-bottom-color: rgba(94,149,144, 0.26) !important; border-left-color: rgba(94,149,144, 0.26) !important; }
+html body[data-bereich="start"]:not(#ub-x) .site-footer { border-top-color: rgba(94,149,144, 0.14) !important; }
+html body[data-bereich="start"]:not(#ub-x) .chapter-flow { border-top-color: rgba(94,149,144, 0.24) !important; border-bottom-color: rgba(94,149,144, 0.24) !important; }
+html body[data-bereich="start"]:not(#ub-x) .pain-section .recog-list li { background-color: rgba(94,149,144, 0.08) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hybrid-eyebrow--sage { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .solution-card { border-top-color: rgba(94,149,144, 0.16) !important; border-right-color: rgba(94,149,144, 0.16) !important; border-bottom-color: rgba(94,149,144, 0.16) !important; border-left-color: rgba(94,149,144, 0.16) !important; }
+html body[data-bereich="start"]:not(#ub-x) .solution-number { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .transformation-after { background-color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .transformation-after h3 { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .transformation-after li { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .transformation-after li::before { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .bond-graph path.graph-line-soft { stroke: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-scroll-link { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .quote-pause { border-top-color: rgb(94,149,144) !important; border-right-color: rgb(94,149,144) !important; border-bottom-color: rgb(94,149,144) !important; border-left-color: rgb(94,149,144) !important; color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .chapter-flow { border-top-color: rgba(94,149,144, 0.35) !important; border-right-color: rgba(94,149,144, 0.35) !important; border-bottom-color: rgba(94,149,144, 0.35) !important; border-left-color: rgba(94,149,144, 0.35) !important; }
+html body[data-bereich="start"]:not(#ub-x) .chapter-flow strong { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .page-background { background-image: radial-gradient(60% 50% at 82% 18%, rgba(199, 154, 183, 0.2), transparent 70%), radial-gradient(55% 45% at 10% 85%, rgba(94,149,144, 0.12), transparent 70%), linear-gradient(rgba(7, 10, 17, 0.32), rgba(7, 10, 17, 0.32)), url("assets/bg-v22.webp") !important; }
+html body[data-bereich="start"]:not(#ub-x) .safe-space-mini { background-color: rgba(94,149,144, 0.06) !important; border-top-color: rgba(94,149,144, 0.28) !important; border-right-color: rgba(94,149,144, 0.28) !important; border-bottom-color: rgba(94,149,144, 0.28) !important; border-left-color: rgba(94,149,144, 0.28) !important; }
+html body[data-bereich="start"]:not(#ub-x) .akut-bruecke-inner { border-top-color: rgba(94,149,144, 0.28) !important; border-right-color: rgba(94,149,144, 0.28) !important; border-bottom-color: rgba(94,149,144, 0.28) !important; border-left-color: rgba(94,149,144, 0.28) !important; }
+html body[data-bereich="start"]:not(#ub-x) .comparison-details--journey .transformation-after { background-image: linear-gradient(145deg, rgba(94,149,144, 0.25), rgba(18, 31, 34, 0.86)) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hybrid-transformation .transformation-after h3,
+html body[data-bereich="start"]:not(#ub-x) .hybrid-transformation .transformation-after li::before { color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) .comparison-details--journey:hover .comparison-summary-action { background-color: rgba(94,149,144, 0.2) !important; }
+html body[data-bereich="start"]:not(#ub-x) .t-mark { color: rgba(94,149,144, 0.72) !important; }
+html body[data-bereich="start"]:not(#ub-x) .methodik-question { border-top-color: rgba(94,149,144, 0.48) !important; border-right-color: rgba(94,149,144, 0.48) !important; border-bottom-color: rgba(94,149,144, 0.48) !important; border-left-color: rgba(94,149,144, 0.48) !important; }
+html body[data-bereich="start"]:not(#ub-x) .methodik-icon { border-top-color: rgba(94,149,144, 0.52) !important; border-right-color: rgba(94,149,144, 0.52) !important; border-bottom-color: rgba(94,149,144, 0.52) !important; border-left-color: rgba(94,149,144, 0.52) !important; }
+html body[data-bereich="start"]:not(#ub-x) .methodik-card:hover .methodik-icon,
+html body[data-bereich="start"]:not(#ub-x) .methodik-card:focus-within .methodik-icon { background-color: rgba(94,149,144, 0.11) !important; }
+html body[data-bereich="start"]:not(#ub-x) .methodik-boundary { border-top-color: rgba(94,149,144, 0.64) !important; border-right-color: rgba(94,149,144, 0.64) !important; border-bottom-color: rgba(94,149,144, 0.64) !important; border-left-color: rgba(94,149,144, 0.64) !important; background-color: rgba(94,149,144, 0.08) !important; }
+html body[data-bereich="start"]:not(#ub-x) .methodik-boundary-icon { border-top-color: rgba(94,149,144, 0.64) !important; border-right-color: rgba(94,149,144, 0.64) !important; border-bottom-color: rgba(94,149,144, 0.64) !important; border-left-color: rgba(94,149,144, 0.64) !important; }
+html body[data-bereich="start"]:not(#ub-x) #faq .faq-list details[open] .faq-chevron { background-color: rgba(94,149,144, 0.1) !important; }
+html body[data-bereich="start"]:not(#ub-x) #faq .faq-list details[open] .faq-answer-inner { border-top-color: rgba(94,149,144, 0.46) !important; border-right-color: rgba(94,149,144, 0.46) !important; border-bottom-color: rgba(94,149,144, 0.46) !important; }
+html body[data-bereich="start"]:not(#ub-x) .perspectives-section--inline { --perspective-line: rgba(94,149,144, .72) !important; }
+html body[data-bereich="start"]:not(#ub-x) .perspectives-section--inline .perspectives-signal .term,
+html body[data-bereich="start"]:not(#ub-x) .perspectives-section--inline .perspectives-kicker,
+html body[data-bereich="start"]:not(#ub-x) .perspectives-section--inline .perspectives-context-label { color: var(--unbond-teal, #5e9590) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-program-intro .hero-program-accent { color: var(--unbond-teal, #5e9590) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card::before { border-left-color: rgba(94,149,144, 0.72) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card:hover { border-top-color: rgba(94,149,144, 0.68) !important; border-right-color: rgba(94,149,144, 0.68) !important; border-bottom-color: rgba(94,149,144, 0.68) !important; border-left-color: rgba(94,149,144, 0.68) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card-tag { color: var(--unbond-teal, #5e9590) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-program-modules .phase.is-open { border-top-color: rgba(94,149,144, 0.72) !important; border-right-color: rgba(94,149,144, 0.72) !important; border-bottom-color: rgba(94,149,144, 0.72) !important; border-left-color: rgba(94,149,144, 0.72) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card::after { border-left-color: rgba(94,149,144, 0.72) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card-arrow { border-top-color: rgba(94,149,144, 0.74) !important; border-right-color: rgba(94,149,144, 0.74) !important; border-bottom-color: rgba(94,149,144, 0.74) !important; border-left-color: rgba(94,149,144, 0.74) !important; color: var(--unbond-teal, #5e9590) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-motion-control,
+html body[data-bereich="start"]:not(#ub-x) .hero-program-collapse { border-top-color: rgba(94,149,144, 0.68) !important; border-right-color: rgba(94,149,144, 0.68) !important; border-bottom-color: rgba(94,149,144, 0.68) !important; border-left-color: rgba(94,149,144, 0.68) !important; }
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-motion-control:hover,
+html body[data-bereich="start"]:not(#ub-x) .hero-program-collapse:hover { background-color: rgba(94,149,144, 0.12) !important; }
+html body[data-bereich="start"]:not(#ub-x) .button:focus-visible,
+html body[data-bereich="start"]:not(#ub-x) .core-cta:focus-visible,
+html body[data-bereich="start"]:not(#ub-x) .hero-quote-card:focus-visible,
+html body[data-bereich="start"]:not(#ub-x) .hero-scroll-link:focus-visible,
+html body[data-bereich="start"]:not(#ub-x) .phase-toggle:focus-visible,
+html body[data-bereich="start"]:not(#ub-x) .hero-program-collapse:focus-visible { outline-color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x) #angebot .price-action { border-top-color: rgba(94,149,144, 0.28) !important; border-right-color: rgba(94,149,144, 0.28) !important; border-bottom-color: rgba(94,149,144, 0.28) !important; border-left-color: rgba(94,149,144, 0.28) !important; }
+html body[data-bereich="start"]:not(#ub-x) #start .final-inner { border-top-color: rgb(94,149,144) !important; }
+html body[data-bereich="start"]:not(#ub-x):not(#nb1):not(#nb2) .understand-tile { --ut-green: #5e9590 !important; --ut-green-hover: #5e9590 !important; --ut-green-light: #5e9590 !important; background-color: rgba(94,149,144, 0.13) !important; }
+@media (hover: hover) {
+html body[data-bereich="start"]:not(#ub-x) .t-card:hover { border-top-color: rgba(94,149,144, 0.48) !important; border-right-color: rgba(94,149,144, 0.48) !important; border-bottom-color: rgba(94,149,144, 0.48) !important; border-left-color: rgba(94,149,144, 0.48) !important; }
+}
+@media (max-width: 760px) {
+html body[data-bereich="start"]:not(#ub-x) .perspectives-section--inline .perspectives-deck { scrollbar-color: var(--unbond-teal, #5e9590) var(--perspective-surface) !important; }
+}
+
+/* Hover der Wissens-Kachel: dunkles Salbeigrün, damit die weiße Schrift lesbar bleibt */
+html body[data-bereich="start"]:not(#ub-x):not(#nb1):not(#nb2) .understand-tile { --ut-green-hover: #5e9590 !important; }
+
+/* Startseite (Verkaufsseite): eigene Kopfzeile + Hintergrundvideo */
+html body[data-bereich] .ub-weg { position: relative; z-index: 65; }
+html body[data-bereich="start"] .site-header:not(#ub-x) { border-bottom: 2px solid var(--ub-c) !important; box-shadow: none !important; }
+html body[data-bereich="start"] .hero .hero-eyebrow:not(#ub-x) { color: var(--ub-c) !important; border-color: rgba(210,166,59,.45) !important; }
+html body[data-bereich="start"] .hero-program-accent:not(#ub-x) { color: #5e9590 !important; -webkit-text-fill-color: #5e9590 !important; } /* gleiches Salbeigrün wie im Hero */
+
+/* ═══ Signalfarbe = Bereichsfarbe (06.11.2026) ═══
+   Unterzeilen in Überschriften, Aufzählungspunkte, Häkchen, Fortschrittsbalken, Rahmen von Hinweis-Kästen
+   und Diagramme nehmen die Farbe des Bereichs an. Zahlen bleiben Gold. Knöpfe bleiben Bordeaux.
+   Startseite und Wissen: Signalfarbe Salbeigrün, weil ihre Bereichsfarbe Gold für Zahlen reserviert ist (Milena, 06.11.2026). */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) {
+  --ub-sig: var(--ub-c);
+  --ub-sig-soft: color-mix(in srgb, var(--ub-c) 18%, transparent);
+}
+/* Wissen: Bereichsfarbe Gold bleibt für Linie, Menü und Wegweiser. Signalfarbe ist Salbeigrün (Entscheidung Milena 06.11.2026). */
+html body[data-bereich="wissen"]:not(#s1) {
+  --ub-sig: #5e9590;
+  --ub-sig-soft: rgba(94,149,144,.18);
+}
+/* Unterzeile in der Hauptüberschrift */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) h1 em:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) h1 .sage-phrase:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .hero-title em:not(#s1):not(#s2):not(#s3) {
+  color: var(--ub-sig) !important; -webkit-text-fill-color: var(--ub-sig) !important;
+}
+/* Aufzählungspunkte und kleine Zeichen */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .nt-tags > span:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .trust-row > li:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .article-body ul li:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .cta-list > li:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .report-plan-week:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .test-disclaimer > summary:not(#s1):not(#s2):not(#s3)::after,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .info-card > summary:not(#s1):not(#s2):not(#s3)::after,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .nt-tile-state .wissen-dots:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .sucht-ttl:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .exercise-tag:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .tcard > p:first-child:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .nc-founder-role:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .faq-chev:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) li > span[style*="color-green"]:not(#s1):not(#s2):not(#s3) {
+  color: var(--ub-sig) !important;
+}
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .tox-facts li:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .markers-ul li:not(#s1):not(#s2):not(#s3)::before,
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .pill-trust:not(#s1):not(#s2):not(#s3)::before {
+  background: var(--ub-sig) !important;
+}
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .td-icon:not(#s1):not(#s2):not(#s3) {
+  color: var(--ub-sig) !important; border-color: var(--ub-sig) !important;
+}
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .exercise-tag:not(#s1):not(#s2):not(#s3) {
+  background: var(--ub-sig-soft) !important;
+}
+/* Zahlen bleiben Gold */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .exercise-steps li:not(#s1):not(#s2):not(#s3)::before {
+  color: #d2a63b !important; background: rgba(210,166,59,.16) !important;
+}
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .rnd-num:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .stt-v:not(#s1):not(#s2):not(#s3) {
+  color: #d2a63b !important;
+}
+/* Fortschritt, Ladekreis, Punkte in Auswertungen */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .progress-bar:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .progress-fill:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .dim-dot:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .sw-ref:not(#s1):not(#s2):not(#s3) {
+  background: var(--ub-sig) !important;
+}
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .loader-ring:not(#s1):not(#s2):not(#s3) {
+  border-top-color: var(--ub-sig) !important;
+}
+/* Rahmen von Hinweis- und Ergebnis-Kästen */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .w-stage-proof:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .report-cycle-panel:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .report-cycle-node:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .q-text:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .cta-box:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .opt-btn:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .slot-wrap:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .out-panel:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .hm-panel:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .rwin:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) div[style*="border:1px solid var(--color-gold)"]:not(#s1):not(#s2):not(#s3) {
+  border-color: var(--ub-sig) !important;
+}
+/* Kleine Etiketten mit fest eingetragenem Grün (No Contact, Spielautomat) */
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) [style*="color:var(--color-green)"]:not(#s1):not(#s2):not(#s3),
+html body:is([data-bereich="klarheit"],[data-bereich="nocontact"],[data-bereich="blog"],[data-bereich="tools"],[data-bereich="wissen"]) .out-tag:not(#s1):not(#s2):not(#s3) {
+  color: var(--ub-sig) !important; border-color: var(--ub-sig) !important;
+}

@@ -1,0 +1,142 @@
+/* UNBOND v32 · mobile readability and copy density
+   Four responsive type sizes, two families, no italics. Previous versioned rules
+   remain intact; this stylesheet is the final design layer. */
+:root {
+  --type-small: .875rem;
+  --type-body: clamp(1.0625rem, 1rem + .3vw, 1.125rem);
+  --type-h2: clamp(1.9rem, 1.32rem + 2.05vw, 3.15rem);
+  --type-display: clamp(2.3rem, 1.52rem + 2.55vw, 3.9rem);
+  --page: 1160px;
+  --quote-gap: 16px;
+  --quote-width: clamp(298px, calc((min(100vw - 40px, 1160px) - 2 * var(--quote-gap)) / 3), 376px);
+}
+/* Explicit typesetting roles; the reset also removes old italic and rogue sizes. */
+body, body * {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: var(--type-body) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+body :is(h1, h1 *, .price strong, .program-facts > div > span) {
+  font-family: 'Poppins', Arial, sans-serif !important;
+  font-size: var(--type-display) !important;
+  font-weight: 400 !important;
+}
+body :is(h2, h2 *, .steps-title, .phase-num strong, .oflip-stat .stat-num) {
+  font-family: 'Poppins', Arial, sans-serif !important;
+  font-size: var(--type-h2) !important;
+  font-weight: 400 !important;
+}
+body :is(strong, b, h3, h4, button, summary, .button, .brand, .recognition-icon,
+  .phase-name, .faq-question, .quote-pause, .cookie-button, .footer-title) { font-weight: 700 !important; }
+body :is(h1, h1 *, h2, h2 *, .steps-title, .phase-num strong, .price strong,
+  .program-facts > div > span) { font-weight: 400 !important; }
+body :is(.crisis-strip, .crisis-strip *, .brand, .brand *, .header-cta, .header-cta *,
+  .eyebrow, .product-label, .hybrid-eyebrow, .hero-eyebrow, .program-kicker,
+  .quote-context, .recognition-icon, .quote-pause, .quote-pause *,
+  .checkout-note, .hero-safety-line, .hero-format, .hero-scroll-link,
+  .oflip-tag, .oflip-back-hint, .stat-source-status, .stat-source-status *,
+  .phase-cue,
+  .phase-word, .step-number, .step-method, .method-index, .t-topic,
+  .t-note, .t-person span, .author-photo figcaption span, .faq-kicker,
+  .faq-number, .eb-badge, .price span, .price-after, .trust-note,
+  .safe-space-mini, .safe-space-mini *,
+  .footer-grid p, .footer-grid a:not(.brand), .footer-grid button,
+  .footer-crisis, .cookie-bar, .cookie-bar *, .oflip-stat p) {
+  font-size: var(--type-small) !important;
+}
+body .brand > span, body .button, body .cookie-button,
+body .product-label, body .eyebrow { font-weight: 700 !important; }
+h1, h2, .steps-title { text-wrap: balance; }
+h2 { line-height: 1.12 !important; }
+h3, h4 { line-height: 1.35 !important; }
+/* Never allow emphasis in a body sentence to create a fifth, italic type. */
+em, cite, i { font-style: normal !important; }
+
+/* Keep the brand portrait visible, but make all text-over-photo regions legible. */
+.page-background {
+  background-image: linear-gradient(rgba(6,11,18,.40), rgba(6,11,18,.52)), url('assets/bg-v22.webp') !important;
+  background-position: center, 50% 32% !important;
+}
+.site-header { background: rgba(9,14,22,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+
+/* Hero: a compact conversion story on a dark glass card, portrait visible on the right. */
+.hero { min-height: min(810px, calc(100svh - 104px)); padding: 32px 0 44px; }
+.hero-inner {
+  width: min(570px, calc(100% - 48px));
+  max-width: none;
+  margin: 0 auto 0 max(24px, calc((100vw - 1300px) / 2));
+  padding: clamp(26px, 4vw, 44px);
+  border: 1px solid rgba(208,223,213,.23);
+  border-radius: 22px;
+  background: rgba(9,16,25,.85);
+  box-shadow: 0 24px 78px rgba(0,0,0,.3);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.hero-inner > * { max-width: none; }
+.hero h1 { line-height: 1.08; text-shadow: none; }
+.hero-lead { margin: 20px 0 10px; color: #f2efe9; text-shadow: none; line-height: 1.58; }
+.hero-format { margin: 0 0 18px; color: #d7e2d7; line-height: 1.45; }
+.hero-cta { width: 100%; max-width: 500px; margin: 0 0 4px; }
+.hero-note { margin: 11px 0 0; color: #e0e5e0; text-shadow: none; }
+.hero-safety-line { margin: 10px 0 0; color: #d0d9d3; line-height: 1.45; }
+.hero-scroll-link { margin-top: 14px; color: #d8e8dd; }
+
+/* Light surfaces reveal the original woman while individual cards remain readable. */
+.method-section { background: rgba(11,18,27,.86) !important; }
+.pricing-section, .testimonials-section, .author-section, .faq-section,
+.final-section { background: rgba(9,15,23,.32) !important; }
+.final-inner { background: rgba(13,21,32,.94); }
+
+/* Six cards in two three-item rows: decorative user-supplied portraits are true card backgrounds. */
+@keyframes quote-travel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Safety and sales text are never reliant on motion or on a text-on-photo treatment. */
+.footer-grid nav a, .footer-link { min-height: 44px; }
+.section-anchor { display: block; height: 0; scroll-margin-top: 100px; }
+.steps-title { margin-top: 38px; }
+.steps-hint, .phase-meta { font-size: var(--type-body) !important; color: #e4e8e4; }
+.phase { background: rgba(14,22,34,.97); }
+.phase-num strong { line-height: 1 !important; }
+.t-card blockquote { line-height: 1.56; }
+.button:focus-visible { outline: 3px solid #f0c65d; outline-offset: 3px; }
+.cookie-button, .cookie-details summary, .cookie-option { min-height: 44px; }
+
+@media (max-width: 1000px) {
+  .hero-inner { width: min(555px, calc(100% - 36px)); margin-left: 18px; }
+}
+@media (max-width: 760px) {
+  :root {
+    --type-small: .9375rem;
+    --type-body: 1.125rem;
+    --type-display: clamp(2.45rem, 2.2rem + 1.4vw, 2.8rem);
+    --type-h2: clamp(2.05rem, 1.8rem + .9vw, 2.32rem);
+    --quote-width: min(82vw, 330px);
+    --quote-gap: 12px;
+  }
+  .page-background {
+    background-image: linear-gradient(rgba(6,11,18,.42),rgba(6,11,18,.58)),url('assets/bg-v22-mobile.webp') !important;
+    background-position: center, center 20% !important;
+  }
+  .site-header { top: 0; }
+  .hero { min-height: 0; align-items: stretch; padding: 0 0 30px; }
+  .hero-inner {
+    width: calc(100% - 24px);
+    margin: 190px auto 0;
+    padding: 24px 20px 26px;
+    background: rgba(9,16,24,.96);
+    border-radius: 18px;
+  }
+  .hero h1 { line-height: 1.09; }
+  .hero-lead { margin-top: 14px; }
+  .hero-format { margin-bottom: 16px; }
+  .hero-scroll-link { min-height: 44px; }
+  .steps-title { margin-top: 32px; }
+}
+@media (max-width: 430px) {
+  .hero-inner { margin-top: 148px; }
+  .hero-eyebrow { letter-spacing: .09em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-background { transform: none; }
+}

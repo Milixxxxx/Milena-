@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Landingpage -->
-  <url><loc>https://www.unbond.de/</loc></url>
-  <url><loc>https://www.unbond.de/blick-ins-buch.html</loc></url>
+  <!-- Startseite, Buch und Leseproben (Stand 22.11.2026) -->
+  <url><loc>https://www.unbond.de/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://www.unbond.de/angebot.html</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://www.unbond.de/blick-ins-buch.html</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://www.unbond.de/leseprobe-wolf-im-schafskittel.html</loc></url>
 
   <!-- Selbsttests und Werkzeuge -->
   <url><loc>https://www.unbond.de/klarheit.html</loc></url>
@@ -26,4 +28,16 @@
   <url><loc>https://www.unbond.de/blog/narzissmus-weiblich-definition.html</loc></url>
   <url><loc>https://www.unbond.de/blog/narzissmus-lesbische-beziehungen-wlw.html</loc></url>
   <url><loc>https://www.unbond.de/blog/verdeckter-narzissmus-erkennen.html</loc></url>
+
+  <!-- Rechtliches -->
+  <url><loc>https://www.unbond.de/impressum.html</loc></url>
+
+  <!-- BEWUSST NICHT EINGETRAGEN (22.11.2026): Diese Seiten tragen <meta name="robots" content="noindex">.
+       Eine Sitemap darf keine noindex-Seiten enthalten, sonst meldet die Google Search Console Fehler.
+       Erst eintragen, wenn das noindex auf der jeweiligen Seite entfernt wurde:
+       https://www.unbond.de/report.html                 (noindex,nofollow – persönliche Ergebnisseite)
+       https://www.unbond.de/datenschutz.html            (noindex,follow)
+       https://www.unbond.de/tools/index.html            (noindex,nofollow – Tools im Aufbau)
+       https://www.unbond.de/tools/phase-1/index.html    (noindex,nofollow)
+       https://www.unbond.de/tools/phase-2/index.html    (noindex,nofollow) -->
 </urlset>

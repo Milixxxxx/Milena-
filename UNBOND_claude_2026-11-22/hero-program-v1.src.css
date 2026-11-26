@@ -1,0 +1,218 @@
+/*
+ * Wiedererkennung und Programm direkt nach dem Hero.
+ * Verwendet ausschließlich die vorhandene UNBOND-Bildwelt und -Typografie.
+ */
+.hero-program-section {
+  position: relative;
+  overflow: clip;
+  padding: clamp(56px, 7vw, 96px) 0 clamp(64px, 8vw, 104px);
+  border-block: 1px solid rgba(226, 232, 228, .1);
+  background: rgba(8, 13, 19, .82);
+}
+
+.hero-program-section .container {
+  width: min(calc(100% - 40px), 1000px);
+}
+
+.hero-program-intro {
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-program-intro h2 {
+  margin: 0;
+  color: #f1f3f0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.55rem, 3.3vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+}
+
+.hero-program-intro .hero-program-accent {
+  color: var(--unbond-teal, #5e9590);
+}
+
+.hero-program-lead {
+  margin: 12px auto 0;
+  color: rgba(241, 243, 240, .82);
+  font-size: clamp(.92rem, 1.5vw, 1.04rem);
+  line-height: 1.55;
+}
+
+.hero-program-prompt {
+  margin: 18px 0 0;
+  color: rgba(241, 243, 240, .68);
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 1.45;
+}
+
+.hero-program-modules {
+  max-width: 940px;
+  margin: clamp(52px, 7vw, 84px) auto 0;
+  padding-top: clamp(34px, 5vw, 56px);
+  border-top: 1px solid rgba(226, 232, 228, .14);
+}
+
+.hero-program-modules .program-heading {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-program-modules .program-heading h3 {
+  margin: 0;
+  color: #f1f3f0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.45rem, 2.7vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.12;
+}
+
+.hero-program-modules .steps-title {
+  margin: 24px 0 0;
+  color: #f1f3f0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  text-align: center;
+}
+
+.hero-program-modules .steps-hint {
+  margin: 8px 0 22px;
+  color: rgba(241, 243, 240, .68);
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.hero-program-modules .phase-list {
+  margin: 0;
+}
+
+.hero-program-modules .phase {
+  border-color: rgba(226, 232, 228, .18) !important;
+  background: rgba(17, 26, 35, .66) !important;
+}
+
+.hero-program-modules .phase-toggle:focus-visible {
+  outline: 3px solid var(--unbond-teal, #5e9590);
+  outline-offset: -3px;
+}
+
+.hero-program-modules .phase.is-open {
+  border-color: rgba(94,149,144, .72) !important;
+}
+
+@media (max-width: 640px) {
+  .hero-program-section {
+    padding-block: 52px 64px;
+  }
+
+  .hero-program-section .container {
+    width: min(calc(100% - 32px), 1000px);
+  }
+
+  .hero-program-intro h2 {
+    font-size: clamp(1.45rem, 7.1vw, 2rem);
+  }
+
+  .hero-program-modules {
+    margin-top: 50px;
+    padding-top: 34px;
+  }
+}
+
+/* v3: Gelieferte Linienporträts als lesbare Kartenhintergründe, zwei ruhige Gegenläufe. */
+.hero-program-intro h2 {
+  font-size: clamp(1.72rem, 3.65vw, 3rem);
+}
+
+@keyframes hero-quote-travel-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes hero-quote-travel-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.hero-program-collapse {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(94,149,144, .68);
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(241, 243, 240, .9);
+  cursor: pointer;
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero-program-collapse:hover {
+  border-color: var(--unbond-teal, #5e9590);
+  background: rgba(94,149,144, .12);
+}
+
+.hero-program-collapse:focus-visible {
+  outline: 3px solid var(--unbond-teal, #5e9590);
+  outline-offset: 3px;
+}
+
+.hero-program-modules[hidden] {
+  display: none;
+}
+
+.hero-program-modules {
+  scroll-margin-top: 88px;
+}
+
+.hero-program-modules-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.hero-program-modules-header .program-heading {
+  margin: 0;
+  text-align: left;
+}
+
+.hero-program-collapse {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+}
+
+@media (max-width: 760px) {
+  .hero-program-intro h2 {
+    font-size: clamp(1.58rem, 7.45vw, 2.18rem);
+  }
+
+  .hero-program-modules-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-program-collapse {
+    width: 100%;
+  }
+}

@@ -84,6 +84,11 @@ details[open] .faq-chev { transform: rotate(180deg); }
 #email-input:focus { border-color: var(--color-gold); box-shadow: 0 0 0 1px rgba(94,149,144,.5); }
 #lead-btn:hover { background: var(--cta-bg-hover); transform: translateY(-1px); }
 #lead-btn:disabled { opacity: .6; cursor: wait; transform: none; }
+/* Formular und Datenschutz-Zeile haben display:flex inline – ohne diese Regel
+   wuerde das hidden-Attribut sie nach dem Absenden nicht ausblenden. */
+#lead-form[hidden], #lead-erwartung[hidden], label[for="lead-dsgvo"][hidden], #lead-success[hidden], #lead-error[hidden] { display: none !important; }
+#lead-soforttool:hover { border-bottom-color: var(--color-fg); }
+#lead-again:hover { opacity: 1; color: var(--color-fg); }
 @media (max-width: 850px) {
   .split-grid { grid-template-columns: 1fr !important; }
   .split-grid > figure { order: 2; max-width: 380px; margin: 0 auto; }
@@ -206,7 +211,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
 </head>
 <body class="nt nt-skin" data-bereich="nocontact" data-tracking="voll">
 <div class="nt-bgvideo" aria-hidden="true">
-<video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/no-contact-hintergrund_2026-11-20.mp4" type="video/mp4"></video>
+<video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/wissen-hintergrund-neu_2026-11-20.mp4" type="video/mp4"></video>
 </div>
 <div style="position:relative;z-index:1">
 <div class="nt-trust" role="region" aria-label="Krisenhinweis und Hotlines">
@@ -228,8 +233,8 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
 <a href="../wissen.html">Wissen</a>
 <a href="../klarheit.html">Klarheit</a>
 <a href="../blog/index.html">Blog</a>
-<a href="../no-contact/" aria-current="page">No Contact</a>
-<a class="cta" href="../index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+<a href="../no-contact/index.html" aria-current="page">No Contact</a>
+<a class="cta" href="../angebot.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
 </nav>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="unbond-mobile-nav" aria-label="Menü öffnen"><span class="sr-only">Navigation öffnen</span><span class="menu-icon" aria-hidden="true">☰</span></button>
 </div>
@@ -237,11 +242,11 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
 <a href="../wissen.html">Wissen</a>
 <a href="../klarheit.html">Klarheit</a>
 <a href="../blog/index.html">Blog</a>
-<a href="../no-contact/" aria-current="page">No Contact</a>
-<a class="cta" href="../index.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
+<a href="../no-contact/index.html" aria-current="page">No Contact</a>
+<a class="cta" href="../angebot.html#angebot">Zum Buch <span aria-hidden="true">→</span></a>
 </nav>
 </header>
-<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="../wissen.html"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="../klarheit.html"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="../no-contact/" aria-current="step"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="../blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="../tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
+<nav class="ub-weg" aria-label="Dein Weg durch UNBOND"><div class="ub-weg-inner"><p class="ub-weg-label">Dein Weg</p><ol><li><a href="../wissen.html"><span class="ub-n">00</span><span class="ub-t">Übersicht</span></a></li><li><a href="../klarheit.html"><span class="ub-n">01</span><span class="ub-t">Erkennen</span></a></li><li><a href="../no-contact/index.html" aria-current="step"><span class="ub-n">02</span><span class="ub-t">Abstand halten</span></a></li><li><a href="../blog/index.html"><span class="ub-n">03</span><span class="ub-t">Verstehen</span></a></li><li><a href="../tools/index.html"><span class="ub-n">04</span><span class="ub-t">Weitergehen</span></a></li></ol></div></nav>
 
 <main>
 <section class="nc-hero" aria-labelledby="nc-hero-title">
@@ -279,7 +284,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
       Kein taktisches Schweigen. Kein „Mach dich rar, damit sie zurückkommt".<br><br>
       <strong style="color:var(--color-fg);font-weight:400">No Contact soll nicht sie verändern. Es soll dir wieder Raum zum Denken, Schlafen und Entscheiden geben.</strong>
     </p>
-    <a class="nc-text-link" href="../index.html#programm">Warum sich die Bindung trotzdem so stark anfühlen kann →</a>
+    <a class="nc-text-link" href="../angebot.html#programm">Warum sich die Bindung trotzdem so stark anfühlen kann →</a>
   </div>
 </section>
 <section class="nc-queer-section" aria-labelledby="queer-heading" style="padding:64px 20px">
@@ -362,7 +367,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
         <p class="nc-founder-quote">
           „Ich kenne den Widerspruch: zu wissen, dass eine Beziehung dir schadet — und sie trotzdem zu vermissen. UNBOND ist die Struktur, die ich mir selbst gewünscht hätte."
         </p>
-        <a class="nc-founder-link" href="../index.html#ueber-milena">Mehr über Milena →</a>
+        <a class="nc-founder-link" href="../angebot.html#ueber-milena">Mehr über Milena →</a>
       </div>
     </div>
   </div>
@@ -400,7 +405,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
 </div>
 </li>
 <li class="w-stage" id="schritt-3">
-<a class="nt-tile" href="../index.html#angebot">
+<a class="nt-tile" href="../angebot.html#angebot">
 <span class="nt-tile-top"><span>Verstehen</span><span class="nt-flag">Buch</span></span>
 <h3>„Ich will verstehen, warum ich immer wieder dort lande.“</h3>
 <p>Der ganze Weg an einem Ort.</p>
@@ -437,13 +442,21 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
         <input id="email-input" name="EMAIL" type="email" required autocomplete="email" placeholder="Deine E-Mail-Adresse" style="flex:1;min-width:220px;background:rgba(13,15,26,.6);border:1px solid var(--color-border);border-radius:8px;padding:14px 16px;color:var(--color-fg);font-family:var(--font-body);font-size:16px;outline:none">
         <button id="lead-btn" type="submit" style="background:var(--cta-bg);color:var(--color-fg);border:none;border-radius:8px;padding:14px 26px;font-family:var(--font-body);font-weight:500;font-size:16px;cursor:pointer;transition:all .25s var(--ease-soft);box-shadow:0 14px 35px rgba(0,0,0,.22)">SOS-Koffer kostenlos holen</button>
       </form>
+      <!-- Erwartungszeile (22.11.2026): sagt vor dem Absenden, was als Naechstes passiert. -->
+      <p id="lead-erwartung" style="margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--color-fg-muted);opacity:.72">Du bekommst gleich eine Mail von UNBOND. Abmelden geht jederzeit.</p>
       <!-- Pflichtangabe: Einwilligung + Link zur Datenschutzerklaerung muessen
            unmittelbar am Formular stehen, nicht nur im Fusszeilen-Link. -->
       <label for="lead-dsgvo" style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--color-fg-muted);cursor:pointer">
         <input type="checkbox" id="lead-dsgvo" required style="margin-top:3px;flex-shrink:0;accent-color:var(--color-green);width:17px;height:17px">
         <span>Ich möchte den SOS-Notfallkoffer per E-Mail erhalten und akzeptiere die <a href="../datenschutz.html" target="_blank" rel="noopener" style="color:var(--color-gold-light)">Datenschutzerklärung</a>. Abmeldung jederzeit über den Link in jeder Mail.</span>
       </label>
-      <p id="lead-success" role="status" hidden style="margin:0;padding:14px 16px;border-radius:8px;color:var(--color-green);background:rgba(94,149,144,.12);border:1px solid rgba(94,149,144,.35);font-size:16px">Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.</p>
+      <!-- Erfolgsmeldung: Der Text wird je nach Antwort von send_to_brevo.php gesetzt
+           (doi_pending / already_subscribed / direkte Eintragung), siehe Skript unten. -->
+      <div id="lead-success" role="status" hidden style="margin:14px 0 0;padding:14px 16px;border-radius:8px;color:var(--color-green);background:rgba(94,149,144,.12);border:1px solid rgba(94,149,144,.35);font-size:16px">
+        <p id="lead-success-text" style="margin:0">Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.</p>
+        <p style="margin:12px 0 0;font-size:15px"><a id="lead-soforttool" href="#leadmagnet" style="color:var(--color-fg);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(94,149,144,.6);padding-bottom:1px">Brauchst du jetzt sofort Halt? <span aria-hidden="true">→</span> Soforttool gratis</a></p>
+        <p style="margin:6px 0 0"><button id="lead-again" type="button" style="background:none;border:none;padding:6px 0;margin:0;font-family:var(--font-body);font-size:13px;color:var(--color-fg-muted);opacity:.8;text-decoration:underline;text-underline-offset:3px;cursor:pointer">Falsche Adresse? Nochmal eintragen</button></p>
+      </div>
       <p id="lead-error" role="alert" hidden style="margin:12px 0 0;padding:12px 16px;border-radius:8px;color:var(--color-warm);background:rgba(196,131,110,.1);border:1px solid rgba(196,131,110,.35);font-size:16px">Das hat gerade nicht geklappt. Bitte versuch es in ein paar Sekunden noch einmal.</p>
       <p style="margin:16px 0 0;font-size:12px;color:var(--color-fg-subtle)">Kein Spam · Jederzeit abmeldbar · DSGVO-konform</p>
     </div>
@@ -542,7 +555,7 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
       <a class="btn btn-primary" href="https://www.checkout-ds24.com/product/716182">Notfallplan starten – 7 €</a>
     </div>
     <p style="margin:0 0 8px;font-size:13px;color:var(--color-fg-subtle)">Einmalig · kein Abo · Sofortzugang</p>
-    <a href="../index.html#angebot" style="font-size:14px;color:var(--color-fg-muted);text-decoration:none;border-bottom:1px solid var(--color-border-gold);padding-bottom:2px">Schon Abstand? Zum Buch: UNBOND – Breaking Chains</a>
+    <a href="../angebot.html#angebot" style="font-size:14px;color:var(--color-fg-muted);text-decoration:none;border-bottom:1px solid var(--color-border-gold);padding-bottom:2px">Schon Abstand? Zum Buch: UNBOND – Breaking Chains</a>
   </div>
 </section>
 </main>
@@ -558,10 +571,10 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
 <p class="ub-footer-title">Dein Weg</p>
 <a href="../wissen.html">Übersicht</a>
 <a href="../klarheit.html">Erkennen · Klarheit</a>
-<a href="../no-contact/">Abstand halten · No Contact</a>
+<a href="../no-contact/index.html">Abstand halten · No Contact</a>
 <a href="../blog/index.html">Verstehen · Blog</a>
 <a href="../tools/index.html">Weitergehen · Tools</a>
-<a href="../index.html#angebot">Zum Buch</a>
+<a href="../angebot.html#angebot">Zum Buch</a>
 </nav>
 <nav aria-label="Rechtliches">
 <p class="ub-footer-title">Rechtliches</p>
@@ -616,11 +629,47 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
     }
   } catch (e) {}
 
-  // Lead-Formular → Brevo (über unbond.de)
+  // Lead-Formular → Brevo über ../send_to_brevo.php (liegt im Website-Hauptordner, gleiche Domain → kein CORS-Problem).
+  // profil 'notfallkoffer_sos' sorgt in der PHP dafür, dass der Kontakt in Liste 13 (SOS) landet und kein Vorname nötig ist.
+  // Der API-Key steht NICHT in der PHP, sondern in brevo_key.txt eine Ebene oberhalb von public_html.
   var form = document.getElementById('lead-form');
   var btn = document.getElementById('lead-btn');
   var ok = document.getElementById('lead-success');
+  var okText = document.getElementById('lead-success-text');
   var err = document.getElementById('lead-error');
+  var errDefault = err.textContent;
+  var erwartung = document.getElementById('lead-erwartung');
+  var dsgvoLabel = document.querySelector('label[for="lead-dsgvo"]');
+  var btnDefault = 'SOS-Koffer kostenlos holen';
+  // Erfolgsmeldungen je nach Antwort von send_to_brevo.php
+  // (doi_pending = Bestaetigungsmail verschickt, already_subscribed = schon in Liste 13, sonst direkt eingetragen).
+  var MELDUNG = {
+    doi: 'Fast geschafft: Wir haben dir eine Mail geschickt. Tipp auf den Knopf „Anmeldung bestätigen“ – erst dann kommt dein SOS-Koffer. Nichts da? Schau im Spam- oder Werbung-Ordner nach. Der Absender ist UNBOND.',
+    schon: 'Du bist schon eingetragen. Deine Mails von UNBOND findest du in deinem Postfach.',
+    direkt: 'Geschafft. Schau in dein Postfach — auch im Spam-Ordner. Dein SOS-Notfallkoffer ist unterwegs.'
+  };
+  function zeigeErfolg(d) {
+    var art = d.doi_pending === true ? 'doi' : (d.already_subscribed === true ? 'schon' : 'direkt');
+    okText.textContent = MELDUNG[art];
+    ok.setAttribute('data-ergebnis', art);
+    form.hidden = true;
+    if (erwartung) erwartung.hidden = true;
+    if (dsgvoLabel) dsgvoLabel.hidden = true;
+    ok.hidden = false;   // erst jetzt einblenden: Text steht schon, die Lead-Messung unten haengt an diesem Schritt
+  }
+  // „Falsche Adresse? Nochmal eintragen“: Formular zurueckholen, Adresse bleibt zum Korrigieren stehen.
+  document.getElementById('lead-again').addEventListener('click', function () {
+    ok.hidden = true;
+    err.hidden = true;
+    form.hidden = false;
+    if (erwartung) erwartung.hidden = false;
+    if (dsgvoLabel) dsgvoLabel.hidden = false;
+    btn.disabled = false;
+    btn.textContent = btnDefault;
+    var input = form.elements.EMAIL;
+    input.focus();
+    try { input.select(); } catch (e2) {}
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = form.elements.EMAIL.value.trim();
@@ -634,21 +683,22 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
     btn.disabled = true;
     btn.textContent = 'Wird gesendet…';
     err.hidden = true;
-    fetch('https://www.unbond.de/funnel_send_to_brevo.php', {
+    fetch('../send_to_brevo.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ funnel: 'sos', email: email, vorname: '', profil: 'notfallkoffer_sos', quelle: 'no_contact_landingpage', nurture: false })
     })
       .then(function (r) { return r.json().catch(function () { return {}; }); })
       .then(function (d) {
-        if (d && d.success) { form.hidden = true; ok.hidden = false; }
+        if (d && d.success) { zeigeErfolg(d); }
         else { fail(); }
       })
       .catch(fail);
     function fail() {
+      err.textContent = errDefault;   // falls vorher der Datenschutz-Hinweis drinstand
       err.hidden = false;
       btn.disabled = false;
-      btn.textContent = 'SOS-Koffer kostenlos holen';
+      btn.textContent = btnDefault;
     }
   });
 })();
@@ -764,7 +814,8 @@ html body.nt-skin h1.nc-hero-title em{display:block;margin-top:.18em;font-style:
   var ok=document.getElementById('lead-success');
   if(ok && 'MutationObserver' in window){
     new MutationObserver(function(){
-      if(!ok.hidden){
+      /* "schon eingetragen" ist kein neuer Lead und wird nicht gezaehlt */
+      if(!ok.hidden && ok.getAttribute('data-ergebnis')!=='schon'){
         track('generate_lead',{event_category:'SOS-Notfallkoffer',value:0,currency:'EUR'});
         if(typeof fbq==='function') fbq('track','Lead',{content_name:'SOS-Notfallkoffer'});
       }
